@@ -1,0 +1,35 @@
+
+\usepackage{dcolumn}
+
+\begin{table}
+\begin{center}
+\begin{tabular}{l D{)}{)}{11)3} D{)}{)}{11)3} }
+\hline
+ & \multicolumn{1}{c}{m1} & \multicolumn{1}{c}{m2} \\
+\hline
+(Intercept)                     & 0.12 \; (0.38)       & 4.17 \; (0.39)^{***} \\
+log\_num\_commit\_total         & -0.20 \; (0.12)      & -0.26 \; (0.11)^{*}  \\
+log\_size\_GH                   & -0.10 \; (0.06)      & 0.06 \; (0.07)       \\
+age30                           & 0.05 \; (0.01)^{***} & -0.01 \; (0.00)      \\
+is\_activeTRUE                  & 1.33 \; (0.22)^{***} & 0.00 \; (0.21)       \\
+is\_orgTRUE                     & 0.84 \; (0.26)^{**}  & 0.12 \; (0.20)       \\
+log\_num\_star\_GH              & 0.14 \; (0.06)^{*}   & 0.39 \; (0.06)^{***} \\
+log\_num\_download              & -0.11 \; (0.06)      & 0.13 \; (0.05)^{**}  \\
+log\_reverse\_dependency\_count & 0.31 \; (0.11)^{**}  & -0.04 \; (0.08)      \\
+\hline
+AIC                             & 724.78               &                      \\
+BIC                             & 766.18               &                      \\
+Log Likelihood                  & -353.39              &                      \\
+Deviance                        & 706.78               &                      \\
+Num. obs.                       & 735                  & 527                  \\
+R$^2$                           &                      & 0.30                 \\
+Adj. R$^2$                      &                      & 0.29                 \\
+RMSE                            &                      & 1.91                 \\
+\hline
+\multicolumn{3}{l}{\scriptsize{$^{***}p<0.001$, $^{**}p<0.01$, $^*p<0.05$}}
+\end{tabular}
+\caption{Foo Model hurdle Model count}
+\label{table:coefficients}
+\end{center}
+\end{table}
+

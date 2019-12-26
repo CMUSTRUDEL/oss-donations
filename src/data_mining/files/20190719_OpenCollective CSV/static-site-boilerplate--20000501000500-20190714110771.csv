@@ -1,0 +1,4 @@
+Transaction Description,User Name,User Profile,Transaction Date,Collective Currency,Host Currency,Transaction Amount,Host Fee (USD),Open Collective Fee (USD),Payment Processor Fee (USD),Net Amount (USD),Subscription Interval,Order Date
+"Monthly donation to static-site-boilerplate (Backer)","anonymous","http://opencollective.com/anonymous2408",2019-03-01 15:39:03,"USD","USD",2.00,-0.10,-0.10,-0.36,1.44,"month","2019-03-01T20:39:03.000Z"
+"Monthly donation to static-site-boilerplate (Backer)","anonymous","http://opencollective.com/anonymous2408",2019-02-01 09:32:42,"USD","USD",2.00,-0.10,-0.10,-0.36,1.44,"month","2019-02-01T14:32:42.000Z"
+"Monthly donation to static-site-boilerplate (Backer)","anonymous","http://opencollective.com/anonymous2408",2019-01-28 05:25:53,"USD","USD",2.00,-0.10,-0.10,-0.36,1.44,"month","2019-01-28T10:25:53.000Z"

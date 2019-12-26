@@ -1,0 +1,7 @@
+Transaction Description,User Name,User Profile,Transaction Date,Collective Currency,Host Currency,Transaction Amount,Host Fee (USD),Open Collective Fee (USD),Payment Processor Fee (USD),Net Amount (USD),Subscription Interval,Order Date
+"Donation to Open Source Collective","OSC","http://opencollective.com/osc",2019-06-05 23:59:41,"USD","USD",-3.49,0.00,0.00,0.00,-3.49,"one time","2019-06-06T03:59:41.000Z"
+"onionbrowser.com domain name renewal","Mike Tigas","http://opencollective.com/mtigas",2019-06-05 23:15:45,"USD","USD",-8.99,0.00,0.00,-0.56,-9.55,"one time","2019-06-06T03:15:45.000Z"
+"Monthly donation to OnionBrowser (backer)","Jesse Busma","http://opencollective.com/jesse-busma",2019-06-01 01:15:26,"USD","USD",5.00,-0.25,-0.25,-0.45,4.05,"month","2019-06-01T05:15:26.000Z"
+"Donation to Qubes OS","Qubes OS","http://opencollective.com/qubes-os",2019-05-30 17:21:40,"USD","USD",-38.31,0.00,0.00,0.00,-38.31,"one time","2019-05-30T21:21:40.000Z"
+"Monthly donation to OnionBrowser (backer)","Jesse Busma","http://opencollective.com/jesse-busma",2019-05-27 12:21:20,"USD","USD",5.00,-0.25,-0.25,-0.45,4.05,"month","2019-05-27T16:21:20.000Z"
+"Donation to OnionBrowser","Peter Theobald","http://opencollective.com/peter-theobald",2019-03-25 13:40:04,"USD","USD",50.00,-2.50,-2.50,-1.75,43.25,"one time","2019-03-25T17:40:04.000Z"

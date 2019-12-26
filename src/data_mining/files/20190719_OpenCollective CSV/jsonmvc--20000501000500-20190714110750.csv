@@ -1,0 +1,2 @@
+Transaction Description,User Name,User Profile,Transaction Date,Collective Currency,Host Currency,Transaction Amount,Host Fee (USD),Open Collective Fee (USD),Payment Processor Fee (USD),Net Amount (USD),Subscription Interval,Order Date
+"Monthly donation to {json:mvc} (Backers)","anonymous","http://opencollective.com/anonymous717",2018-06-22 14:40:19,"USD","USD",25.00,-1.25,-1.25,-1.28,21.22,"month","2018-06-22T18:40:19.000Z"

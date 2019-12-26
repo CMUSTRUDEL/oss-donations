@@ -1,0 +1,9 @@
+Transaction Description,User Name,User Profile,Transaction Date,Collective Currency,Host Currency,Transaction Amount,Host Fee (USD),Open Collective Fee (USD),Payment Processor Fee (USD),Net Amount (USD),Subscription Interval,Order Date
+"Monthly donation to GraphQL.EntityFramework (Patron)","Adrien Siffermann","http://opencollective.com/asiffermann",2019-07-10 06:50:45,"USD","USD",3.00,-0.15,-0.15,-0.42,2.28,"month","2019-07-10T10:50:45.000Z"
+"Monthly donation to GraphQL.EntityFramework (Patron)","Zbox","http://opencollective.com/zbox",2019-07-01 01:26:21,"USD","USD",10.00,-0.50,-0.50,-0.59,8.41,"month","2019-07-01T05:26:21.000Z"
+"Monthly donation to GraphQL.EntityFramework (Patron)","Zbox","http://opencollective.com/zbox",2019-06-17 13:38:36,"USD","USD",3.00,-0.15,-0.15,-0.39,2.31,"month","2019-06-17T17:38:36.000Z"
+"Donation to GraphQL.EntityFramework (Patron)","Jim Enright","http://opencollective.com/jim-enright",2019-05-07 22:38:33,"USD","USD",3.00,-0.15,-0.15,-0.39,2.31,"one time","2019-05-08T02:38:33.000Z"
+"Donation to GraphQL.EntityFramework (Patron)","Fisa Pras","http://opencollective.com/fisa-pras",2019-04-20 12:22:29,"USD","USD",30.00,-1.50,-1.50,-1.17,25.83,"one time","2019-04-20T16:22:29.000Z"
+"Donation to GraphQL.EntityFramework (Patron)","Eduard Isabekyan","http://opencollective.com/eduard-isabekyan",2019-03-28 11:23:44,"USD","USD",10.00,-0.50,-0.50,-0.69,8.31,"one time","2019-03-28T15:23:44.000Z"
+"Donation to GraphQL.EntityFramework (Patron)","Peter Gašparík","http://opencollective.com/peter-gasparik",2019-03-21 14:27:29,"USD","USD",3.00,-0.15,-0.15,-0.43,2.27,"one time","2019-03-21T18:27:29.000Z"
+"Donation to GraphQL.EntityFramework","Dave","http://opencollective.com/anonymous57",2019-03-05 22:39:30,"USD","USD",24.00,-1.20,-1.20,-1.24,20.36,"one time","2019-03-06T03:39:30.000Z"

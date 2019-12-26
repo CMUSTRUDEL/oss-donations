@@ -1,0 +1,12 @@
+Transaction Description,User Name,User Profile,Transaction Date,Collective Currency,Host Currency,Transaction Amount,Host Fee (USD),Open Collective Fee (USD),Payment Processor Fee (USD),Net Amount (USD),Subscription Interval,Order Date
+"Monthly donation to flow-for-vscode (backer)","Luke Kaalim","http://opencollective.com/anonymous2156",2019-07-01 01:17:04,"USD","USD",5.00,-0.25,-0.25,-0.50,4.00,"month","2019-07-01T05:17:04.000Z"
+"Monthly donation to flow-for-vscode (backer)","Luke Kaalim","http://opencollective.com/anonymous2156",2019-06-01 01:14:43,"USD","USD",5.00,-0.25,-0.25,-0.50,4.00,"month","2019-06-01T05:14:43.000Z"
+"Monthly donation to flow-for-vscode (backer)","Luke Kaalim","http://opencollective.com/anonymous2156",2019-05-01 01:21:40,"USD","USD",5.00,-0.25,-0.25,-0.50,4.00,"month","2019-05-01T05:21:40.000Z"
+"Monthly donation to flow-for-vscode (backer)","Luke Kaalim","http://opencollective.com/anonymous2156",2019-04-01 01:23:35,"USD","USD",5.00,-0.25,-0.25,-0.50,4.00,"month","2019-04-01T05:23:35.000Z"
+"Improve lsp mode and add vscode multi-root workspace support","Mayank Agarwal","http://opencollective.com/mayank-agarwal",2019-03-22 00:19:39,"USD","USD",-800.00,0.00,0.00,-41.89,-841.89,"one time","2019-03-22T04:19:39.000Z"
+"Monthly donation to flow-for-vscode (backer)","Luke Kaalim","http://opencollective.com/anonymous2156",2019-03-01 15:35:53,"USD","USD",5.00,-0.25,-0.25,-0.50,4.00,"month","2019-03-01T20:35:53.000Z"
+"Integrate Flow Language Server behind a flag","Michał Pierzchała","http://opencollective.com/thymikee",2019-02-07 22:29:28,"USD","USD",-850.00,0.00,0.00,-33.45,-883.45,"one time","2019-02-08T03:29:28.000Z"
+"Monthly donation to flow-for-vscode (backer)","Luke Kaalim","http://opencollective.com/anonymous2156",2019-02-01 09:29:01,"USD","USD",5.00,-0.25,-0.25,-0.50,4.00,"month","2019-02-01T14:29:01.000Z"
+"Monthly donation to flow-for-vscode (backer)","Luke Kaalim","http://opencollective.com/anonymous2156",2019-01-01 00:28:04,"USD","USD",5.00,-0.25,-0.25,-0.50,4.00,"month","2019-01-01T05:28:04.000Z"
+"Monthly donation to flow-for-vscode (backer)","Luke Kaalim","http://opencollective.com/anonymous2156",2018-12-20 09:12:42,"USD","USD",5.00,-0.25,-0.25,-0.50,4.00,"month","2018-12-20T14:12:42.000Z"
+"Donation to flow-for-vscode","Webflow","http://opencollective.com/webflow",2018-03-13 13:11:56,"USD","USD",2000.00,-100.00,-100.00,-58.30,1741.70,"one time","2018-03-13T17:11:56.000Z"

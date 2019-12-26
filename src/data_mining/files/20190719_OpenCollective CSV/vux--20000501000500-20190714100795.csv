@@ -1,0 +1,8 @@
+Transaction Description,User Name,User Profile,Transaction Date,Collective Currency,Host Currency,Transaction Amount,Host Fee (USD),Open Collective Fee (USD),Payment Processor Fee (USD),Net Amount (USD),Subscription Interval,Order Date
+"Server rental fee","qr","http://opencollective.com/airyland",2018-08-17 19:04:25,"USD","USD",-357.00,0.00,0.00,-2.99,-359.99,"one time","2018-08-17T23:04:25.000Z"
+"Monthly donation to vux (Sponsors)","bmqb","http://opencollective.com/bmqb",2018-07-01 01:13:15,"USD","USD",200.00,-10.00,-10.00,-8.10,171.90,"month","2018-07-01T05:13:15.000Z"
+"Monthly donation to vux (Sponsors)","bmqb","http://opencollective.com/bmqb",2018-06-02 23:27:46,"USD","USD",200.00,-10.00,-10.00,-8.10,171.90,"month","2018-06-03T03:27:46.000Z"
+"monthly recurring subscription","qr","http://opencollective.com/airyland",2017-06-01 15:09:55,"USD","USD",5.00,-0.25,-0.25,-0.45,4.05,"month","2017-06-01T19:09:55.000Z"
+"monthly recurring subscription","qr","http://opencollective.com/airyland",2017-05-01 15:09:25,"USD","USD",5.00,-0.25,-0.25,-0.45,4.05,"month","2017-05-01T19:09:25.000Z"
+"monthly recurring subscription","qr","http://opencollective.com/airyland",2017-04-16 15:09:32,"USD","USD",5.00,-0.25,-0.25,-0.45,4.05,"month","2017-04-16T19:09:32.000Z"
+"Monthly donation to vux","qr","http://opencollective.com/airyland",2017-03-11 13:08:06,"USD","USD",5.00,-0.25,-0.25,-0.45,4.05,"month","2017-03-11T18:08:06.000Z"

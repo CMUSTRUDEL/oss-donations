@@ -1,0 +1,5 @@
+Transaction Description,User Name,User Profile,Transaction Date,Collective Currency,Host Currency,Transaction Amount,Host Fee (USD),Open Collective Fee (USD),Payment Processor Fee (USD),Net Amount (USD),Subscription Interval,Order Date
+"Yearly donation to Husky","Dylan Moonfire","http://opencollective.com/dmoonfire",2019-07-07 15:11:52,"USD","USD",12.00,-0.60,-0.60,-0.65,10.15,"year","2019-07-07T19:11:52.000Z"
+"Donation to Husky","Justin Noel","http://opencollective.com/calendee",2019-07-03 08:33:04,"USD","USD",5.00,-0.25,-0.25,-0.45,4.05,"one time","2019-07-03T12:33:04.000Z"
+"Monthly donation to Husky (backer)","Aparajita Fishman","http://opencollective.com/aparajita1327",2019-07-01 01:32:19,"USD","USD",5.00,-0.25,-0.25,-0.45,4.05,"month","2019-07-01T05:32:19.000Z"
+"Monthly donation to Husky (backer)","Aparajita Fishman","http://opencollective.com/aparajita1327",2019-06-26 11:37:59,"USD","USD",5.00,-0.25,-0.25,-0.45,4.05,"month","2019-06-26T15:37:59.000Z"

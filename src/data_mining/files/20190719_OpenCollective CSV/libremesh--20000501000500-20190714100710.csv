@@ -1,0 +1,4 @@
+Transaction Description,User Name,User Profile,Transaction Date,Collective Currency,Host Currency,Transaction Amount,Host Fee (USD),Open Collective Fee (USD),Payment Processor Fee (USD),Net Amount (USD),Subscription Interval,Order Date
+"Donation to LibreMesh","Newton Ogden","http://opencollective.com/newton-ogden",2019-04-03 11:18:02,"USD","USD",10.00,-0.50,-0.50,-0.59,8.41,"one time","2019-04-03T15:18:02.000Z"
+"Donation to LibreMesh","agusalex","http://opencollective.com/agustin-carlos-alexander",2019-03-12 20:27:25,"USD","USD",5.00,-0.25,-0.25,-0.50,4.00,"one time","2019-03-13T00:27:25.000Z"
+"Yearly donation to LibreMesh","Ilario","http://opencollective.com/ilario",2019-01-14 06:02:49,"USD","USD",24.00,-1.20,-1.20,-1.24,20.36,"year","2019-01-14T11:02:49.000Z"

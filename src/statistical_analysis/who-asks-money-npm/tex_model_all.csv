@@ -1,0 +1,32 @@
+
+\usepackage{dcolumn}
+
+\begin{table}
+\begin{center}
+\begin{tabular}{l D{)}{)}{11)3} }
+\hline
+ & \multicolumn{1}{c}{m1} \\
+\hline
+(Intercept)                     & -4.01 \; (0.19)^{***} \\
+log\_num\_commit\_total         & 0.40 \; (0.05)^{***}  \\
+log\_size\_GH                   & -0.30 \; (0.03)^{***} \\
+age30                           & 0.02 \; (0.00)^{***}  \\
+is\_activeTRUE                  & 1.95 \; (0.09)^{***}  \\
+is\_orgTRUE                     & -0.57 \; (0.10)^{***} \\
+log\_num\_star\_GH              & 0.27 \; (0.02)^{***}  \\
+log\_num\_download              & -0.02 \; (0.02)       \\
+log\_reverse\_dependency\_count & 0.01 \; (0.05)        \\
+\hline
+AIC                             & 5019.56               \\
+BIC                             & 5083.64               \\
+Log Likelihood                  & -2500.78              \\
+Deviance                        & 5001.56               \\
+Num. obs.                       & 9137                  \\
+\hline
+\multicolumn{2}{l}{\scriptsize{$^{***}p<0.001$, $^{**}p<0.01$, $^*p<0.05$}}
+\end{tabular}
+\caption{Foo Model count}
+\label{table:coefficients}
+\end{center}
+\end{table}
+

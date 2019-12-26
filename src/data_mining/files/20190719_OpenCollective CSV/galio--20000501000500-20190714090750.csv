@@ -1,0 +1,4 @@
+Transaction Description,User Name,User Profile,Transaction Date,Collective Currency,Host Currency,Transaction Amount,Host Fee (USD),Open Collective Fee (USD),Payment Processor Fee (USD),Net Amount (USD),Subscription Interval,Order Date
+"Monthly donation to Galio (Backer)","Flatlogic","http://opencollective.com/flatlogic",2019-07-01 01:02:08,"USD","USD",5.00,-0.25,-0.25,-0.50,4.00,"month","2019-07-01T05:02:08.000Z"
+"Monthly donation to Galio (Backer)","Flatlogic","http://opencollective.com/flatlogic",2019-06-01 01:01:01,"USD","USD",5.00,-0.25,-0.25,-0.50,4.00,"month","2019-06-01T05:01:01.000Z"
+"Monthly donation to Galio (Backer)","Flatlogic","http://opencollective.com/flatlogic",2019-05-23 06:49:04,"USD","USD",5.00,-0.25,-0.25,-0.50,4.00,"month","2019-05-23T10:49:04.000Z"

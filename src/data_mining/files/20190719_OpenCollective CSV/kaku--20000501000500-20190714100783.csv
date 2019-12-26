@@ -1,0 +1,4 @@
+Transaction Description,User Name,User Profile,Transaction Date,Collective Currency,Host Currency,Transaction Amount,Host Fee (USD),Open Collective Fee (USD),Payment Processor Fee (USD),Net Amount (USD),Subscription Interval,Order Date
+"monthly recurring subscription","Chia-Lung, Chen","http://opencollective.com/eragonj",2017-07-01 07:18:43,"USD","USD",10.00,-0.50,-0.50,-0.59,8.41,"month","2017-07-01T11:18:43.000Z"
+"monthly recurring subscription","Chia-Lung, Chen","http://opencollective.com/eragonj",2017-06-01 07:18:14,"USD","USD",10.00,-0.50,-0.50,-0.59,8.41,"month","2017-06-01T11:18:14.000Z"
+"Monthly donation to Kaku","Chia-Lung, Chen","http://opencollective.com/eragonj",2017-05-17 06:17:21,"USD","USD",10.00,-0.50,-0.50,-0.59,8.41,"month","2017-05-17T10:17:21.000Z"

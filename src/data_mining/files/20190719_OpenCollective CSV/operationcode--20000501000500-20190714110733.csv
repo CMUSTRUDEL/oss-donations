@@ -1,0 +1,8 @@
+Transaction Description,User Name,User Profile,Transaction Date,Collective Currency,Host Currency,Transaction Amount,Host Fee (USD),Open Collective Fee (USD),Payment Processor Fee (USD),Net Amount (USD),Subscription Interval,Order Date
+"Refund of "Donation to Operation Code DC"","Operation Code DC","http://opencollective.com/operationcode-dc",2019-06-12 08:29:50,"USD","USD",217.05,105.00,17.50,10.45,350.00,"one time","2019-06-12T12:29:50.000Z"
+"Donation to Operation Code DC","Operation Code DC","http://opencollective.com/operationcode-dc",2018-12-08 14:07:31,"USD","USD",-217.05,-105.00,-17.50,-10.45,-350.00,"one time","2018-12-08T19:07:31.000Z"
+"Funds from OC account","Operation Code","http://opencollective.com/operationcode-collective",2018-01-13 23:17:32,"USD","USD",-2000.00,0.00,0.00,0.00,-2000.00,"one time","2018-01-14T04:17:32.000Z"
+"null","Operation Code Hampton Roads","http://opencollective.com/operationcodehr",2017-09-11 11:02:28,"USD","USD",-750.00,0.00,0.00,0.00,-750.00,"one time","2017-09-11T15:02:28.000Z"
+"null","Operation Code","http://opencollective.com/operationcode-collective",2017-08-03 09:16:26,"USD","USD",-250.00,0.00,0.00,0.00,-250.00,"one time","2017-08-03T13:16:26.000Z"
+"null","Operation Code: Boston","http://opencollective.com/operationcodeboston",2017-07-18 16:37:21,"USD","USD",-200.00,0.00,0.00,0.00,-200.00,"one time","2017-07-18T20:37:21.000Z"
+"null","Operation Code","http://opencollective.com/operationcode-collective",2017-07-18 16:33:21,"USD","USD",-300.00,0.00,0.00,0.00,-300.00,"one time","2017-07-18T20:33:21.000Z"

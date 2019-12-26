@@ -1,0 +1,6 @@
+Transaction Description,User Name,User Profile,Transaction Date,Collective Currency,Host Currency,Transaction Amount,Host Fee (USD),Open Collective Fee (USD),Payment Processor Fee (USD),Net Amount (USD),Subscription Interval,Order Date
+"Donation to simple-schema-js","542 Inc.","http://opencollective.com/542-inc",2019-04-16 17:30:33,"USD","USD",50.00,-2.50,-2.50,-1.75,43.25,"one time","2019-04-16T21:30:33.000Z"
+"Monthly donation to simple-schema-js","Eric Dobbertin","http://opencollective.com/aldeed",2018-07-01 01:08:35,"USD","USD",10.00,-0.50,-0.50,-0.59,8.41,"month","2018-07-01T05:08:35.000Z"
+"Monthly donation to simple-schema-js","Eric Dobbertin","http://opencollective.com/aldeed",2018-06-01 01:08:59,"USD","USD",10.00,-0.50,-0.50,-0.59,8.41,"month","2018-06-01T05:08:59.000Z"
+"Monthly donation to simple-schema-js","Eric Dobbertin","http://opencollective.com/aldeed",2018-05-01 01:09:37,"USD","USD",10.00,-0.50,-0.50,-0.59,8.41,"month","2018-05-01T05:09:37.000Z"
+"Monthly donation to simple-schema-js","Eric Dobbertin","http://opencollective.com/aldeed",2018-04-11 18:13:03,"USD","USD",10.00,-0.50,-0.50,-0.59,8.41,"month","2018-04-11T22:13:03.000Z"

@@ -1,0 +1,6 @@
+Transaction Description,User Name,User Profile,Transaction Date,Collective Currency,Host Currency,Transaction Amount,Host Fee (USD),Open Collective Fee (USD),Payment Processor Fee (USD),Net Amount (USD),Subscription Interval,Order Date
+"monthly recurring subscription","ruki","http://opencollective.com/waruqi",2017-08-31 23:01:55,"USD","USD",2.00,-0.10,-0.10,-0.36,1.44,"month","2017-09-01T03:01:55.000Z"
+"Web server monthly fee","Liu Chao","http://opencollective.com/lc-soft",2017-08-04 13:41:38,"USD","USD",-5.00,0.00,0.00,-0.52,-5.52,"one time","2017-08-04T17:41:38.000Z"
+"monthly recurring subscription","ruki","http://opencollective.com/waruqi",2017-08-01 00:39:16,"USD","USD",2.00,-0.10,-0.10,-0.36,1.44,"month","2017-08-01T04:39:16.000Z"
+"Monthly donation to LCUI","ruki","http://opencollective.com/waruqi",2017-07-03 21:57:21,"USD","USD",2.00,-0.10,-0.10,-0.36,1.44,"month","2017-07-04T01:57:21.000Z"
+"Monthly donation to LCUI","Liu Chao","http://opencollective.com/lc-soft",2017-03-12 10:12:05,"USD","USD",5.00,-0.25,-0.25,-0.45,4.05,"month","2017-03-12T14:12:05.000Z"

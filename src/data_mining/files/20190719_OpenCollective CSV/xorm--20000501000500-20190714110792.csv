@@ -1,0 +1,2 @@
+Transaction Description,User Name,User Profile,Transaction Date,Collective Currency,Host Currency,Transaction Amount,Host Fee (USD),Open Collective Fee (USD),Payment Processor Fee (USD),Net Amount (USD),Subscription Interval,Order Date
+"Monthly donation to xorm (backer)","anonymous","http://opencollective.com/anonymous551",2018-05-11 04:13:46,"USD","USD",5.00,-0.25,-0.25,-0.50,4.00,"month","2018-05-11T08:13:46.000Z"

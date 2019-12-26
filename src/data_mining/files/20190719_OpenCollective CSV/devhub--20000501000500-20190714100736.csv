@@ -1,0 +1,7 @@
+Transaction Description,User Name,User Profile,Transaction Date,Collective Currency,Host Currency,Transaction Amount,Host Fee (USD),Open Collective Fee (USD),Payment Processor Fee (USD),Net Amount (USD),Subscription Interval,Order Date
+"Heroku 2019/03","Bruno Lemos","http://opencollective.com/brunolemos",2019-07-05 00:15:24,"USD","USD",-7.00,0.00,0.00,-0.75,-7.75,"one time","2019-07-05T04:15:24.000Z"
+"Monthly donation to DevHub (backer)","Fumiaki Matsushima","http://opencollective.com/fumiaki-matsushima",2019-07-01 01:14:23,"USD","USD",10.00,-0.50,-0.50,-0.69,8.31,"month","2019-07-01T05:14:23.000Z"
+"Heroku 2019/04","Bruno Lemos","http://opencollective.com/brunolemos",2019-06-05 23:15:39,"USD","USD",-7.00,0.00,0.00,-0.75,-7.75,"one time","2019-06-06T03:15:39.000Z"
+"Heroku 2019/05","Bruno Lemos","http://opencollective.com/brunolemos",2019-06-05 22:44:09,"USD","USD",-7.00,0.00,0.00,-0.75,-7.75,"one time","2019-06-06T02:44:09.000Z"
+"Monthly donation to DevHub (backer)","Fumiaki Matsushima","http://opencollective.com/fumiaki-matsushima",2019-06-01 01:12:08,"USD","USD",10.00,-0.50,-0.50,-0.69,8.31,"month","2019-06-01T05:12:08.000Z"
+"Monthly donation to DevHub (backer)","Fumiaki Matsushima","http://opencollective.com/fumiaki-matsushima",2019-05-26 03:24:39,"USD","USD",10.00,-0.50,-0.50,-0.69,8.31,"month","2019-05-26T07:24:39.000Z"

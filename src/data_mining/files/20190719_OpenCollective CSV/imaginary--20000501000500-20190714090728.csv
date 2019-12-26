@@ -1,0 +1,4 @@
+Transaction Description,User Name,User Profile,Transaction Date,Collective Currency,Host Currency,Transaction Amount,Host Fee (USD),Open Collective Fee (USD),Payment Processor Fee (USD),Net Amount (USD),Subscription Interval,Order Date
+"Maintenance, upgrades & new features development","Tomás Aparicio","http://opencollective.com/h2non",2017-10-20 16:14:29,"USD","USD",-155.00,0.00,0.00,-7.12,-162.12,"one time","2017-10-20T20:14:29.000Z"
+"monthly recurring subscription","IGDB.com","http://opencollective.com/jakecattrall",2017-02-01 06:03:28,"USD","USD",100.00,-5.00,-5.00,-3.20,86.80,"month","2017-02-01T11:03:28.000Z"
+"Monthly donation to imaginary","IGDB.com","http://opencollective.com/jakecattrall",2017-01-27 05:02:21,"USD","USD",100.00,-5.00,-5.00,-3.20,86.80,"month","2017-01-27T10:02:21.000Z"

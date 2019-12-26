@@ -1,0 +1,3 @@
+Transaction Description,User Name,User Profile,Transaction Date,Collective Currency,Host Currency,Transaction Amount,Host Fee (USD),Open Collective Fee (USD),Payment Processor Fee (USD),Net Amount (USD),Subscription Interval,Order Date
+"Monthly donation to doorkeeper (Sponsor)","Wealthsimple","http://opencollective.com/wealthsimple",2019-07-02 16:53:55,"USD","USD",200.00,-10.00,-10.00,-8.10,171.90,"month","2019-07-02T20:53:55.000Z"
+"Monthly donation to doorkeeper (Backer)","Justin Bull","http://opencollective.com/justin-bull",2019-06-17 11:44:19,"USD","USD",2.00,-0.10,-0.10,-0.38,1.42,"month","2019-06-17T15:44:19.000Z"

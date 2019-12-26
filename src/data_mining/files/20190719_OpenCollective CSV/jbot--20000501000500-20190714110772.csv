@@ -1,0 +1,5 @@
+Transaction Description,User Name,User Profile,Transaction Date,Collective Currency,Host Currency,Transaction Amount,Host Fee (USD),Open Collective Fee (USD),Payment Processor Fee (USD),Net Amount (USD),Subscription Interval,Order Date
+"Donation to JBot (Backers)","Nick Mancuso","http://opencollective.com/nick-mancuso",2018-12-17 15:03:34,"USD","USD",5.00,-0.25,-0.25,-0.45,4.05,"one time","2018-12-17T20:03:34.000Z"
+"Server Hosting Expense","Ram","http://opencollective.com/rampatra",2018-10-05 17:50:54,"USD","USD",-7.08,0.00,0.00,-0.72,-7.80,"one time","2018-10-05T21:50:54.000Z"
+"Server Hosting Expense","Ram","http://opencollective.com/rampatra",2018-10-05 17:50:34,"USD","USD",-7.08,0.00,0.00,-0.72,-7.80,"one time","2018-10-05T21:50:34.000Z"
+"Donation to JBot","Roberto Betancourt","http://opencollective.com/roberto-betancourt",2018-09-25 15:12:31,"USD","USD",20.00,-1.00,-1.00,-0.88,17.12,"one time","2018-09-25T19:12:31.000Z"

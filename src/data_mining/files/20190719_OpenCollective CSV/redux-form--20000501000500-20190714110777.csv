@@ -1,0 +1,4 @@
+Transaction Description,User Name,User Profile,Transaction Date,Collective Currency,Host Currency,Transaction Amount,Host Fee (USD),Open Collective Fee (USD),Payment Processor Fee (USD),Net Amount (USD),Subscription Interval,Order Date
+"Monthly donation to redux-form (backer)","Rajab Shakirov","http://opencollective.com/rajab-shakirov",2019-07-10 10:45:16,"USD","USD",5.00,-0.25,-0.25,-0.50,4.00,"month","2019-07-10T14:45:16.000Z"
+"Donation to redux-form","Eric Webster","http://opencollective.com/eric-webster",2019-02-02 12:23:24,"USD","USD",100.00,-5.00,-5.00,-3.20,86.80,"one time","2019-02-02T17:23:24.000Z"
+"Donation to redux-form","John Luke","http://opencollective.com/john-luke",2018-11-21 02:45:21,"USD","USD",100.00,-5.00,-5.00,-3.20,86.80,"one time","2018-11-21T07:45:21.000Z"

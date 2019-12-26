@@ -1,0 +1,3 @@
+Transaction Description,User Name,User Profile,Transaction Date,Collective Currency,Host Currency,Transaction Amount,Host Fee (USD),Open Collective Fee (USD),Payment Processor Fee (USD),Net Amount (USD),Subscription Interval,Order Date
+"Donation to nest","nest","http://opencollective.com/nest",2019-06-11 06:51:44,"USD","USD",-4.87,-0.30,-0.30,-0.53,-6.00,"one time","2019-06-11T10:51:44.000Z"
+"Donation to TypeORM","TypeORM","http://opencollective.com/typeorm",2019-05-27 07:59:23,"USD","USD",-4.00,-0.25,-0.25,-0.50,-5.00,"one time","2019-05-27T11:59:23.000Z"

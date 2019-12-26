@@ -1,0 +1,13 @@
+Transaction Description,User Name,User Profile,Transaction Date,Collective Currency,Host Currency,Transaction Amount,Host Fee (USD),Open Collective Fee (USD),Payment Processor Fee (USD),Net Amount (USD),Subscription Interval,Order Date
+"Monthly donation to OpenAPI Generator (Bronze sponsor)","Lightbow","http://opencollective.com/lightbow",2019-07-01 01:29:38,"USD","USD",100.00,-5.00,-5.00,-3.20,86.80,"month","2019-07-01T05:29:38.000Z"
+"Monthly donation to OpenAPI Generator (Bronze sponsor)","NamSor","http://opencollective.com/namsor_com",2019-07-01 01:28:50,"USD","USD",100.00,-5.00,-5.00,-4.20,85.80,"month","2019-07-01T05:28:50.000Z"
+"Refund of "Monthly donation to OpenAPI Generator (Backer)"","Catherine Pate","http://opencollective.com/catherine-pate",2019-06-23 20:37:57,"USD","USD",-28.00,2.51,1.40,0.00,-24.09,"one time","2019-06-24T00:37:57.000Z"
+"Monthly donation to OpenAPI Generator (Backer)","Catherine Pate","http://opencollective.com/catherine-pate",2019-06-23 12:54:48,"USD","USD",28.00,-1.40,-1.40,-1.11,24.09,"month","2019-06-23T16:54:48.000Z"
+"Monthly donation to OpenAPI Generator (Bronze sponsor)","Lightbow","http://opencollective.com/lightbow",2019-06-01 01:24:12,"USD","USD",100.00,-5.00,-5.00,-3.20,86.80,"month","2019-06-01T05:24:12.000Z"
+"Monthly donation to OpenAPI Generator (Bronze sponsor)","NamSor","http://opencollective.com/namsor_com",2019-06-01 01:23:57,"USD","USD",100.00,-5.00,-5.00,-4.20,85.80,"month","2019-06-01T05:23:57.000Z"
+"Donation to OpenAPI Generator","Esteban Marin","http://opencollective.com/esteban-marin",2019-05-27 10:57:04,"USD","USD",20.00,-1.00,-1.00,-1.08,16.92,"one time","2019-05-27T14:57:04.000Z"
+"Donation to OpenAPI Generator","Ben Plotnick","http://opencollective.com/ben-plotnick",2019-05-03 18:46:45,"USD","USD",75.00,-3.75,-3.75,-2.48,65.02,"one time","2019-05-03T22:46:45.000Z"
+"Monthly donation to OpenAPI Generator (Bronze sponsor)","Lightbow","http://opencollective.com/lightbow",2019-05-01 01:34:13,"USD","USD",100.00,-5.00,-5.00,-3.20,86.80,"month","2019-05-01T05:34:13.000Z"
+"Monthly donation to OpenAPI Generator (Bronze sponsor)","NamSor","http://opencollective.com/namsor_com",2019-05-01 01:34:04,"USD","USD",100.00,-5.00,-5.00,-4.20,85.80,"month","2019-05-01T05:34:04.000Z"
+"Monthly donation to OpenAPI Generator (Bronze sponsor)","Lightbow","http://opencollective.com/lightbow",2019-04-30 11:30:58,"USD","USD",100.00,-5.00,-5.00,-3.20,86.80,"month","2019-04-30T15:30:58.000Z"
+"Monthly donation to OpenAPI Generator (Bronze sponsor)","NamSor","http://opencollective.com/namsor_com",2019-04-09 06:14:07,"USD","USD",100.00,-5.00,-5.00,-4.20,85.80,"month","2019-04-09T10:14:07.000Z"

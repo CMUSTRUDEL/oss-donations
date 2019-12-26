@@ -1,0 +1,8 @@
+Transaction Description,User Name,User Profile,Transaction Date,Collective Currency,Host Currency,Transaction Amount,Host Fee (USD),Open Collective Fee (USD),Payment Processor Fee (USD),Net Amount (USD),Subscription Interval,Order Date
+"Donation to sizzy","Joshua Dobbelstein","http://opencollective.com/joshua-dobbelstein",2019-01-04 11:29:39,"USD","USD",10.00,-0.50,-0.50,-0.59,8.41,"one time","2019-01-04T16:29:39.000Z"
+"monthly recurring subscription","Alex Spikes","http://opencollective.com/alexspikes50",2017-07-09 03:48:06,"USD","USD",10.00,-0.50,-0.50,-0.59,8.41,"month","2017-07-09T07:48:06.000Z"
+"monthly recurring subscription","Alex Spikes","http://opencollective.com/alexspikes50",2017-06-04 03:48:12,"USD","USD",10.00,-0.50,-0.50,-0.59,8.41,"month","2017-06-04T07:48:12.000Z"
+"Donation to sizzy","Nate Steiner","http://opencollective.com/nsteiner",2017-05-05 17:30:18,"USD","USD",10.00,-0.50,-0.50,-0.59,8.41,"one time","2017-05-05T21:30:18.000Z"
+"Donation to sizzy","Diego Peralta","http://opencollective.com/diego",2017-05-02 17:44:12,"USD","USD",50.00,-2.50,-2.50,-1.75,43.25,"one time","2017-05-02T21:44:12.000Z"
+"monthly recurring subscription","Alex Spikes","http://opencollective.com/alexspikes50",2017-05-01 03:47:48,"USD","USD",10.00,-0.50,-0.50,-0.59,8.41,"month","2017-05-01T07:47:48.000Z"
+"Monthly donation to sizzy","Alex Spikes","http://opencollective.com/alexspikes50",2017-04-30 02:47:36,"USD","USD",10.00,-0.50,-0.50,-0.59,8.41,"month","2017-04-30T06:47:36.000Z"

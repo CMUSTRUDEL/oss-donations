@@ -1,0 +1,2 @@
+Transaction Description,User Name,User Profile,Transaction Date,Collective Currency,Host Currency,Transaction Amount,Host Fee (USD),Open Collective Fee (USD),Payment Processor Fee (USD),Net Amount (USD),Subscription Interval,Order Date
+"Donation to OrgManager","Miguel Piedrafita","http://opencollective.com/soy",2019-02-15 15:14:44,"USD","USD",100.00,-5.00,-5.00,-3.20,86.80,"one time","2019-02-15T20:14:44.000Z"

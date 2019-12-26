@@ -1,0 +1,1446 @@
+---
+title: "OSS Donations"
+output:
+  html_document:
+    theme: yeti
+    highlight: haddock
+    toc: true
+    number_sections: true
+    toc_float: true
+    toc_depth: 3
+---
+
+# Load R packages and donation data
+See source code
+
+```{r setup, include=FALSE}
+#knitr::opts_chunk$set(echo = TRUE)
+library(readr)
+library(pscl)
+library(car)
+library(ggplot2)
+
+# setwd("~/CMUGDrive/STRUDEL_Cassandra/Modeling") # BV
+# setwd("~/Google Drive/STRUDEL_Cassandra/Modeling") # BV
+
+
+loadData = function(path){
+  d = read_csv(path)
+  
+  # Make log columns
+  d$log_num_star_GH = log(d$num_star_GH+1)
+  d$log_num_commit_total = log(d$num_commit_total+1)
+  d$log_num_committer_total = log(d$num_committer_total+1)
+  d$log_num_commit = log(d$num_commit+1)
+  d$log_num_committer = log(d$num_committer+1)
+  d$log_num_issue_total = log(d$num_issue_total+1)
+  d$log_num_closed_total = log(d$num_closed_total+1)
+  d$log_num_external_total = log(d$num_external_total+1)
+  d$log_num_external = log(d$num_external+1)
+  d$log_num_pr_total = log(d$num_pr_total+1)
+  d$log_size_GH = log(d$size_GH+1)
+  if ("num_download" %in% names(d)){
+      d$log_num_download = log(d$num_download+1)
+  }
+  if ("reverse_dependency_count" %in% names(d)){
+      d$log_reverse_dependency_count = log(d$reverse_dependency_count+1)
+  }
+  d$is_org = d$project_type=="ORG"
+  
+  d$is_active = d$num_commit > 0
+  
+  # Make has_known_funding column that is true if total earning is not 0
+  d$has_known_funding = FALSE
+  if(nrow(d[!is.na(d$total_earning),]) > 0){
+    d[!is.na(d$total_earning),]$has_known_funding = TRUE
+  }
+  
+  # Make has_enough_funding column that is true if earning_last9months >= 9000
+  d$has_enough_funding = FALSE
+  if(nrow(d[(d$has_known_funding==TRUE) & (d$earning_last9months >= 9000),]) > 0){
+    d[(d$has_known_funding==TRUE) & (d$earning_last9months >= 9000),]$has_enough_funding = TRUE
+  }
+  
+  # Make has_enough_funding column that is true if earning_last9months >= 9000
+  d$has_1k_funding = FALSE
+  if(nrow(d[(d$has_known_funding==TRUE) & (d$earning_last9months >= 1000),]) > 0){
+    d[(d$has_known_funding==TRUE) & (d$earning_last9months >= 1000),]$has_1k_funding = TRUE
+  }
+  
+  return(d)
+}
+
+#######
+# npm
+#######
+d_funding = loadData("asking_group_npm.csv")
+d_control_random = loadData("random_npm_control.csv")
+d_control_top_download = loadData("highest_download_count_npm_control.csv")
+d_control_commercial = loadData("commercial_npm_control.csv")
+
+# Make has_any_funding column in dataframes and set to true for all rows in d_funding and false for all rows in d_control
+d_funding$has_any_funding = TRUE
+d_control_random$has_any_funding = FALSE
+d_control_top_download$has_any_funding = FALSE
+d_control_commercial$has_any_funding = FALSE
+
+
+############
+# All of GH
+############
+d_funding_all_raw = loadData("asking_group_npm_gh.csv")
+d_funding_gh_raw = loadData("asking_group_npm_gh.csv")
+d_control_random_gh = loadData("random_gh_control.csv")
+d_control_random_gh$total_earning = rep(NA, nrow(d_control_random_gh))
+
+d_funding_gh_raw$has_any_funding = TRUE
+d_funding_gh = d_funding_gh_raw
+d_funding_gh$has_any_funding = TRUE
+d_control_random_gh$has_any_funding = FALSE
+
+common_columns = intersect(names(d_control_random_gh), names(d_funding_gh))
+d_control_random_gh = d_control_random_gh[,!names(d_control_random_gh) %in% setdiff(names(d_control_random_gh), common_columns)]
+d_funding_gh = d_funding_gh[,!names(d_funding_gh) %in% setdiff(names(d_funding_gh), common_columns)]
+
+
+
+###################
+# Time series data
+###################
+d_ask = read_csv("rdd_ask_funding_date.csv")
+d_ask$earnings = d_ask$earning_after_adoption
+d_ask$month_after = d_ask$time_after_intervention
+d_ask$project_id = as.factor(d_ask$project_id)
+
+d_ask_money = read_csv("rdd_ask_funding_date_monthly_earning.csv")
+d_ask_money$monthly_earning = d_ask_money$earning
+d_ask_money = d_ask_money[,c("slug", "month_index", "monthly_earning")]
+d_ask = merge(d_ask, d_ask_money)
+
+d_get = read_csv("rdd_get_funding_date.csv")
+d_get$earnings = d_get$earning_after_adoption
+d_get$month_after = d_get$time_after_intervention
+d_get$project_id = as.factor(d_get$project_id)
+
+d_get_money = read_csv("rdd_get_funding_date_monthly_earning.csv")
+d_get_money$monthly_earning = d_get_money$earning
+d_get_money = d_get_money[,c("slug", "month_index", "monthly_earning")]
+d_get = merge(d_get, d_get_money)
+
+d_ask = subset(d_ask, slug != "jeromeetienne/ar.js")
+d_get = subset(d_get, slug != "jeromeetienne/ar.js")
+
+
+library(sqldf)
+
+ne = sqldf("select project_id, count(num_commit) as 'num_non_empty_windows' 
+            from d_ask 
+            where num_commit > 0 
+            group by project_id")
+ne2 = data.frame(project_id = setdiff(unique(d_ask$project_id), ne$project_id),
+                num_non_empty_windows = rep(0, length(setdiff(unique(d_ask$project_id), ne$project_id))))
+n = rbind(ne, ne2)
+
+bf = sqldf("select project_id, count(num_commit) as 'num_before_non_empty_windows' 
+            from d_ask 
+            where num_commit > 0 and month_index < 0
+            group by project_id")
+bf2 = data.frame(project_id = setdiff(unique(d_ask$project_id), bf$project_id),
+                num_before_non_empty_windows = rep(0, length(setdiff(unique(d_ask$project_id), bf$project_id))))
+b = rbind(bf, bf2)
+
+a = sqldf("select project_id, count(num_commit) as 'num_windows', earning_after_adoption
+            from d_ask 
+            group by project_id")
+
+d_ask_stats = merge(merge(a, n), b)
+
+
+
+ne = sqldf("select project_id, count(num_commit) as 'num_non_empty_windows' 
+            from d_get 
+            where num_commit > 0 
+            group by project_id")
+ne2 = data.frame(project_id = setdiff(unique(d_get$project_id), ne$project_id),
+                num_non_empty_windows = rep(0, length(setdiff(unique(d_get$project_id), ne$project_id))))
+n = rbind(ne, ne2)
+
+bf = sqldf("select project_id, count(num_commit) as 'num_before_non_empty_windows' 
+            from d_get 
+            where num_commit > 0 and month_index < 0
+            group by project_id")
+bf2 = data.frame(project_id = setdiff(unique(d_get$project_id), bf$project_id),
+                num_before_non_empty_windows = rep(0, length(setdiff(unique(d_get$project_id), bf$project_id))))
+b = rbind(bf, bf2)
+
+a = sqldf("select project_id, count(num_commit) as 'num_windows', earning_after_adoption
+            from d_get 
+            group by project_id")
+
+d_get_stats = merge(merge(a, n), b)
+
+rm(a)
+rm(b)
+rm(bf)
+rm(bf2)
+rm(n)
+rm(ne)
+rm(ne2)
+
+
+plotformatter = function(xlab, ylab, title){
+  list(
+    geom_boxplot(), #outlier.size = -10, coef = 100)  +
+    # stat_summary(fun.data=MinMeanSEMMax, geom="boxplot", colour="black") +
+    # coord_fixed(ratio=1.65) +
+    geom_vline(xintercept=10, col="#85BB65", lwd=4, alpha=0.25),
+    scale_x_discrete(breaks = c(-8, -6, -4, -2, 0, 2, 4, 6, 8)),
+    labs(x = xlab, y = ylab),
+    ggtitle(title),
+    #scale_y_continuous(limits = c(0, 6)) +
+    scale_y_continuous(#limits = c(1, 2000),
+                       breaks = c(0, 1, 10, 100, 1000), trans='log10'),
+    theme_bw(),
+    theme(#legend.position = c(0.8, 0.1),
+      #legend.direction="horizontal",
+      axis.line = element_line(colour = "black"),
+      panel.grid.major = element_blank(),
+      panel.grid.minor = element_blank(),
+      panel.border = element_blank(),
+      panel.background = element_blank())
+  )
+}
+
+
+library(lmerTest)
+library(MuMIn)
+
+vif.mer <- function (fit) {
+  ## adapted from rms::vif
+  
+  v <- vcov(fit)
+  nam <- names(fixef(fit))
+  
+  ## exclude intercepts
+  ns <- sum(1 * (nam == "Intercept" | nam == "(Intercept)"))
+  if (ns > 0) {
+    v <- v[-(1:ns), -(1:ns), drop = FALSE]
+    nam <- nam[-(1:ns)]
+  }
+  
+  d <- diag(v)^0.5
+  v <- diag(solve(v/(d %o% d)))
+  names(v) <- nam
+  v
+}
+
+```
+
+# Census
+
+## npm corpus
+
+```{r}
+pop = data.frame(service=c("patreon", "paypal", "opencollective", "flattr", "liberapay", "other"),
+                count=c(as.numeric(table(d_funding$patreon==1)[2]), 
+                      as.numeric(table(d_funding$paypal==1)[2]), 
+                      as.numeric(table(d_funding$opencollective==1)[2]),
+                      as.numeric(table(d_funding$flattr==1)[2]),
+                      as.numeric(table(d_funding$liberapay==1)[2]),
+                      nrow(subset(d_funding, paypal==0 & patreon==0 & flattr==0 & liberapay==0 & opencollective==0))
+                      )
+                )
+
+ggplot(data=pop, aes(x=service, y=count, width=.75)) +
+  labs(y="Count") +
+  geom_bar(stat="identity", color="#85BB65", fill="#85BB65") +
+  coord_flip() +
+  scale_x_discrete(limits=rev(c("patreon", "paypal", "opencollective", "flattr", "liberapay", "other"))) +
+  # scale_color_manual(values = c("#00AFBB", "#E7B800")) +
+  # scale_fill_manual(values = c("#00AFBB", "#E7B800")) +
+  theme_bw() +
+  theme(#legend.position = c(0.8, 0.1),
+    #legend.direction="horizontal",
+    # axis.line = element_line(colour = "black"),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    panel.border = element_blank(),
+    # panel.background = element_blank(),
+    # axis.line=element_blank(),axis.text.x=element_blank(),
+    # axis.text.y=element_blank(),axis.ticks=element_blank(),
+    # axis.title.x=element_blank(),
+    axis.title.y=element_blank(),legend.position="none",
+    # panel.background=element_blank(),panel.border=element_blank(),panel.grid.major=element_blank(),
+    # panel.grid.minor=element_blank(),plot.background=element_blank()
+  )
+  # scale_y_continuous(limits = c(0, 18500),
+  #                      breaks = c(0, 1000, 5000, 10000, 15000, 17500))
+# ggsave("popularity_npm2.pdf", width = 2.5, height = 2)
+```
+
+## Whole GitHub corpus
+
+```{r}
+pop = data.frame(service=c("paypal", "patreon", "flattr", "liberapay", "opencollective", "other"),
+                count=c(as.numeric(table(d_funding_all_raw$paypal==1)[2]), 
+                      as.numeric(table(d_funding_all_raw$patreon==1)[2]), 
+                      as.numeric(table(d_funding_all_raw$flattr==1)[2]),
+                      as.numeric(table(d_funding_all_raw$liberapay==1)[2]),
+                      as.numeric(table(d_funding_all_raw$opencollective==1)[2]),
+                      nrow(subset(d_funding_all_raw, paypal==0 & patreon==0 & flattr==0 & liberapay==0 & opencollective==0))
+                      )
+                )
+
+ggplot(data=pop, aes(x=service, y=count, width=.75)) +
+  labs(y="Count") +
+  geom_bar(stat="identity", color="#85BB65", fill="#85BB65") +
+  coord_flip() +
+  scale_x_discrete(limits=rev(c("paypal", "patreon", "flattr", "liberapay", "opencollective", "other"))) +
+  # scale_color_manual(values = c("#00AFBB", "#E7B800")) +
+  # scale_fill_manual(values = c("#00AFBB", "#E7B800")) +
+  theme_bw() +
+  theme(#legend.position = c(0.8, 0.1),
+    #legend.direction="horizontal",
+    # axis.line = element_line(colour = "black"),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    panel.border = element_blank(),
+    # panel.background = element_blank(),
+    # axis.line=element_blank(),axis.text.x=element_blank(),
+    # axis.text.y=element_blank(),axis.ticks=element_blank(),
+    # axis.title.x=element_blank(),
+    axis.title.y=element_blank(),legend.position="none",
+    # panel.background=element_blank(),panel.border=element_blank(),panel.grid.major=element_blank(),
+    # panel.grid.minor=element_blank(),plot.background=element_blank()
+  )
+  # scale_y_continuous(limits = c(0, 18500),
+  #                      breaks = c(0, 1000, 5000, 10000, 15000, 17500))
+
+# ggsave("popularity_gh2.pdf", width = 2.5, height = 2) # <-------------------------- uncomment me
+```
+
+
+# Which projects ask for donations within npm?
+
+## Compare to random projects
+
+```{r, include=FALSE}
+d_control = d_control_random
+
+# Merge the two dataframes
+d = rbind(d_funding, d_control)
+nrow(d)
+
+table(d$has_any_funding)
+
+# Find and filter out outliers
+source("outliers_random.R")
+
+d.subset = subset(d, age <= 3200
+                  & num_committer <= 10 
+                  & num_external <= 200
+                  & size_GH <= 100000
+                  & reverse_dependency_count <= 1000
+                  & num_commit_total <= 5000
+                  & num_committer_total > 0
+                  & num_committer_total <= 100
+                  & num_commit_total > 0
+                  & num_external_total <= 1000)
+nrow(d)
+nrow(d.subset) / nrow(d) # not much data was excluded
+```
+
+```{r, include=FALSE}
+# Model only the previous 9 months of history
+m0_random = glm(has_any_funding ~ 
+                   log_num_commit_total
+                   + log_size_GH 
+                   + age 
+                   + is_active 
+                   + is_org  
+                   # * log_num_commit
+                   # + log_num_committer_total
+                   # + log_num_committer 
+                   # + log_num_issue_total 
+                   # + log_num_closed_total 
+                   + log_num_external 
+                   # + log_num_pr_total 
+                   + log_num_star_GH 
+                   + log_num_download
+                   + log_reverse_dependency_count
+         , family = "binomial"
+         , data = d.subset)
+
+# Check for multicollinearity
+vif(m0_random)
+
+# Model summary
+summary(m0_random)
+
+# Goodness of fit
+pR2(m0_random)
+
+# Effect size
+anova(m0_random)
+```
+
+```{r}
+# Model the donation projects relative to a random control group
+# (for each project, use data from whole history)
+
+d.subset$age30 = d.subset$age / 30 
+
+table(d.subset$has_any_funding)
+summary(d.subset$has_any_funding)
+summary(d.subset$log_num_commit_total)
+summary(d.subset$age30)
+summary(d.subset$is_active)
+summary(d.subset$log_num_star_GH)
+summary(d.subset$log_num_download)
+summary(d.subset[d.subset$has_any_funding == FALSE,]$log_num_download)
+summary(d.subset[d.subset$has_any_funding == TRUE,]$log_num_download)
+
+m1_random = glm(has_any_funding ~ 
+                   log_num_commit_total 
+                   + log_size_GH 
+                   + age30 
+                   + is_active
+                   # + log_num_committer_total 
+                   + is_org  
+                   # + log_num_issue_total 
+                   # + log_num_closed_total 
+                   # + log_num_external_total 
+                   # + log_num_pr_total 
+                   + log_num_star_GH 
+                   + log_num_download
+                   + log_reverse_dependency_count
+         , family = "binomial"
+         , data = d.subset)
+
+# Check for multicollinearity
+vif(m1_random)
+
+# Model summary
+summary(m1_random)
+
+# Goodness of fit
+pR2(m1_random) # McFadden R-squared
+
+# Effect size
+anova(m1_random)
+
+source("helpers.r")
+library(texreg)
+library(xtable)
+
+file="who-asks-money-npm/tex_model_all.csv"
+modelNames=c("count")
+caption="Foo"
+
+mList = list(m1=m1_random)
+makeTexRegCox(mList, file, modelNames, caption, digits=2)
+
+print_Anova_glm(m1_random, "who-asks-money-npm/anova_model_1.csv")
+
+
+```
+
+## Compare to commercial projects
+
+```{r, include=FALSE}
+d_control = d_control_commercial
+
+# Merge the two dataframes
+d = rbind(d_funding, d_control)
+nrow(d)
+
+# Find and filter out outliers
+source("outliers_commercial.R")
+
+d.subset = subset(d, age <= 3200
+                  & num_commit < exp(8)
+                  & num_committer <= exp(5)
+                  & num_external <= exp(6.5)
+                  & reverse_dependency_count <= exp(8)
+                  & num_committer_total > 0
+                  & num_committer_total <= exp(6)
+                  & num_commit_total > 0)
+nrow(d)
+nrow(d.subset) / nrow(d) # not much data was excluded
+```
+
+```{r, include=FALSE}
+# Model only the previous 9 months of history
+m0_commercial = glm(has_any_funding ~ 
+         log_num_commit_total
+         + log_size_GH 
+         + age 
+         + is_active 
+         # + is_org # all commercial are org by construction
+         + log_num_external 
+         + log_num_star_GH 
+         + log_num_download
+         + log_reverse_dependency_count, 
+         family = "binomial", data = d.subset)
+vif(m0_commercial)
+summary(m0_commercial)
+pR2(m0_commercial)
+anova(m0_commercial)
+```
+
+```{r}
+# Model the donation projects relative to a commercial control group
+# (for each project, use data from whole history)
+m1_commercial = glm(has_any_funding ~ 
+                 log_num_commit_total 
+                 + log_size_GH 
+                 + age 
+                 + is_active
+                 # + is_org # all commercial are org by construction
+                 # + log_num_external_total # high VIF
+                 + log_num_star_GH 
+                 + log_num_download
+                 + log_reverse_dependency_count, 
+                family = "binomial", data = d.subset)
+
+# Check for multicollinearity
+vif(m1_commercial)
+
+# Model summary
+summary(m1_commercial)
+
+# Goodness of fit
+pR2(m1_commercial) # McFadden R-squared
+
+# Effect size
+anova(m1_commercial)
+```
+
+
+## Compare to top downloaded projects
+
+```{r, include=FALSE}
+d_control = d_control_top_download
+
+# Merge the two dataframes
+d = rbind(d_funding, d_control)
+nrow(d)
+
+# Find and filter out outliers
+source("outliers_top_download.R")
+
+d.subset = subset(d, age <= 3200
+                  & num_commit < exp(7)
+                  & num_committer <= exp(5)
+                  & num_external <= exp(6)
+                  & num_external_total <= exp(9)
+                  & num_committer_total > 0
+                  & num_committer_total <= exp(6)
+                  & num_commit_total <= exp(10)
+                  & num_commit_total > 0)
+nrow(d)
+nrow(d.subset) / nrow(d) # not much data was excluded
+```
+
+```{r, include=FALSE}
+# Model only the previous 9 months of history
+m0_top_download = glm(has_any_funding ~ 
+         log_num_commit_total
+         + log_size_GH 
+         + age 
+         + is_active 
+         + is_org
+         + log_num_external 
+         + log_num_star_GH 
+         # + log_num_download # different by construction
+         + log_reverse_dependency_count, 
+         family = "binomial", data = d.subset)
+vif(m0_top_download)
+summary(m0_top_download)
+pR2(m0_top_download)
+anova(m0_top_download)
+```
+
+```{r}
+# Model the donation projects relative to a top downloaded control group
+# (for each project, use data from whole history)
+m1_top_download = glm(has_any_funding ~ 
+                 log_num_commit_total 
+                 + log_size_GH 
+                 + age 
+                 + is_active
+                 + is_org
+                 # + log_num_external_total # high VIF
+                 + log_num_star_GH 
+                 # + log_num_download # different by construction
+                 + log_reverse_dependency_count, 
+                family = "binomial", data = d.subset)
+
+# Check for multicollinearity
+vif(m1_top_download)
+
+# Model summary
+summary(m1_top_download)
+
+# Goodness of fit
+pR2(m1_top_download) # McFadden R-squared
+
+# Effect size
+anova(m1_top_download)
+```
+
+
+
+# Which projects ask for donations across GitHub?
+
+## Compare to random projects
+
+```{r, include=FALSE}
+# Merge the two dataframes
+d = rbind(d_funding_gh, d_control_random_gh)
+nrow(d)
+
+# Find and filter out outliers
+source("outliers_all.R")
+
+d.subset = subset(d, log_num_star_GH <= 9
+                  & age <= 4800
+                  & num_committer <= 20 
+                  & num_external <= 200
+                  & size_GH <= 1000000
+                  & num_commit_total <= 15000
+                  & num_committer_total > 0
+                  & num_committer_total <= 100
+                  & num_commit_total > 0
+                  & num_external_total <= 1000)
+
+d.subset$age30 = d.subset$age / 30
+                  
+nrow(d)
+nrow(d.subset)
+nrow(d.subset) / nrow(d) # how much data was excluded
+```
+
+
+```{r}
+# Model the donation projects relative to a random control group
+# (for each project, use data from whole history)
+
+table(d.subset$has_any_funding)
+
+m3_random = glm(has_any_funding ~ 
+                   log_num_commit_total 
+                   + log_size_GH 
+                   + age 
+                   + is_active
+                   # + log_num_committer_total 
+                   + is_org  
+                   # + log_num_issue_total 
+                   # + log_num_closed_total 
+                   # + log_num_external_total 
+                   # + log_num_pr_total 
+                   + log_num_star_GH 
+                   # + log_num_download
+                   # + log_reverse_dependency_count
+         , family = "binomial"
+         , data = d.subset)
+
+# Check for multicollinearity
+vif(m3_random)
+
+# Model summary
+summary(m3_random)
+
+# Goodness of fit
+pR2(m3_random) # McFadden R-squared
+
+# Effect size
+anova(m3_random)
+
+source("helpers.r")
+library(texreg)
+library(xtable)
+
+file="who-asks-money-gh/tex_model_all.csv"
+modelNames=c("count")
+caption="Foo"
+
+mList = list(m1=m3_random)
+makeTexRegCox(mList, file, modelNames, caption, digits=2)
+
+print_Anova_glm(m3_random, "who-asks-money-gh/anova_model_1.csv")
+```
+
+
+
+# Which projects get donations?
+
+## Within npm
+
+```{r}
+# summary(d_funding$total_earning)
+# table(d_funding$total_earning > 0)
+# table(d_funding$total_earning >= 1000)
+# table(d_funding$has_1k_funding)
+# names(d_funding)
+# table(d_funding$paypal)
+# nrow(subset(d_funding, !paypal))
+
+d_funding_small = subset(d_funding, (opencollective | patreon) & !paypal)
+nrow(d_funding)
+nrow(d_funding_small)
+
+summary(d_funding_small$earning_last9months)
+hist(log(d_funding_small$earning_last9months+1))
+# hist(log(d_funding_small$total_earning+1))
+
+table(d_funding_small$total_earning == 0)
+table(d_funding_small$earning_last9months == 0)
+
+d_funding_small$age30 = d_funding_small$age / 30
+
+m4_hurdle = glm((total_earning > 0) ~
+                  log_num_commit_total 
+                   + log_size_GH 
+                   + age30 
+                   + is_active
+                   # + log_num_committer_total 
+                   + is_org  
+                   # + log_num_issue_total 
+                   # + log_num_closed_total 
+                   # + log_num_external_total # high VIF
+                   # + log_num_pr_total 
+                   + log_num_star_GH 
+                   + log_num_download
+                   + log_reverse_dependency_count
+         , family = "binomial"
+         , data = d_funding_small)
+
+vif(m4_hurdle)
+pR2(m4_hurdle)
+summary(m4_hurdle)
+Anova(m4_hurdle)
+
+
+m4_count = lm(log(total_earning) ~
+                  log_num_commit_total
+                   + log_size_GH 
+                   + age30 
+                   + is_active
+                   # + log_num_committer_total 
+                   + is_org  
+                   # + log_num_issue_total 
+                   # + log_num_closed_total 
+                   # + log_num_external_total # high VIF
+                   # + log_num_pr_total 
+                   + log_num_star_GH 
+                   + log_num_download
+                   + log_reverse_dependency_count
+         , data = subset(d_funding_small, total_earning > 0))
+
+vif(m4_count)
+summary(m4_count)
+Anova(m4_count)
+
+
+
+source("helpers.r")
+library(texreg)
+library(xtable)
+
+file="who-gets-money-npm/tex_model_all.csv"
+modelNames=c("hurdle", "count")
+caption="Foo"
+
+mList = list(m1=m4_hurdle, m2=m4_count)
+makeTexRegCox(mList, file, modelNames, caption, digits=2)
+
+print_Anova_glm(m4_hurdle, "who-gets-money-npm/anova_model_1.csv")
+print_Anova(m4_count, "who-gets-money-npm/anova_model_2.csv")
+
+
+
+# m4 = glm(has_1k_funding ~ log_num_commit_total 
+#                    + log_size_GH 
+#                    + age 
+#                    + is_active
+#                    # + log_num_committer_total 
+#                    + is_org  
+#                    # + log_num_issue_total 
+#                    # + log_num_closed_total 
+#                    # + log_num_external_total # high VIF
+#                    # + log_num_pr_total 
+#                    + log_num_star_GH 
+#                    + log_num_download
+#                    + log_reverse_dependency_count
+#          , family = "binomial"
+#          , data = subset(d_funding, !paypal))
+# 
+# # Check for multicollinearity
+# vif(m4)
+# 
+# # Model summary
+# summary(m4)
+# 
+# # Goodness of fit
+# pR2(m4) # McFadden R-squared
+# 
+# # Effect size
+# anova(m4)
+# 
+# # summary(d_funding_gh$total_earning)
+# # table(d_funding_gh$total_earning > 0)
+
+```
+
+## Across GitHub
+
+```{r}
+d_funding_small_gh = subset(d_funding_gh_raw, (opencollective | patreon) & !paypal)
+nrow(d_funding_gh)
+nrow(d_funding_small_gh)
+
+summary(d_funding_small_gh$earning_last9months)
+hist(log(d_funding_small_gh$earning_last9months+1))
+# hist(log(d_funding_small$total_earning+1))
+
+table(d_funding_small_gh$total_earning == 0)
+table(d_funding_small_gh$earning_last9months == 0)
+
+d_funding_small_gh$age30 = d_funding_small_gh$age / 30
+
+m4_hurdle_gh = glm((total_earning > 0) ~
+                  log_num_commit_total 
+                   + log_size_GH 
+                   + age30 
+                   + is_active
+                   # + log_num_committer_total 
+                   + is_org  
+                   # + log_num_issue_total 
+                   # + log_num_closed_total 
+                   # + log_num_external_total # high VIF
+                   # + log_num_pr_total 
+                   + log_num_star_GH 
+                   # + log_num_download
+                   # + log_reverse_dependency_count
+         , family = "binomial"
+         , data = d_funding_small_gh)
+
+vif(m4_hurdle_gh)
+pR2(m4_hurdle_gh)
+summary(m4_hurdle_gh)
+anova(m4_hurdle_gh)
+
+
+m4_count_gh = lm(log(total_earning) ~
+                  log_num_commit_total 
+                   + log_size_GH 
+                   + age30 
+                   + is_active
+                   # + log_num_committer_total 
+                   + is_org  
+                   # + log_num_issue_total 
+                   # + log_num_closed_total 
+                   # + log_num_external_total # high VIF
+                   # + log_num_pr_total 
+                   + log_num_star_GH 
+                   # + log_num_download
+                   # + log_reverse_dependency_count
+         , data = subset(d_funding_small_gh, total_earning > 100))
+
+vif(m4_count_gh)
+summary(m4_count_gh)
+Anova(m4_count_gh)
+
+
+source("helpers.r")
+library(texreg)
+library(xtable)
+
+file="who-gets-money-gh/tex_model_all.csv"
+modelNames=c("hurdle", "count")
+caption="Foo"
+
+mList = list(m1=m4_hurdle_gh, m2=m4_count_gh)
+makeTexRegCox(mList, file, modelNames, caption, digits=2)
+
+print_Anova_glm(m4_hurdle_gh, "who-gets-money-gh/anova_model_1.csv")
+print_Anova(m4_count_gh, "who-gets-money-gh/anova_model_2.csv")
+
+
+
+
+# m4_gh = glm(has_1k_funding ~ log_num_commit_total 
+#                    + log_size_GH 
+#                    + age 
+#                    + is_active
+#                    # + log_num_committer_total 
+#                    + is_org  
+#                    # + log_num_issue_total 
+#                    # + log_num_closed_total 
+#                    + log_num_external_total # high VIF
+#                    # + log_num_pr_total 
+#                    + log_num_star_GH 
+#                    # + log_num_download
+#                    # + log_reverse_dependency_count
+#          , family = "binomial"
+#          , data = subset(d_funding_gh_raw, !paypal))
+# 
+# # Check for multicollinearity
+# vif(m4_gh)
+# 
+# # Model summary
+# summary(m4_gh)
+# 
+# # Goodness of fit
+# pR2(m4_gh) # McFadden R-squared
+# 
+# # Effect size
+# anova(m4_gh)
+```
+
+
+
+
+# How do project metrics change with funding?
+
+```{r include=FALSE}
+funding_cutoff = 1
+```
+
+## Number of commits 
+
+```{r, include=FALSE}
+# Relative to when projects ask for donations
+d = d_ask[!is.na(d_ask$earning_after_adoption) & 
+            !(d_ask$project_id %in% d_ask_stats[d_ask_stats$num_before_non_empty_windows == 0 | 
+                                                  d_ask_stats$num_non_empty_windows <= 9,]$project_id) &
+            (d_ask$earning_after_adoption >= funding_cutoff),]
+ggplot(d,
+       aes(x=factor(month_index), 
+           y=num_commit+0.001)) + 
+  plotformatter("Month index relative to donation request", 
+                "Num commits (log scale)", 
+                paste("Project activity (", 
+                        length(unique(d$project_id)), 
+                        " projects)", 
+                      sep = ""))
+```
+
+```{r}
+# Relative to when projects start receiving donations
+d = d_get[(!is.na(d_get$earning_after_adoption)) & 
+            !(d_get$project_id %in% d_get_stats[d_get_stats$num_before_non_empty_windows == 0 | 
+                                                  d_get_stats$num_non_empty_windows <= 9,]$project_id) &
+            (d_get$earning_after_adoption >= funding_cutoff),]
+ggplot(d,
+       aes(x=factor(month_index), 
+           y=num_commit+0.001)) +
+  plotformatter("Month index", 
+                NULL, #"Num commits (log)",
+                paste("log(num commits) (", 
+                        length(unique(d$project_id)), 
+                        " prj)", 
+                      sep = "")) +
+  scale_y_continuous(limits = c(1, 2000),
+                       breaks = c(0, 1, 10, 100, 1000), trans='log10')
+# ggsave("rdd_commits2.pdf", width=3, height=3)
+```
+
+```{r}
+# Cry for help
+# Relative to when projects start receiving donations
+d = d_ask[(!is.na(d_ask$earning_after_adoption)) & 
+            !(d_ask$project_id %in% d_ask_stats[d_ask_stats$num_before_non_empty_windows == 0 | 
+                                                  d_ask_stats$num_non_empty_windows <= 9,]$project_id) &
+            (d_ask$earning_after_adoption == 0),]
+ggplot(d,
+       aes(x=factor(month_index), 
+           y=num_commit+0.001)) +
+  plotformatter("Month index", 
+                NULL, #"Num commits (log)",
+                paste("log(num commits) (", 
+                        length(unique(d$project_id)), 
+                        " prj)", 
+                      sep = "")) +
+  scale_y_continuous(limits = c(1, 1000),
+                       breaks = c(0, 1, 10, 100, 1000), trans='log10')
+# ggsave("rdd_commits_cry.pdf", width=3, height=3)
+```
+
+
+```{r}
+# Relative to when projects ask for donations
+d = d_ask[(!is.na(d_ask$earning_after_adoption)) &
+            (d_ask$earning_after_adoption >= funding_cutoff),]
+
+d$project_id = as.factor(d$project_id)
+
+m = lmer(log(num_commit+0.001) ~
+           log(earnings)
+         + month_index 
+         + intervention 
+         + month_after
+         + (1|project_id)
+         , data = d
+         , REML = FALSE)
+# vif.mer(m)
+summary(m)
+
+# Goodness of fit
+r.squaredGLMM(m)
+```
+
+
+
+```{r}
+# Relative to when projects start receiving donations
+d = d_get[(!is.na(d_get$earning_after_adoption)) &
+            !(d_get$project_id %in% d_get_stats[d_get_stats$num_before_non_empty_windows == 0 | 
+                                                  d_get_stats$num_non_empty_windows <= 9,]$project_id) &
+            (d_get$earning_after_adoption >= funding_cutoff) &
+            d_get$month_index != 0,]
+
+d$earnings1k = d$earnings / 1000
+# d$earnings1kmonthly = d$monthly_earning / 1000
+
+# m_commits = lmer(num_commit ~
+#            earnings1kmonthly
+#          + month_index 
+#          + intervention 
+#          + month_after
+#          + (1|project_id)
+#          , data = d
+#          , REML = FALSE)
+
+m_commits = lmer(log(num_commit+0.001) ~
+           log(earnings1k)
+         + month_index
+         + intervention
+         + month_after
+         + (1|project_id)
+         , data = d
+         , REML = FALSE)
+vif.mer(m_commits)
+summary(m_commits)
+
+# Goodness of fit
+r.squaredGLMM(m_commits)
+
+```
+
+```{r}
+# Cry for help
+# Relative to when projects start receiving donations
+d = d_ask[(!is.na(d_ask$earning_after_adoption)) & 
+            !(d_ask$project_id %in% d_ask_stats[d_ask_stats$num_before_non_empty_windows == 0 | 
+                                                  d_ask_stats$num_non_empty_windows <= 9,]$project_id) &
+            (d_ask$earning_after_adoption == 0) &
+            d_ask$month_index != 0,]
+
+# d$earnings1k = d$earnings / 1000
+# d$earnings1kmonthly = d$monthly_earning / 1000
+
+# m_commits = lmer(num_commit ~
+#            earnings1kmonthly
+#          + month_index 
+#          + intervention 
+#          + month_after
+#          + (1|project_id)
+#          , data = d
+#          , REML = FALSE)
+
+m_commits = lmer(log(num_commit+0.001) ~
+           # log(earnings1k)
+         + month_index
+         + intervention
+         + month_after
+         + (1|project_id)
+         , data = d
+         , REML = FALSE)
+vif.mer(m_commits)
+summary(m_commits)
+
+# Goodness of fit
+r.squaredGLMM(m_commits)
+
+```
+
+
+## Number of issues closed 
+
+```{r, include=FALSE}
+# Relative to when projects ask for donations
+d = d_ask[(!is.na(d_ask$earning_after_adoption)) & 
+            (d_ask$earning_after_adoption >= funding_cutoff),]
+ggplot(d,
+       aes(x=factor(month_index), 
+           y=num_closed+0.001)) +
+  plotformatter("Month index relative to donation request", 
+                "Num issues closed (log scale)",
+                paste("Issues (", 
+                        length(unique(d$project_id)), 
+                        " projects)", 
+                      sep = ""))
+```
+
+```{r}
+# Relative to when projects start receiving donations
+d = d_get[(!is.na(d_get$earning_after_adoption)) & 
+            !(d_get$project_id %in% d_get_stats[d_get_stats$num_before_non_empty_windows == 0 | 
+                                                  d_get_stats$num_non_empty_windows <= 15,]$project_id) &
+            (d_get$earning_after_adoption >= funding_cutoff),]
+ggplot(d,
+       aes(x=factor(month_index), 
+           y=num_closed+0.001)) +
+  plotformatter("Month index relative to first donation received", 
+                "Num issues closed (log scale)",
+                paste("Issues (", 
+                        length(unique(d$project_id)), 
+                        " projects)", 
+                      sep = ""))
+```
+
+```{r}
+# Relative to when projects start receiving donations
+d = d_get[(!is.na(d_get$earning_after_adoption)) &
+            !(d_get$project_id %in% d_get_stats[d_get_stats$num_before_non_empty_windows == 0 | 
+                                                  d_get_stats$num_non_empty_windows <= 9,]$project_id) &
+            (d_get$earning_after_adoption >= funding_cutoff) &
+            d_get$month_index != 0,]
+
+m = lmer(log(num_closed+0.001) ~
+           log(earnings)
+         + month_index 
+         + intervention 
+         + month_after
+         + (1|project_id)
+         , data = d
+         , REML = FALSE)
+# vif.mer(m)
+summary(m)
+
+# Goodness of fit
+r.squaredGLMM(m)
+```
+
+
+## Issue closing speed
+
+```{r}
+# Relative to when projects start receiving donations
+d = d_get[(!is.na(d_get$earning_after_adoption)) & 
+            !(d_get$project_id %in% d_get_stats[d_get_stats$num_before_non_empty_windows == 0 | 
+                                                  d_get_stats$num_non_empty_windows <= 9,]$project_id) &
+            (d_get$earning_after_adoption >= funding_cutoff) &
+            d_get$how_quickly_closed > 0,]
+
+ggplot(d,
+       aes(x=factor(month_index), 
+           y=how_quickly_closed+0.001)) +
+  plotformatter("Month index", 
+                NULL, #"Issue speed (log)",
+                paste("log(issue speed) (", 
+                        length(unique(d$project_id)), 
+                        " prj)", 
+                      sep = ""))
+# ggsave("rdd_issue_speed2.pdf", width=3, height=3)
+
+
+
+# Cry for help
+d = d_ask[(!is.na(d_ask$earning_after_adoption)) & 
+            !(d_ask$project_id %in% d_ask_stats[d_ask_stats$num_before_non_empty_windows == 0 | 
+                                                  d_ask_stats$num_non_empty_windows <= 9,]$project_id) &
+            (d_ask$earning_after_adoption == 0) &
+            d_ask$month_index != 0,]
+ggplot(d,
+       aes(x=factor(month_index), 
+           y=how_quickly_closed+0.001)) +
+  plotformatter("Month index", 
+                NULL, #"Issue speed (log)",
+                paste("log(issue speed) (", 
+                        length(unique(d$project_id)), 
+                        " prj)", 
+                      sep = ""))
+# ggsave("rdd_issue_speed_cry.pdf", width=3, height=3)
+
+```
+
+```{r}
+# Relative to when projects start receiving donations
+d = d_get[(!is.na(d_get$earning_after_adoption)) &
+            !(d_get$project_id %in% d_get_stats[d_get_stats$num_before_non_empty_windows == 0 | 
+                                                  d_get_stats$num_non_empty_windows <= 9,]$project_id) &
+            (d_get$earning_after_adoption >= funding_cutoff) &
+            d_get$how_quickly_closed > 0 & d_get$num_closed > 0 &
+            d_get$month_index != 0,]
+
+m_speed = lmer(log(how_quickly_closed) ~
+           log(earnings)
+         + log(num_closed)
+         + month_index 
+         + intervention 
+         + month_after
+         + (1|project_id)
+         , data = d
+         , REML = FALSE)
+vif.mer(m_speed)
+summary(m_speed)
+Anova(m_speed)
+
+# Goodness of fit
+r.squaredGLMM(m_speed)
+
+```
+
+```{r}
+# Cry for help
+d = d_ask[(!is.na(d_ask$earning_after_adoption)) & 
+            !(d_ask$project_id %in% d_ask_stats[d_ask_stats$num_before_non_empty_windows == 0 | 
+                                                  d_ask_stats$num_non_empty_windows <= 9,]$project_id) &
+            (d_ask$earning_after_adoption == 0) &
+            d_ask$month_index != 0,]
+
+m_speed = lmer(log(how_quickly_closed+0.001) ~
+           # log(earnings)
+         + log(num_closed+0.001)
+         + month_index 
+         + intervention 
+         + month_after
+         + (1|project_id)
+         , data = d
+         , REML = FALSE)
+vif.mer(m_speed)
+summary(m_speed)
+Anova(m_speed)
+
+# Goodness of fit
+r.squaredGLMM(m_speed)
+```
+
+```{r include=FALSE}
+
+source("helpers.r")
+library(texreg)
+library(xtable)
+
+file="issue-speed/tex_model_all.csv"
+modelNames=c("A", "B")
+caption="Foo"
+
+mList = list(m1=m_commits, m2=m_speed)
+makeTexReg(mList, file, modelNames, caption, digits=2)
+
+# print_Anova_glm(m4_hurdle_gh, "who-gets-money-gh/anova_model_1.csv")
+print_Anova_glm(m_commits, "issue-speed/anova_model_1.csv")
+print_Anova_glm(m_speed, "issue-speed/anova_model_2.csv")
+
+
+```
+
+## Number of external issues closed 
+
+```{r, include = FALSE}
+# Relative to when projects ask for donations
+d = d_ask[(!is.na(d_ask$earning_after_adoption)) & 
+            (d_ask$earning_after_adoption >= funding_cutoff),]
+ggplot(d,
+       aes(x=factor(month_index), 
+           y=num_closed_external+0.001)) +
+  plotformatter("Month index relative to donation request", 
+                "Num external issues closed (log scale)",
+                paste("External issues (", 
+                        length(unique(d$project_id)), 
+                        " projects)", 
+                      sep = ""))
+```
+
+```{r}
+# Relative to when projects start receiving donations
+d = d_get[(!is.na(d_get$earning_after_adoption)) & 
+            !(d_get$project_id %in% d_get_stats[d_get_stats$num_before_non_empty_windows == 0 | 
+                                                  d_get_stats$num_non_empty_windows <= 9,]$project_id) &
+            (d_get$earning_after_adoption >= funding_cutoff),]
+# hist(log(d$num_closed_external+0.001))
+ggplot(d,
+       aes(x=factor(month_index), 
+           y=num_closed_external+0.001)) +
+  plotformatter("Month index relative to first donation received", 
+                "Num external issues closed (log scale)",
+                paste("External issues (", 
+                        length(unique(d$project_id)), 
+                        " projects)", 
+                      sep = ""))
+```
+
+```{r}
+# Relative to when projects start receiving donations
+d = d_get[(!is.na(d_get$earning_after_adoption)) &
+            !(d_get$project_id %in% d_get_stats[d_get_stats$num_before_non_empty_windows == 0 | 
+                                                  d_get_stats$num_non_empty_windows <= 9,]$project_id) &
+            (d_get$earning_after_adoption >= funding_cutoff) &
+            d_get$month_index != 0,]
+d$log_earnings = log(d$earnings)
+d$log_num_commit = log(d$num_commit+0.001)
+# hist(log(d$num_commit+0.001))
+
+m = lmer(log(num_closed_external+0.001) ~
+           log_earnings
+         # + log_num_commit
+         + month_index 
+         + intervention 
+         + month_after
+         + (1|project_id)
+         , data = subset(d, earning_after_adoption >= 1000)
+         , REML = FALSE)
+summary(m)
+
+# library(effects)
+# plot(effect("log_earnings", m), grid=TRUE)
+# plot(effect("log_num_commit", m), grid=TRUE)
+
+# Goodness of fit
+vif.mer(m)
+r.squaredGLMM(m)
+# qqnorm(resid(m))
+# qqline(resid(m))
+```
+
+
+## Number of pull requests closed 
+
+```{r include=FALSE}
+# Relative to when projects ask for donations
+d = d_ask[(!is.na(d_ask$earning_after_adoption)) & 
+            !(d_get$project_id %in% d_get_stats[d_get_stats$num_before_non_empty_windows == 0 | 
+                                                  d_get_stats$num_non_empty_windows <= 9,]$project_id) &
+            (d_ask$earning_after_adoption >= funding_cutoff),]
+ggplot(d,
+       aes(x=factor(month_index), 
+           y=num_closed_pr+0.001)) +
+  plotformatter("Month index relative to donation request", 
+                "Num pull requests closed (log scale)",
+                paste("Pull requests (", 
+                        length(unique(d$project_id)), 
+                        " projects)", 
+                      sep = ""))
+```
+
+```{r}
+# Relative to when projects start receiving donations
+d = d_get[(!is.na(d_get$earning_after_adoption)) & 
+            !(d_get$project_id %in% d_get_stats[d_get_stats$num_before_non_empty_windows == 0 | 
+                                                  d_get_stats$num_non_empty_windows <= 9,]$project_id) &
+            (d_get$earning_after_adoption >= funding_cutoff),]
+ggplot(d,
+       aes(x=factor(month_index), 
+           y=num_closed_pr+0.001)) +
+  plotformatter("Month index relative to first donation received", 
+                "Num pull requests closed (log scale)",
+                paste("Pull requests (", 
+                        length(unique(d$project_id)), 
+                        " projects)", 
+                      sep = ""))
+```
+
+```{r}
+# Relative to when projects start receiving donations
+d = d_get[(!is.na(d_get$earning_after_adoption)) &
+            !(d_get$project_id %in% d_get_stats[d_get_stats$num_before_non_empty_windows == 0 | 
+                                                  d_get_stats$num_non_empty_windows <= 9,]$project_id) &
+            (d_get$earning_after_adoption >= funding_cutoff) &
+            d_get$month_index != 0,]
+d$log_earnings = log(d$earnings)
+d$log_num_commit = log(d$num_commit+0.001)
+# hist(log(d$num_commit+0.001))
+
+m = lmer(log(num_closed_pr+0.001) ~
+           log_earnings
+         # + log_num_commit
+         + month_index 
+         + intervention 
+         + month_after
+         + (1|project_id)
+         , data = d
+         , REML = FALSE)
+summary(m)
+
+# library(effects)
+# plot(effect("log_earnings", m), grid=TRUE)
+# plot(effect("log_num_commit", m), grid=TRUE)
+
+# Goodness of fit
+vif.mer(m)
+r.squaredGLMM(m)
+# qqnorm(resid(m))
+# qqline(resid(m))
+```
+
+## Number of old issues closed 
+
+```{r, include=FALSE}
+# Relative to when projects ask for donations
+d = d_ask[(!is.na(d_ask$earning_after_adoption)) & 
+            !(d_get$project_id %in% d_get_stats[d_get_stats$num_before_non_empty_windows == 0 | 
+                                                  d_get_stats$num_non_empty_windows <= 9,]$project_id) &
+            (d_ask$earning_after_adoption >= 1000),]
+ggplot(d,
+       aes(x=factor(month_index), 
+           y=how_old_closed+0.001)) +
+  plotformatter("Month index relative to donation request", 
+                "Num old issues closed (log scale)",
+                paste("Num old issues closed (", 
+                        length(unique(d$project_id)), 
+                        " projects)", 
+                      sep = ""))
+```
+
+```{r}
+# Relative to when projects start receiving donations
+d = d_get[(!is.na(d_get$earning_after_adoption)) & 
+            !(d_get$project_id %in% d_get_stats[d_get_stats$num_before_non_empty_windows == 0 | 
+                                                  d_get_stats$num_non_empty_windows <= 9,]$project_id) &
+            (d_get$earning_after_adoption >= 1000),]
+ggplot(d,
+       aes(x=factor(month_index), 
+           y=how_old_closed+0.001)) +
+  plotformatter("Month index relative to first donation received", 
+                "Num old issues closed (log scale)",
+                paste("Num old issues closed (", 
+                        length(unique(d$project_id)), 
+                        " projects)", 
+                      sep = ""))
+```
+```{r}
+# Relative to when projects start receiving donations
+d = d_get[(!is.na(d_get$earning_after_adoption)) &
+            !(d_get$project_id %in% d_get_stats[d_get_stats$num_before_non_empty_windows == 0 | 
+                                                  d_get_stats$num_non_empty_windows <= 9,]$project_id) &
+            (d_get$earning_after_adoption >= funding_cutoff) &
+            d_get$month_index != 0,]
+d$log_earnings = log(d$earnings)
+d$log_num_commit = log(d$num_commit+0.001)
+# hist(log(d$num_commit+0.001))
+
+m = lmer(log(how_old_closed+0.001) ~
+           log_earnings
+         # + log_num_commit
+         + month_index 
+         + intervention 
+         + month_after
+         + (1|project_id)
+         , data = d
+         , REML = FALSE)
+summary(m)
+
+# library(effects)
+# plot(effect("log_earnings", m), grid=TRUE)
+# plot(effect("log_num_commit", m), grid=TRUE)
+
+# Goodness of fit
+vif.mer(m)
+r.squaredGLMM(m)
+# qqnorm(resid(m))
+# qqline(resid(m))
+```

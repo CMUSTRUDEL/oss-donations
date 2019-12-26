@@ -1,0 +1,6 @@
+Transaction Description,User Name,User Profile,Transaction Date,Collective Currency,Host Currency,Transaction Amount,Host Fee (USD),Open Collective Fee (USD),Payment Processor Fee (USD),Net Amount (USD),Subscription Interval,Order Date
+"Redesign of Colyseus and GameStd.io logos. 50% represents a single logo (Colyseus)","Endel Dreyer","http://opencollective.com/endel",2017-10-17 17:05:33,"USD","USD",-140.00,0.00,0.00,0.00,-140.00,"one time","2017-10-17T21:05:33.000Z"
+"monthly recurring subscription","Oyed","http://opencollective.com/oyed",2017-10-01 09:08:45,"USD","USD",5.00,-0.25,-0.25,-0.45,4.05,"month","2017-10-01T13:08:45.000Z"
+"monthly recurring subscription","Oyed","http://opencollective.com/oyed",2017-09-01 09:11:39,"USD","USD",5.00,-0.25,-0.25,-0.45,4.05,"month","2017-09-01T13:11:39.000Z"
+"Monthly donation to Colyseus","Oyed","http://opencollective.com/oyed",2017-08-17 08:07:08,"USD","USD",5.00,-0.25,-0.25,-0.45,4.05,"month","2017-08-17T12:07:08.000Z"
+"Donation to Colyseus","EvenNode","http://opencollective.com/evennode",2017-06-17 09:54:51,"USD","USD",150.00,-7.50,-7.50,-4.65,130.35,"one time","2017-06-17T13:54:51.000Z"

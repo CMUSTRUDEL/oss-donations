@@ -1,0 +1,6 @@
+Transaction Description,User Name,User Profile,Transaction Date,Collective Currency,Host Currency,Transaction Amount,Host Fee (USD),Open Collective Fee (USD),Payment Processor Fee (USD),Net Amount (USD),Subscription Interval,Order Date
+"Monthly donation to Strider (Backers)","manuelbieh","http://opencollective.com/manuelbieh",2018-07-03 05:31:50,"USD","USD",25.00,-1.25,-1.25,-1.28,21.22,"month","2018-07-03T09:31:50.000Z"
+"Monthly donation to Strider (Backers)","Aaron C. de Bruyn","http://opencollective.com/darkpixel",2018-03-02 17:46:33,"USD","USD",2.00,-0.10,-0.10,-0.36,1.44,"month","2018-03-02T22:46:33.000Z"
+"monthly recurring subscription","Aaron C. de Bruyn","http://opencollective.com/darkpixel",2018-02-01 02:37:15,"USD","USD",2.00,-0.10,-0.10,-0.36,1.44,"month","2018-02-01T07:37:15.000Z"
+"Monthly donation to Strider (Backers)","Aaron C. de Bruyn","http://opencollective.com/darkpixel",2018-01-23 01:36:27,"USD","USD",2.00,-0.10,-0.10,-0.36,1.44,"month","2018-01-23T06:36:27.000Z"
+"Donation to Strider","Alexis Bouhet","http://opencollective.com/zouloux",2017-05-15 11:24:25,"USD","USD",20.00,-1.00,-1.00,-0.88,17.12,"one time","2017-05-15T15:24:25.000Z"

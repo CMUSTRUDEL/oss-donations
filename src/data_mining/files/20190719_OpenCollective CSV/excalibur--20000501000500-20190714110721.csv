@@ -1,0 +1,4 @@
+Transaction Description,User Name,User Profile,Transaction Date,Collective Currency,Host Currency,Transaction Amount,Host Fee (USD),Open Collective Fee (USD),Payment Processor Fee (USD),Net Amount (USD),Subscription Interval,Order Date
+"Donation to Excalibur","Khoa Nguyen","http://opencollective.com/khoa",2019-01-28 11:06:04,"USD","USD",50.00,-2.50,-2.50,-1.75,43.25,"one time","2019-01-28T16:06:04.000Z"
+"Monthly donation to Excalibur (backer)","Khoa Nguyen","http://opencollective.com/khoa",2019-01-09 14:49:14,"USD","USD",5.00,-0.25,-0.25,-0.45,4.05,"month","2019-01-09T19:49:14.000Z"
+"Donation to Excalibur","Pavel Kalinov","http://opencollective.com/pavel-kalinov",2018-12-12 19:02:14,"USD","USD",50.00,-2.50,-2.50,-1.75,43.25,"one time","2018-12-13T00:02:14.000Z"

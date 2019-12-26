@@ -1,0 +1,5 @@
+Transaction Description,User Name,User Profile,Transaction Date,Collective Currency,Host Currency,Transaction Amount,Host Fee (USD),Open Collective Fee (USD),Payment Processor Fee (USD),Net Amount (USD),Subscription Interval,Order Date
+"MongoDB Integration ","Konstantin","http://opencollective.com/konstantin2",2018-11-30 22:24:30,"USD","USD",-150.00,0.00,0.00,-6.90,-156.90,"one time","2018-12-01T03:24:30.000Z"
+"Monthly donation to devise_token_auth (company sponsor)","Getaway","http://opencollective.com/getaway",2018-05-01 01:07:04,"USD","USD",250.00,-12.50,-12.50,-7.55,217.45,"month","2018-05-01T05:07:04.000Z"
+"Monthly donation to devise_token_auth (company sponsor)","Getaway","http://opencollective.com/getaway",2018-04-02 13:25:14,"USD","USD",250.00,-12.50,-12.50,-7.55,217.45,"month","2018-04-02T17:25:14.000Z"
+"Monthly donation to devise_token_auth (company sponsor)","Getaway","http://opencollective.com/getaway",2018-03-18 15:02:53,"USD","USD",250.00,-12.50,-12.50,-7.55,217.45,"month","2018-03-18T19:02:53.000Z"

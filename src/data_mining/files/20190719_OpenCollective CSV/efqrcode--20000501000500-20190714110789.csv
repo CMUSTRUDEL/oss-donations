@@ -1,0 +1,4 @@
+Transaction Description,User Name,User Profile,Transaction Date,Collective Currency,Host Currency,Transaction Amount,Host Fee (USD),Open Collective Fee (USD),Payment Processor Fee (USD),Net Amount (USD),Subscription Interval,Order Date
+"Donation to EFQRCode","Jianjin Fu","http://opencollective.com/jianjin-fu",2019-05-23 04:34:18,"USD","USD",15.00,-0.75,-0.75,-0.89,12.61,"one time","2019-05-23T08:34:18.000Z"
+"Donation to EFQRCode (Backers)","Dillon xu","http://opencollective.com/hitmactechgg",2017-12-14 23:33:59,"USD","USD",10.00,-0.50,-0.50,-0.59,8.41,"one time","2017-12-15T04:33:59.000Z"
+"Donation to EFQRCode (Backers)","Tennen","http://opencollective.com/tennen",2017-12-14 01:41:55,"USD","USD",5.00,-0.25,-0.25,-0.45,4.05,"one time","2017-12-14T06:41:55.000Z"

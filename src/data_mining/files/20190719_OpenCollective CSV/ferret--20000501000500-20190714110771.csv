@@ -1,0 +1,3 @@
+Transaction Description,User Name,User Profile,Transaction Date,Collective Currency,Host Currency,Transaction Amount,Host Fee (USD),Open Collective Fee (USD),Payment Processor Fee (USD),Net Amount (USD),Subscription Interval,Order Date
+"Monthly donation to Ferret","ScrapingLab","http://opencollective.com/scrapinglab",2019-06-01 01:25:34,"USD","USD",1.00,-0.05,-0.05,-0.34,0.56,"month","2019-06-01T05:25:34.000Z"
+"Monthly donation to Ferret","ScrapingLab","http://opencollective.com/scrapinglab",2019-05-14 10:52:16,"USD","USD",1.00,-0.05,-0.05,-0.34,0.56,"month","2019-05-14T14:52:16.000Z"

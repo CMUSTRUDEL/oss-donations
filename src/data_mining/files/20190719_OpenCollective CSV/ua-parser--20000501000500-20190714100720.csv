@@ -1,0 +1,4 @@
+Transaction Description,User Name,User Profile,Transaction Date,Collective Currency,Host Currency,Transaction Amount,Host Fee (USD),Open Collective Fee (USD),Payment Processor Fee (USD),Net Amount (USD),Subscription Interval,Order Date
+"Monthly donation to ua-parser (backer)","Aaron Boodman","http://opencollective.com/aboodman",2019-05-01 01:34:39,"USD","USD",5.00,-0.25,-0.25,-0.45,4.05,"month","2019-05-01T05:34:39.000Z"
+"Monthly donation to ua-parser (backer)","Aaron Boodman","http://opencollective.com/aboodman",2019-04-01 01:34:17,"USD","USD",5.00,-0.25,-0.25,-0.45,4.05,"month","2019-04-01T05:34:17.000Z"
+"Monthly donation to ua-parser (backer)","Aaron Boodman","http://opencollective.com/aboodman",2019-03-03 18:05:07,"USD","USD",5.00,-0.25,-0.25,-0.45,4.05,"month","2019-03-03T23:05:07.000Z"

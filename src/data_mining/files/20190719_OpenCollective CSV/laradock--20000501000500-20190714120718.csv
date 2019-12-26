@@ -1,0 +1,5 @@
+Transaction Description,User Name,User Profile,Transaction Date,Collective Currency,Host Currency,Transaction Amount,Host Fee (USD),Open Collective Fee (USD),Payment Processor Fee (USD),Net Amount (USD),Subscription Interval,Order Date
+"Donation to laradock","Rise","http://opencollective.com/risedotco",2019-07-11 13:01:30,"USD","USD",50.00,-2.50,-2.50,-1.75,43.25,"one time","2019-07-11T17:01:30.000Z"
+"Donation to laradock","Provisions Group","http://opencollective.com/provisions-group",2019-07-05 07:02:53,"USD","USD",5.00,-0.25,-0.25,-0.45,4.05,"one time","2019-07-05T11:02:53.000Z"
+"Donation to laradock","Eximus Technologies","http://opencollective.com/eximus-technologies",2019-04-12 19:51:36,"USD","USD",5.00,-0.25,-0.25,-0.50,4.00,"one time","2019-04-12T23:51:36.000Z"
+"Donation to laradock","Scott Robinson","http://opencollective.com/scott-robinson",2019-01-30 11:37:36,"USD","USD",25.00,-1.25,-1.25,-1.03,21.47,"one time","2019-01-30T16:37:36.000Z"

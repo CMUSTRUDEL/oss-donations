@@ -1,0 +1,16 @@
+% latex table generated in R 3.5.1 by xtable 1.8-4 package
+% Thu Dec 26 12:10:32 2019
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrrrl}
+  \hline
+ & Chisq & Df & Pr($>$Chisq) & LR\_Chisq \\ 
+  \hline
+log(num\_closed + 0.001) & 5357.78 & 1.00 & 0.00 & 5357.78 *** \\ 
+  month\_index & 0.16 & 1.00 & 0.69 & 0.16 \\ 
+  intervention & 2.17 & 1.00 & 0.14 & 2.17 \\ 
+  month\_after & 1.59 & 1.00 & 0.21 & 1.59 \\ 
+   \hline
+\end{tabular}
+\end{table}
+

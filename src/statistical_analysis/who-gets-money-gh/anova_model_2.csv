@@ -1,0 +1,19 @@
+% latex table generated in R 3.5.1 by xtable 1.8-4 package
+% Thu Dec 26 12:10:26 2019
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrrrrl}
+  \hline
+ & Sum Sq & Df & F value & Pr($>$F) & F \\ 
+  \hline
+log\_num\_commit\_total & 54.75 & 1.00 & 15.83 & 0.00 & 54.75 *** \\ 
+  log\_size\_GH & 82.79 & 1.00 & 23.93 & 0.00 & 82.79 *** \\ 
+  age30 & 173.25 & 1.00 & 50.08 & 0.00 & 173.25 *** \\ 
+  is\_active & 20.33 & 1.00 & 5.88 & 0.02 & 20.33 * \\ 
+  is\_org & 18.23 & 1.00 & 5.27 & 0.02 & 18.23 * \\ 
+  log\_num\_star\_GH & 53.58 & 1.00 & 15.49 & 0.00 & 53.58 *** \\ 
+  Residuals & 9803.82 & 2834.00 &  &  & 9803.82NA \\ 
+   \hline
+\end{tabular}
+\end{table}
+

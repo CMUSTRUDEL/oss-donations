@@ -1,0 +1,30 @@
+
+\usepackage{dcolumn}
+
+\begin{table}
+\begin{center}
+\begin{tabular}{l D{)}{)}{11)3} D{)}{)}{11)3} }
+\hline
+ & \multicolumn{1}{c}{m1} & \multicolumn{1}{c}{m2} \\
+\hline
+(Intercept)                 & 1.82 \; (0.35)^{***}  & -0.06 \; (0.20)      \\
+month\_index                & 0.11 \; (0.05)^{*}    & 0.01 \; (0.02)       \\
+intervention                & -0.00 \; (0.37)       & -0.29 \; (0.19)      \\
+month\_after                & -0.35 \; (0.07)^{***} & 0.04 \; (0.03)       \\
+log(num\_closed + 0.001)    &                       & 1.05 \; (0.01)^{***} \\
+\hline
+AIC                         & 8116.07               & 6161.38              \\
+BIC                         & 8148.00               & 6198.63              \\
+Log Likelihood              & -4052.04              & -3073.69             \\
+Num. obs.                   & 1512                  & 1512                 \\
+Num. groups: project_id     & 84                    & 84                   \\
+Var: project_id (Intercept) & 4.19                  & 1.67                 \\
+Var: Residual               & 11.11                 & 2.99                 \\
+\hline
+\multicolumn{3}{l}{\scriptsize{$^{***}p<0.001$, $^{**}p<0.01$, $^*p<0.05$}}
+\end{tabular}
+\caption{Foo Model A Model B}
+\label{table:coefficients}
+\end{center}
+\end{table}
+

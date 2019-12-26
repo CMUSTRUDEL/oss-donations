@@ -1,0 +1,2 @@
+Transaction Description,User Name,User Profile,Transaction Date,Collective Currency,Host Currency,Transaction Amount,Host Fee (USD),Open Collective Fee (USD),Payment Processor Fee (USD),Net Amount (USD),Subscription Interval,Order Date
+"Donation to validator.js","Benjamin Piouffle","http://opencollective.com/betree",2019-01-30 11:42:20,"USD","USD",5.00,-0.25,-0.25,-0.45,4.05,"one time","2019-01-30T16:42:20.000Z"

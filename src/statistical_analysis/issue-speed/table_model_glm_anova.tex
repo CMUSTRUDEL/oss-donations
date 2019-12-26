@@ -1,0 +1,31 @@
+
+ 
+
+\begin{table}[t]
+\centering \small
+\begin{tabular}{l D{)}{)}{15)3}@{} D{.}{.}{5.4} |  D{)}{)}{15)3}@{} D{.}{.}{5.4} |  }
+\hline
+ & \multicolumn{2}{c}{m1} & \multicolumn{2}{c}{m2} \\
+\hline
+(Intercept)                 & 0.79 \; (0.42) & & 1.79 \; (0.29)^{***}  & \\
+log(earnings)               & 0.30 \; (0.06)^{***} & 21.25^{***} & -0.14 \; (0.04)^{**}  & 9.75^{**} \\
+month\_index                & 0.15 \; (0.02)^{***} & 59.59^{***} & 0.05 \; (0.02)^{**}   & 10.69^{**} \\
+intervention                & 0.03 \; (0.16) & 0.05 & -0.37 \; (0.12)^{**}  & 9.72^{**} \\
+month\_after                & -0.25 \; (0.03)^{***} & 79.70^{***} & -0.01 \; (0.02)       & 0.27 \\
+log(num\_closed)            & & & 0.38 \; (0.03)^{***}  & 134.65^{***} \\
+\hline
+AIC                         & 31389.34              & 21109.42             \\
+BIC                         & 31436.48              & 21161.41             \\
+Log Likelihood              & -15687.67             & -10546.71            \\
+Num. obs.                   & 6210                  & 4912                 \\
+Num. groups: project_id     & 345                   & 337                  \\
+Var: project_id (Intercept) & 4.03                  & 1.60                 \\
+Var: Residual               & 8.06                  & 3.76                 \\
+\hline
+\multicolumn{3}{l}{\scriptsize{$^{***}p<0.001$, $^{**}p<0.01$, $^*p<0.05$}}
+\end{tabular}
+\caption{Foo Model A Model B}
+\label{table:coefficients}
+ 
+\end{table}
+

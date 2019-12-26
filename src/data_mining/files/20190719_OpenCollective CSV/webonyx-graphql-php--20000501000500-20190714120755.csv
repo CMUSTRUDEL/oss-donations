@@ -1,0 +1,5 @@
+Transaction Description,User Name,User Profile,Transaction Date,Collective Currency,Host Currency,Transaction Amount,Host Fee (USD),Open Collective Fee (USD),Payment Processor Fee (USD),Net Amount (USD),Subscription Interval,Order Date
+"Monthly donation to graphql-php (backer)","WPGraphQL","http://opencollective.com/wp-graphql",2019-07-01 01:27:51,"USD","USD",50.00,0.00,0.00,0.00,50.00,"month","2019-07-01T05:27:51.000Z"
+"Monthly donation to graphql-php (backer)","WPGraphQL","http://opencollective.com/wp-graphql",2019-06-01 01:23:23,"USD","USD",50.00,0.00,0.00,0.00,50.00,"month","2019-06-01T05:23:23.000Z"
+"Monthly donation to graphql-php (backer)","WPGraphQL","http://opencollective.com/wp-graphql",2019-05-01 01:33:30,"USD","USD",50.00,0.00,0.00,0.00,50.00,"month","2019-05-01T05:33:30.000Z"
+"Monthly donation to graphql-php (backer)","WPGraphQL","http://opencollective.com/wp-graphql",2019-04-03 15:41:22,"USD","USD",50.00,0.00,0.00,0.00,50.00,"month","2019-04-03T19:41:22.000Z"

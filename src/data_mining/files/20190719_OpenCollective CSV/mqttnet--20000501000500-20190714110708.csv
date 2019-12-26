@@ -1,0 +1,5 @@
+Transaction Description,User Name,User Profile,Transaction Date,Collective Currency,Host Currency,Transaction Amount,Host Fee (USD),Open Collective Fee (USD),Payment Processor Fee (USD),Net Amount (USD),Subscription Interval,Order Date
+"Donation to MQTTnet","Johannes Bäurle","http://opencollective.com/johannes-baeurle",2019-06-07 01:55:53,"USD","USD",20.00,-1.00,-1.00,-1.18,16.82,"one time","2019-06-07T05:55:53.000Z"
+"Donation to MQTTnet","Christian Kratky","http://opencollective.com/christian-kratky",2019-03-13 17:44:17,"USD","USD",20.00,-1.00,-1.00,-1.18,16.82,"one time","2019-03-13T21:44:17.000Z"
+"Donation to MQTTnet","Kiarash Ghiaseddin","http://opencollective.com/kiarash-ghiaseddin",2019-03-13 16:47:30,"USD","USD",20.00,-1.00,-1.00,-1.18,16.82,"one time","2019-03-13T20:47:30.000Z"
+"Donation to MQTTnet","Matt Lehmann","http://opencollective.com/matt-lehmann",2019-03-13 16:13:03,"USD","USD",50.00,-2.50,-2.50,-1.75,43.25,"one time","2019-03-13T20:13:03.000Z"

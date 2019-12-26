@@ -1,0 +1,13 @@
+Transaction Description,User Name,User Profile,Transaction Date,Collective Currency,Host Currency,Transaction Amount,Host Fee (USD),Open Collective Fee (USD),Payment Processor Fee (USD),Net Amount (USD),Subscription Interval,Order Date
+"Monthly donation to SweetAlert","Afzal Ahmad","http://opencollective.com/afzalahmad",2019-07-01 01:19:41,"USD","USD",1.00,-0.05,-0.05,-0.34,0.56,"month","2019-07-01T05:19:41.000Z"
+"Monthly donation to SweetAlert","Afzal Ahmad","http://opencollective.com/afzalahmad",2019-06-01 01:17:15,"USD","USD",1.00,-0.05,-0.05,-0.34,0.56,"month","2019-06-01T05:17:15.000Z"
+"Donation to SweetAlert","Blake Stacks","http://opencollective.com/blake-stacks",2019-05-03 20:04:58,"USD","USD",75.00,-3.75,-3.75,-2.48,65.02,"one time","2019-05-04T00:04:58.000Z"
+"Donation to SweetAlert","Guoyuan Zhao","http://opencollective.com/guoyuan-zhao",2019-05-03 09:28:59,"USD","USD",10.00,-0.50,-0.50,-0.74,8.26,"one time","2019-05-03T13:28:59.000Z"
+"Monthly donation to SweetAlert","Afzal Ahmad","http://opencollective.com/afzalahmad",2019-05-01 01:25:11,"USD","USD",1.00,-0.05,-0.05,-0.34,0.56,"month","2019-05-01T05:25:11.000Z"
+"Monthly donation to SweetAlert","Afzal Ahmad","http://opencollective.com/afzalahmad",2019-04-01 01:27:11,"USD","USD",1.00,-0.05,-0.05,-0.34,0.56,"month","2019-04-01T05:27:11.000Z"
+"Monthly donation to SweetAlert","Afzal Ahmad","http://opencollective.com/afzalahmad",2019-03-01 15:39:33,"USD","USD",1.00,-0.05,-0.05,-0.34,0.56,"month","2019-03-01T20:39:33.000Z"
+"Donation to SweetAlert","Dave Barber","http://opencollective.com/dave-barber",2019-02-19 17:15:38,"USD","USD",5.00,-0.25,-0.25,-0.45,4.05,"one time","2019-02-19T22:15:38.000Z"
+"Monthly donation to SweetAlert","Afzal Ahmad","http://opencollective.com/afzalahmad",2019-02-01 09:33:18,"USD","USD",1.00,-0.05,-0.05,-0.34,0.56,"month","2019-02-01T14:33:18.000Z"
+"Monthly donation to SweetAlert","Afzal Ahmad","http://opencollective.com/afzalahmad",2019-01-31 04:43:42,"USD","USD",1.00,-0.05,-0.05,-0.34,0.56,"month","2019-01-31T09:43:42.000Z"
+"Donation to SweetAlert","stephan.com","http://opencollective.com/stephan-meyers",2019-01-04 15:19:23,"USD","USD",10.00,-0.50,-0.50,-0.59,8.41,"one time","2019-01-04T20:19:23.000Z"
+"Donation to SweetAlert","SheetJS","http://opencollective.com/holysheet",2018-10-04 10:23:11,"USD","USD",100.00,-5.00,-5.00,-3.20,86.80,"one time","2018-10-04T14:23:11.000Z"

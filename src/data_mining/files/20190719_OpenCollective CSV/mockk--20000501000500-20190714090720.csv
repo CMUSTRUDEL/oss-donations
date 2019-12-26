@@ -1,0 +1,4 @@
+Transaction Description,User Name,User Profile,Transaction Date,Collective Currency,Host Currency,Transaction Amount,Host Fee (USD),Open Collective Fee (USD),Payment Processor Fee (USD),Net Amount (USD),Subscription Interval,Order Date
+"Donation to mockk","Shan Kern","http://opencollective.com/shan-kern",2019-05-25 19:32:45,"USD","USD",75.00,-3.75,-3.75,-2.48,65.02,"one time","2019-05-25T23:32:45.000Z"
+"Donation to mockk","Dustin Conrad","http://opencollective.com/dustin-conrad",2019-05-25 11:58:57,"USD","USD",75.00,-3.75,-3.75,-2.48,65.02,"one time","2019-05-25T15:58:57.000Z"
+"Donation to mockk","Jayson Minard","http://opencollective.com/jayson-minard",2018-12-12 13:25:44,"USD","USD",10.00,-0.50,-0.50,-0.59,8.41,"one time","2018-12-12T18:25:44.000Z"

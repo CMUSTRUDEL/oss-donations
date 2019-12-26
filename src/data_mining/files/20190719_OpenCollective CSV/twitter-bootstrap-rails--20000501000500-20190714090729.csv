@@ -1,0 +1,6 @@
+Transaction Description,User Name,User Profile,Transaction Date,Collective Currency,Host Currency,Transaction Amount,Host Fee (USD),Open Collective Fee (USD),Payment Processor Fee (USD),Net Amount (USD),Subscription Interval,Order Date
+"monthly recurring subscription","Matt Esterly","http://opencollective.com/matt",2017-07-01 12:41:06,"USD","USD",10.00,-0.50,-0.50,-0.59,8.41,"month","2017-07-01T16:41:06.000Z"
+"monthly recurring subscription","Matt Esterly","http://opencollective.com/matt",2017-06-01 12:38:43,"USD","USD",10.00,-0.50,-0.50,-0.59,8.41,"month","2017-06-01T16:38:43.000Z"
+"monthly recurring subscription","Matt Esterly","http://opencollective.com/matt",2017-05-01 12:38:30,"USD","USD",10.00,-0.50,-0.50,-0.59,8.41,"month","2017-05-01T16:38:30.000Z"
+"monthly recurring subscription","Matt Esterly","http://opencollective.com/matt",2017-04-01 12:39:27,"USD","USD",10.00,-0.50,-0.50,-0.59,8.41,"month","2017-04-01T16:39:27.000Z"
+"Monthly donation to twitter-bootstrap-rails","Matt Esterly","http://opencollective.com/matt",2017-03-24 11:36:59,"USD","USD",10.00,-0.50,-0.50,-0.59,8.41,"month","2017-03-24T15:36:59.000Z"

@@ -1,0 +1,2 @@
+Transaction Description,User Name,User Profile,Transaction Date,Collective Currency,Host Currency,Transaction Amount,Host Fee (EUR),Open Collective Fee (EUR),Payment Processor Fee (EUR),Net Amount (EUR),Subscription Interval,Order Date
+"Donation to Popcorn","A-Team","http://opencollective.com/a-team",2019-03-18 07:16:14,"EUR","EUR",50.00,-2.50,-2.50,-0.95,44.05,"one time","2019-03-18T11:16:14.000Z"

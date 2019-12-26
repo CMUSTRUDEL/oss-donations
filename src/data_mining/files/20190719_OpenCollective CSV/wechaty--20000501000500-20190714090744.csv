@@ -1,0 +1,4 @@
+Transaction Description,User Name,User Profile,Transaction Date,Collective Currency,Host Currency,Transaction Amount,Host Fee (USD),Open Collective Fee (USD),Payment Processor Fee (USD),Net Amount (USD),Subscription Interval,Order Date
+"Setup Open Collective","Huan LI","http://opencollective.com/huan",2019-05-09 21:08:38,"USD","USD",-0.50,0.00,0.00,-0.31,-0.81,"one time","2019-05-10T01:08:38.000Z"
+"Donation to Wechaty","AI ML Club","http://opencollective.com/ai-ml-club",2019-05-03 09:12:14,"USD","USD",1.00,-0.05,0.00,-0.34,0.61,"one time","2019-05-03T13:12:14.000Z"
+"Donation to Wechaty","Huan LI","http://opencollective.com/huan",2019-05-03 05:31:19,"USD","USD",1.00,-0.05,-0.05,-0.33,0.57,"one time","2019-05-03T09:31:19.000Z"

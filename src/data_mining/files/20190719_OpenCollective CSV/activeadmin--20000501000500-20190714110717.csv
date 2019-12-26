@@ -1,0 +1,8 @@
+Transaction Description,User Name,User Profile,Transaction Date,Collective Currency,Host Currency,Transaction Amount,Host Fee (USD),Open Collective Fee (USD),Payment Processor Fee (USD),Net Amount (USD),Subscription Interval,Order Date
+"Donation to activeadmin","Ken Mayer","http://opencollective.com/ken-mayer",2019-07-13 13:11:36,"USD","USD",75.00,-3.75,-3.75,-2.48,65.02,"one time","2019-07-13T17:11:36.000Z"
+"Monthly donation to activeadmin (backer)","Mahmoud Abdel-Fattah","http://opencollective.com/m_abdelfattah",2019-07-01 01:20:29,"USD","USD",5.00,-0.25,-0.25,-0.50,4.00,"month","2019-07-01T05:20:29.000Z"
+"Monthly donation to activeadmin (backer)","Mahmoud Abdel-Fattah","http://opencollective.com/m_abdelfattah",2019-06-01 01:18:01,"USD","USD",5.00,-0.25,-0.25,-0.50,4.00,"month","2019-06-01T05:18:01.000Z"
+"Monthly donation to activeadmin (backer)","Mahmoud Abdel-Fattah","http://opencollective.com/m_abdelfattah",2019-05-01 01:26:13,"USD","USD",5.00,-0.25,-0.25,-0.50,4.00,"month","2019-05-01T05:26:13.000Z"
+"Monthly donation to activeadmin (backer)","Mahmoud Abdel-Fattah","http://opencollective.com/m_abdelfattah",2019-04-01 01:28:15,"USD","USD",5.00,-0.25,-0.25,-0.50,4.00,"month","2019-04-01T05:28:15.000Z"
+"Monthly donation to activeadmin (backer)","Mahmoud Abdel-Fattah","http://opencollective.com/m_abdelfattah",2019-03-01 15:40:40,"USD","USD",5.00,-0.25,-0.25,-0.50,4.00,"month","2019-03-01T20:40:40.000Z"
+"Monthly donation to activeadmin (backer)","Mahmoud Abdel-Fattah","http://opencollective.com/m_abdelfattah",2019-02-02 12:17:19,"USD","USD",5.00,-0.25,-0.25,-0.50,4.00,"month","2019-02-02T17:17:19.000Z"

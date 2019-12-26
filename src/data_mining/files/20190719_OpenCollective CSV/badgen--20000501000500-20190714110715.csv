@@ -1,0 +1,4 @@
+Transaction Description,User Name,User Profile,Transaction Date,Collective Currency,Host Currency,Transaction Amount,Host Fee (USD),Open Collective Fee (USD),Payment Processor Fee (USD),Net Amount (USD),Subscription Interval,Order Date
+"Receipt @ Feb, 14, 2019","Amio Jin","http://opencollective.com/amiocn",2019-02-21 10:48:15,"USD","USD",-20.37,0.00,0.00,-1.20,-21.57,"one time","2019-02-21T15:48:15.000Z"
+"Receipt @ Jan, 14, 2019","Amio Jin","http://opencollective.com/amiocn",2019-02-07 22:40:02,"USD","USD",-19.99,0.00,0.00,-1.18,-21.17,"one time","2019-02-08T03:40:02.000Z"
+"Donation to badgen","marshmallow","http://opencollective.com/marshmallow",2019-01-19 13:14:42,"USD","USD",50.00,-2.50,-2.50,-1.75,43.25,"one time","2019-01-19T18:14:42.000Z"

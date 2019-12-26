@@ -1,0 +1,4 @@
+Transaction Description,User Name,User Profile,Transaction Date,Collective Currency,Host Currency,Transaction Amount,Host Fee (USD),Open Collective Fee (USD),Payment Processor Fee (USD),Net Amount (USD),Subscription Interval,Order Date
+"Hosting on AWS","Ivan Goncharov","http://opencollective.com/ivan-goncharov",2018-11-03 15:24:24,"USD","USD",-17.70,0.00,0.00,0.00,-17.70,"one time","2018-11-03T19:24:24.000Z"
+"Monthly donation to openapi-directory (backer)","Scraper API 2","http://opencollective.com/scraperapi2",2018-10-13 01:45:33,"USD","USD",5.00,-0.25,-0.25,-0.45,4.05,"month","2018-10-13T05:45:33.000Z"
+"Donation to openapi-directory","Robert Brennan","http://opencollective.com/bobby_lucybot",2018-02-20 11:00:51,"USD","USD",50.00,-2.50,-2.50,-1.75,43.25,"one time","2018-02-20T16:00:51.000Z"

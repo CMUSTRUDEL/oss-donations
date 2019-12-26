@@ -1,0 +1,9 @@
+Transaction Description,User Name,User Profile,Transaction Date,Collective Currency,Host Currency,Transaction Amount,Host Fee (USD),Open Collective Fee (USD),Payment Processor Fee (USD),Net Amount (USD),Subscription Interval,Order Date
+"Donation to tellform","Elio Qoshi","http://opencollective.com/ping",2019-03-20 05:13:53,"USD","USD",10.00,-0.50,-0.50,-0.74,8.26,"one time","2019-03-20T09:13:53.000Z"
+"Donation to tellform","Arielle Baldwin","http://opencollective.com/arielle-baldwin",2018-11-07 14:28:24,"USD","USD",100.00,-5.00,-5.00,-3.20,86.80,"one time","2018-11-07T19:28:24.000Z"
+"Digital Ocean Servers","David Baldwin","http://opencollective.com/shorerydr10",2017-09-15 13:59:01,"USD","USD",-44.53,0.00,0.00,-1.95,-46.48,"one time","2017-09-15T17:59:01.000Z"
+"DO Servers","David Baldwin","http://opencollective.com/shorerydr10",2017-09-15 13:59:00,"USD","USD",-42.41,0.00,0.00,-1.87,-44.28,"one time","2017-09-15T17:59:00.000Z"
+"Server Costs","David Baldwin","http://opencollective.com/shorerydr10",2017-09-15 13:58:56,"USD","USD",-42.97,0.00,0.00,-1.89,-44.86,"one time","2017-09-15T17:58:56.000Z"
+"monthly recurring subscription","Aldreen Venzon","http://opencollective.com/aldrnv",2017-05-01 19:56:58,"USD","USD",5.00,-0.25,-0.25,-0.45,4.05,"month","2017-05-01T23:56:58.000Z"
+"Monthly donation to tellform","Aldreen Venzon","http://opencollective.com/aldrnv",2017-04-22 18:55:54,"USD","USD",5.00,-0.25,-0.25,-0.45,4.05,"month","2017-04-22T22:55:54.000Z"
+"Donation to tellform","Elliot Murphy","http://opencollective.com/elliot",2017-04-03 15:20:49,"USD","USD",150.00,-7.50,-7.50,-4.65,130.35,"one time","2017-04-03T19:20:49.000Z"

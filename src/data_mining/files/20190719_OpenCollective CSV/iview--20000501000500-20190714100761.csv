@@ -1,0 +1,7 @@
+Transaction Description,User Name,User Profile,Transaction Date,Collective Currency,Host Currency,Transaction Amount,Host Fee (USD),Open Collective Fee (USD),Payment Processor Fee (USD),Net Amount (USD),Subscription Interval,Order Date
+"Donation to iview","Flatlogic","http://opencollective.com/flatlogic",2018-11-20 07:04:02,"USD","USD",20.00,-1.00,-1.00,-1.18,16.82,"one time","2018-11-20T12:04:02.000Z"
+"Monthly donation to iview (backer)","Scraper API 2","http://opencollective.com/scraperapi2",2018-10-01 01:02:44,"USD","USD",5.00,-0.25,-0.25,-0.45,4.05,"month","2018-10-01T05:02:44.000Z"
+"Monthly donation to iview (backer)","Scraper API 2","http://opencollective.com/scraperapi2",2018-09-01 01:02:00,"USD","USD",5.00,-0.25,-0.25,-0.45,4.05,"month","2018-09-01T05:02:00.000Z"
+"Monthly donation to iview (backer)","Unhype","http://opencollective.com/unhype",2018-08-31 04:44:17,"USD","USD",5.00,-0.25,-0.25,-0.50,4.00,"month","2018-08-31T08:44:17.000Z"
+"Monthly donation to iview (backer)","Scraper API 2","http://opencollective.com/scraperapi2",2018-08-10 23:38:08,"USD","USD",5.00,-0.25,-0.25,-0.45,4.05,"month","2018-08-11T03:38:08.000Z"
+"Monthly donation to iview (sponsor)","bmqb","http://opencollective.com/bmqb",2018-07-01 22:40:00,"USD","USD",100.00,-5.00,-5.00,-4.20,85.80,"month","2018-07-02T02:40:00.000Z"

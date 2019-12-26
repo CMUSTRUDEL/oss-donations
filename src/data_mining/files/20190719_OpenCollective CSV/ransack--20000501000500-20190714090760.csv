@@ -1,0 +1,11 @@
+Transaction Description,User Name,User Profile,Transaction Date,Collective Currency,Host Currency,Transaction Amount,Host Fee (USD),Open Collective Fee (USD),Payment Processor Fee (USD),Net Amount (USD),Subscription Interval,Order Date
+"Monthly donation to ransack (sponsor)","Scout","http://opencollective.com/scout",2019-07-01 01:15:56,"USD","USD",100.00,-5.00,-5.00,-3.20,86.80,"month","2019-07-01T05:15:56.000Z"
+"Software engineering","Sean","http://opencollective.com/seanfcarroll",2019-06-14 01:18:15,"USD","USD",-600.00,0.00,0.00,-26.70,-626.70,"one time","2019-06-14T05:18:15.000Z"
+"Monthly donation to ransack (sponsor)","Scout","http://opencollective.com/scout",2019-06-01 01:13:37,"USD","USD",100.00,-5.00,-5.00,-3.20,86.80,"month","2019-06-01T05:13:37.000Z"
+"Monthly donation to ransack (sponsor)","Scout","http://opencollective.com/scout",2019-05-01 01:20:06,"USD","USD",100.00,-5.00,-5.00,-3.20,86.80,"month","2019-05-01T05:20:06.000Z"
+"Monthly donation to ransack (sponsor)","Scout","http://opencollective.com/scout",2019-04-01 01:22:11,"USD","USD",100.00,-5.00,-5.00,-3.20,86.80,"month","2019-04-01T05:22:11.000Z"
+"Monthly donation to ransack (sponsor)","Scout","http://opencollective.com/scout",2019-03-01 15:34:42,"USD","USD",100.00,-5.00,-5.00,-3.20,86.80,"month","2019-03-01T20:34:42.000Z"
+"Monthly donation to ransack (sponsor)","Scout","http://opencollective.com/scout",2019-02-01 09:27:45,"USD","USD",100.00,-5.00,-5.00,-3.20,86.80,"month","2019-02-01T14:27:45.000Z"
+"Monthly donation to ransack (sponsor)","Scout","http://opencollective.com/scout",2019-01-01 00:25:52,"USD","USD",100.00,-5.00,-5.00,-3.20,86.80,"month","2019-01-01T05:25:52.000Z"
+"Monthly donation to ransack (sponsor)","Scout","http://opencollective.com/scout",2018-12-01 00:30:37,"USD","USD",100.00,-5.00,-5.00,-3.20,86.80,"month","2018-12-01T05:30:37.000Z"
+"Monthly donation to ransack (sponsor)","Scout","http://opencollective.com/scout",2018-11-20 17:54:20,"USD","USD",100.00,-5.00,-5.00,-3.20,86.80,"month","2018-11-20T22:54:20.000Z"

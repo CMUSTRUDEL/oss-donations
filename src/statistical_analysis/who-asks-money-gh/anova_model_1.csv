@@ -1,0 +1,18 @@
+% latex table generated in R 3.5.1 by xtable 1.8-4 package
+% Thu Dec 26 12:10:25 2019
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrrrl}
+  \hline
+ & LR Chisq & Df & Pr($>$Chisq) & LR\_Chisq \\ 
+  \hline
+log\_num\_commit\_total & 2550.81 & 1.00 & 0.00 & 2550.812550.81 *** \\ 
+  log\_size\_GH & 70.92 & 1.00 & 0.00 & 70.9270.92 *** \\ 
+  age & 42.45 & 1.00 & 0.00 & 42.4542.45 *** \\ 
+  is\_active & 974.82 & 1.00 & 0.00 & 974.82974.82 *** \\ 
+  is\_org & 9.67 & 1.00 & 0.00 & 9.679.67 ** \\ 
+  log\_num\_star\_GH & 15808.60 & 1.00 & 0.00 & 15808.6015808.60 *** \\ 
+   \hline
+\end{tabular}
+\end{table}
+
