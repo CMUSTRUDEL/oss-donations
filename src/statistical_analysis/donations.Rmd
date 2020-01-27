@@ -73,10 +73,10 @@ loadData = function(path){
 #######
 # npm
 #######
-d_funding = loadData("asking_group_npm.csv")
-d_control_random = loadData("random_npm_control.csv")
-d_control_top_download = loadData("highest_download_count_npm_control.csv")
-d_control_commercial = loadData("commercial_npm_control.csv")
+d_funding = loadData("../../data/asking_group_npm.csv")
+d_control_random = loadData("../../data/random_npm_control.csv")
+d_control_top_download = loadData("../../data/highest_download_count_npm_control.csv")
+d_control_commercial = loadData("../../data/commercial_npm_control.csv")
 
 # Make has_any_funding column in dataframes and set to true for all rows in d_funding and false for all rows in d_control
 d_funding$has_any_funding = TRUE
@@ -88,9 +88,9 @@ d_control_commercial$has_any_funding = FALSE
 ############
 # All of GH
 ############
-d_funding_all_raw = loadData("asking_group_npm_gh.csv")
-d_funding_gh_raw = loadData("asking_group_npm_gh.csv")
-d_control_random_gh = loadData("random_gh_control.csv")
+d_funding_all_raw = loadData("../../data/asking_group_npm_gh.csv")
+d_funding_gh_raw = loadData("../../data/asking_group_npm_gh.csv")
+d_control_random_gh = loadData("../../data/random_gh_control.csv")
 d_control_random_gh$total_earning = rep(NA, nrow(d_control_random_gh))
 
 d_funding_gh_raw$has_any_funding = TRUE
@@ -107,22 +107,22 @@ d_funding_gh = d_funding_gh[,!names(d_funding_gh) %in% setdiff(names(d_funding_g
 ###################
 # Time series data
 ###################
-d_ask = read_csv("rdd_ask_funding_date.csv")
+d_ask = read_csv("../../data/rdd_ask_funding_date.csv")
 d_ask$earnings = d_ask$earning_after_adoption
 d_ask$month_after = d_ask$time_after_intervention
 d_ask$project_id = as.factor(d_ask$project_id)
 
-d_ask_money = read_csv("rdd_ask_funding_date_monthly_earning.csv")
+d_ask_money = read_csv("../../data/rdd_ask_funding_date_monthly_earning.csv")
 d_ask_money$monthly_earning = d_ask_money$earning
 d_ask_money = d_ask_money[,c("slug", "month_index", "monthly_earning")]
 d_ask = merge(d_ask, d_ask_money)
 
-d_get = read_csv("rdd_get_funding_date.csv")
+d_get = read_csv("../../data/rdd_get_funding_date.csv")
 d_get$earnings = d_get$earning_after_adoption
 d_get$month_after = d_get$time_after_intervention
 d_get$project_id = as.factor(d_get$project_id)
 
-d_get_money = read_csv("rdd_get_funding_date_monthly_earning.csv")
+d_get_money = read_csv("../../data/rdd_get_funding_date_monthly_earning.csv")
 d_get_money$monthly_earning = d_get_money$earning
 d_get_money = d_get_money[,c("slug", "month_index", "monthly_earning")]
 d_get = merge(d_get, d_get_money)

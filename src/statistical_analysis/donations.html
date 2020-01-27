@@ -1744,14 +1744,10 @@ div.tocify {
 <a class="sourceLine" id="cb23-17" data-line-number="17"></a>
 <a class="sourceLine" id="cb23-18" data-line-number="18"><span class="co"># Check for multicollinearity</span></a>
 <a class="sourceLine" id="cb23-19" data-line-number="19"><span class="kw">vif</span>(m1_random)</a></code></pre></div>
-<pre><code>##         log_num_commit_total                  log_size_GH 
-##                     3.038020                     2.404066 
-##                        age30                    is_active 
-##                     1.576262                     1.403822 
-##                       is_org              log_num_star_GH 
-##                     1.074692                     1.892720 
-##             log_num_download log_reverse_dependency_count 
-##                     3.244273                     2.666226</code></pre>
+<pre><code>##         log_num_commit_total                  log_size_GH                        age30                    is_active 
+##                     3.038020                     2.404066                     1.576262                     1.403822 
+##                       is_org              log_num_star_GH             log_num_download log_reverse_dependency_count 
+##                     1.074692                     1.892720                     3.244273                     2.666226</code></pre>
 <div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" data-line-number="1"><span class="co"># Model summary</span></a>
 <a class="sourceLine" id="cb25-2" data-line-number="2"><span class="kw">summary</span>(m1_random)</a></code></pre></div>
 <pre><code>## 
@@ -1788,10 +1784,8 @@ div.tocify {
 ## Number of Fisher Scoring iterations: 6</code></pre>
 <div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" data-line-number="1"><span class="co"># Goodness of fit</span></a>
 <a class="sourceLine" id="cb27-2" data-line-number="2"><span class="kw">pR2</span>(m1_random) <span class="co"># McFadden R-squared</span></a></code></pre></div>
-<pre><code>##           llh       llhNull            G2      McFadden          r2ML 
-## -2500.7776140 -3649.3363680  2297.1175080     0.3147309     0.2222952 
-##          r2CU 
-##     0.4040752</code></pre>
+<pre><code>##           llh       llhNull            G2      McFadden          r2ML          r2CU 
+## -2500.7776140 -3649.3363680  2297.1175080     0.3147309     0.2222952     0.4040752</code></pre>
 <div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" data-line-number="1"><span class="co"># Effect size</span></a>
 <a class="sourceLine" id="cb29-2" data-line-number="2"><span class="kw">anova</span>(m1_random)</a></code></pre></div>
 <pre><code>## Analysis of Deviance Table
@@ -1833,7 +1827,7 @@ div.tocify {
 <a class="sourceLine" id="cb38-7" data-line-number="7"></a>
 <a class="sourceLine" id="cb38-8" data-line-number="8"><span class="kw">print_Anova_glm</span>(m1_random, <span class="st">&quot;who-asks-money-npm/anova_model_1.csv&quot;</span>)</a></code></pre></div>
 <pre><code>## % latex table generated in R 3.5.1 by xtable 1.8-4 package
-## % Thu Dec 26 12:10:10 2019
+## % Mon Jan 27 15:55:44 2020
 ## \begin{table}[ht]
 ## \centering
 ## \begin{tabular}{rrrrl}
@@ -1870,14 +1864,10 @@ div.tocify {
 <a class="sourceLine" id="cb40-14" data-line-number="14"></a>
 <a class="sourceLine" id="cb40-15" data-line-number="15"><span class="co"># Check for multicollinearity</span></a>
 <a class="sourceLine" id="cb40-16" data-line-number="16"><span class="kw">vif</span>(m1_commercial)</a></code></pre></div>
-<pre><code>##         log_num_commit_total                  log_size_GH 
-##                     3.777166                     3.012853 
-##                          age                    is_active 
-##                     1.296198                     1.323344 
-##              log_num_star_GH             log_num_download 
-##                     2.615199                     2.993227 
-## log_reverse_dependency_count 
-##                     2.548505</code></pre>
+<pre><code>##         log_num_commit_total                  log_size_GH                          age                    is_active 
+##                     3.777166                     3.012853                     1.296198                     1.323344 
+##              log_num_star_GH             log_num_download log_reverse_dependency_count 
+##                     2.615199                     2.993227                     2.548505</code></pre>
 <div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb42-1" data-line-number="1"><span class="co"># Model summary</span></a>
 <a class="sourceLine" id="cb42-2" data-line-number="2"><span class="kw">summary</span>(m1_commercial)</a></code></pre></div>
 <pre><code>## 
@@ -1913,10 +1903,8 @@ div.tocify {
 ## Number of Fisher Scoring iterations: 4</code></pre>
 <div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb44-1" data-line-number="1"><span class="co"># Goodness of fit</span></a>
 <a class="sourceLine" id="cb44-2" data-line-number="2"><span class="kw">pR2</span>(m1_commercial) <span class="co"># McFadden R-squared</span></a></code></pre></div>
-<pre><code>##           llh       llhNull            G2      McFadden          r2ML 
-## -1185.5459533 -1969.6983366  1568.3047666     0.3981079     0.5293452 
-##          r2CU 
-##     0.6232097</code></pre>
+<pre><code>##           llh       llhNull            G2      McFadden          r2ML          r2CU 
+## -1185.5459533 -1969.6983366  1568.3047666     0.3981079     0.5293452     0.6232097</code></pre>
 <div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb46-1" data-line-number="1"><span class="co"># Effect size</span></a>
 <a class="sourceLine" id="cb46-2" data-line-number="2"><span class="kw">anova</span>(m1_commercial)</a></code></pre></div>
 <pre><code>## Analysis of Deviance Table
@@ -1956,14 +1944,10 @@ div.tocify {
 <a class="sourceLine" id="cb48-14" data-line-number="14"></a>
 <a class="sourceLine" id="cb48-15" data-line-number="15"><span class="co"># Check for multicollinearity</span></a>
 <a class="sourceLine" id="cb48-16" data-line-number="16"><span class="kw">vif</span>(m1_top_download)</a></code></pre></div>
-<pre><code>##         log_num_commit_total                  log_size_GH 
-##                     3.602752                     2.478681 
-##                          age                    is_active 
-##                     1.219103                     1.231655 
-##                       is_org              log_num_star_GH 
-##                     1.119779                     2.758789 
-## log_reverse_dependency_count 
-##                     1.786354</code></pre>
+<pre><code>##         log_num_commit_total                  log_size_GH                          age                    is_active 
+##                     3.602752                     2.478681                     1.219103                     1.231655 
+##                       is_org              log_num_star_GH log_reverse_dependency_count 
+##                     1.119779                     2.758789                     1.786354</code></pre>
 <div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb50-1" data-line-number="1"><span class="co"># Model summary</span></a>
 <a class="sourceLine" id="cb50-2" data-line-number="2"><span class="kw">summary</span>(m1_top_download)</a></code></pre></div>
 <pre><code>## 
@@ -1999,10 +1983,8 @@ div.tocify {
 ## Number of Fisher Scoring iterations: 7</code></pre>
 <div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb52-1" data-line-number="1"><span class="co"># Goodness of fit</span></a>
 <a class="sourceLine" id="cb52-2" data-line-number="2"><span class="kw">pR2</span>(m1_top_download) <span class="co"># McFadden R-squared</span></a></code></pre></div>
-<pre><code>##           llh       llhNull            G2      McFadden          r2ML 
-## -1265.6096617 -3036.9963414  3542.7733593     0.5832693     0.4424115 
-##          r2CU 
-##     0.6992818</code></pre>
+<pre><code>##           llh       llhNull            G2      McFadden          r2ML          r2CU 
+## -1265.6096617 -3036.9963414  3542.7733593     0.5832693     0.4424115     0.6992818</code></pre>
 <div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb54-1" data-line-number="1"><span class="co"># Effect size</span></a>
 <a class="sourceLine" id="cb54-2" data-line-number="2"><span class="kw">anova</span>(m1_top_download)</a></code></pre></div>
 <pre><code>## Analysis of Deviance Table
@@ -2055,10 +2037,8 @@ div.tocify {
 <a class="sourceLine" id="cb58-17" data-line-number="17"></a>
 <a class="sourceLine" id="cb58-18" data-line-number="18"><span class="co"># Check for multicollinearity</span></a>
 <a class="sourceLine" id="cb58-19" data-line-number="19"><span class="kw">vif</span>(m3_random)</a></code></pre></div>
-<pre><code>## log_num_commit_total          log_size_GH                  age 
-##             1.549795             1.333325             1.631169 
-##            is_active               is_org      log_num_star_GH 
-##             1.495142             1.036197             1.181282</code></pre>
+<pre><code>## log_num_commit_total          log_size_GH                  age            is_active               is_org      log_num_star_GH 
+##             1.549795             1.333325             1.631169             1.495142             1.036197             1.181282</code></pre>
 <div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb60-1" data-line-number="1"><span class="co"># Model summary</span></a>
 <a class="sourceLine" id="cb60-2" data-line-number="2"><span class="kw">summary</span>(m3_random)</a></code></pre></div>
 <pre><code>## 
@@ -2093,10 +2073,8 @@ div.tocify {
 ## Number of Fisher Scoring iterations: 5</code></pre>
 <div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb62-1" data-line-number="1"><span class="co"># Goodness of fit</span></a>
 <a class="sourceLine" id="cb62-2" data-line-number="2"><span class="kw">pR2</span>(m3_random) <span class="co"># McFadden R-squared</span></a></code></pre></div>
-<pre><code>##           llh       llhNull            G2      McFadden          r2ML 
-## -4.462197e+04 -6.601654e+04  4.278914e+04  3.240789e-01  2.715333e-01 
-##          r2CU 
-##  4.353031e-01</code></pre>
+<pre><code>##           llh       llhNull            G2      McFadden          r2ML          r2CU 
+## -4.462197e+04 -6.601654e+04  4.278914e+04  3.240789e-01  2.715333e-01  4.353031e-01</code></pre>
 <div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb64-1" data-line-number="1"><span class="co"># Effect size</span></a>
 <a class="sourceLine" id="cb64-2" data-line-number="2"><span class="kw">anova</span>(m3_random)</a></code></pre></div>
 <pre><code>## Analysis of Deviance Table
@@ -2129,7 +2107,7 @@ div.tocify {
 <a class="sourceLine" id="cb66-11" data-line-number="11"></a>
 <a class="sourceLine" id="cb66-12" data-line-number="12"><span class="kw">print_Anova_glm</span>(m3_random, <span class="st">&quot;who-asks-money-gh/anova_model_1.csv&quot;</span>)</a></code></pre></div>
 <pre><code>## % latex table generated in R 3.5.1 by xtable 1.8-4 package
-## % Thu Dec 26 12:10:25 2019
+## % Mon Jan 27 15:55:58 2020
 ## \begin{table}[ht]
 ## \centering
 ## \begin{tabular}{rrrrl}
@@ -2199,14 +2177,10 @@ div.tocify {
 <a class="sourceLine" id="cb79-18" data-line-number="18">         , <span class="dt">data =</span> d_funding_small)</a>
 <a class="sourceLine" id="cb79-19" data-line-number="19"></a>
 <a class="sourceLine" id="cb79-20" data-line-number="20"><span class="kw">vif</span>(m4_hurdle)</a></code></pre></div>
-<pre><code>##         log_num_commit_total                  log_size_GH 
-##                     4.615329                     3.010778 
-##                        age30                    is_active 
-##                     1.392310                     1.387045 
-##                       is_org              log_num_star_GH 
-##                     1.121420                     2.662299 
-##             log_num_download log_reverse_dependency_count 
-##                     3.701212                     2.494121</code></pre>
+<pre><code>##         log_num_commit_total                  log_size_GH                        age30                    is_active 
+##                     4.615329                     3.010778                     1.392310                     1.387045 
+##                       is_org              log_num_star_GH             log_num_download log_reverse_dependency_count 
+##                     1.121420                     2.662299                     3.701212                     2.494121</code></pre>
 <div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb81-1" data-line-number="1"><span class="kw">pR2</span>(m4_hurdle)</a></code></pre></div>
 <pre><code>##          llh      llhNull           G2     McFadden         r2ML         r2CU 
 ## -353.3894032 -496.4214373  286.0640683    0.2881262    0.3224032    0.4351103</code></pre>
@@ -2275,14 +2249,10 @@ div.tocify {
 <a class="sourceLine" id="cb87-15" data-line-number="15">         , <span class="dt">data =</span> <span class="kw">subset</span>(d_funding_small, total_earning <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>))</a>
 <a class="sourceLine" id="cb87-16" data-line-number="16"></a>
 <a class="sourceLine" id="cb87-17" data-line-number="17"><span class="kw">vif</span>(m4_count)</a></code></pre></div>
-<pre><code>##         log_num_commit_total                  log_size_GH 
-##                     5.495226                     3.940095 
-##                        age30                    is_active 
-##                     1.596938                     1.401353 
-##                       is_org              log_num_star_GH 
-##                     1.312432                     4.255184 
-##             log_num_download log_reverse_dependency_count 
-##                     4.903362                     4.146322</code></pre>
+<pre><code>##         log_num_commit_total                  log_size_GH                        age30                    is_active 
+##                     5.495226                     3.940095                     1.596938                     1.401353 
+##                       is_org              log_num_star_GH             log_num_download log_reverse_dependency_count 
+##                     1.312432                     4.255184                     4.903362                     4.146322</code></pre>
 <div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb89-1" data-line-number="1"><span class="kw">summary</span>(m4_count)</a></code></pre></div>
 <pre><code>## 
 ## Call:
@@ -2342,7 +2312,7 @@ div.tocify {
 <a class="sourceLine" id="cb93-11" data-line-number="11"></a>
 <a class="sourceLine" id="cb93-12" data-line-number="12"><span class="kw">print_Anova_glm</span>(m4_hurdle, <span class="st">&quot;who-gets-money-npm/anova_model_1.csv&quot;</span>)</a></code></pre></div>
 <pre><code>## % latex table generated in R 3.5.1 by xtable 1.8-4 package
-## % Thu Dec 26 12:10:25 2019
+## % Mon Jan 27 15:55:59 2020
 ## \begin{table}[ht]
 ## \centering
 ## \begin{tabular}{rrrrl}
@@ -2362,7 +2332,7 @@ div.tocify {
 ## \end{table}</code></pre>
 <div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb95-1" data-line-number="1"><span class="kw">print_Anova</span>(m4_count, <span class="st">&quot;who-gets-money-npm/anova_model_2.csv&quot;</span>)</a></code></pre></div>
 <pre><code>## % latex table generated in R 3.5.1 by xtable 1.8-4 package
-## % Thu Dec 26 12:10:25 2019
+## % Mon Jan 27 15:55:59 2020
 ## \begin{table}[ht]
 ## \centering
 ## \begin{tabular}{rrrrrl}
@@ -2454,15 +2424,11 @@ div.tocify {
 <a class="sourceLine" id="cb109-18" data-line-number="18">         , <span class="dt">data =</span> d_funding_small_gh)</a>
 <a class="sourceLine" id="cb109-19" data-line-number="19"></a>
 <a class="sourceLine" id="cb109-20" data-line-number="20"><span class="kw">vif</span>(m4_hurdle_gh)</a></code></pre></div>
-<pre><code>## log_num_commit_total          log_size_GH                age30 
-##             2.573088             1.548740             1.317700 
-##            is_active               is_org      log_num_star_GH 
-##             1.248597             1.059186             1.792172</code></pre>
+<pre><code>## log_num_commit_total          log_size_GH                age30            is_active               is_org      log_num_star_GH 
+##             2.573088             1.548740             1.317700             1.248597             1.059186             1.792172</code></pre>
 <div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb111-1" data-line-number="1"><span class="kw">pR2</span>(m4_hurdle_gh)</a></code></pre></div>
-<pre><code>##           llh       llhNull            G2      McFadden          r2ML 
-## -4.086512e+03 -4.418554e+03  6.640846e+02  7.514728e-02  1.014340e-01 
-##          r2CU 
-##  1.336283e-01</code></pre>
+<pre><code>##           llh       llhNull            G2      McFadden          r2ML          r2CU 
+## -4.086512e+03 -4.418554e+03  6.640846e+02  7.514728e-02  1.014340e-01  1.336283e-01</code></pre>
 <div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb113-1" data-line-number="1"><span class="kw">summary</span>(m4_hurdle_gh)</a></code></pre></div>
 <pre><code>## 
 ## Call:
@@ -2529,10 +2495,8 @@ div.tocify {
 <a class="sourceLine" id="cb117-15" data-line-number="15">         , <span class="dt">data =</span> <span class="kw">subset</span>(d_funding_small_gh, total_earning <span class="op">&gt;</span><span class="st"> </span><span class="dv">100</span>))</a>
 <a class="sourceLine" id="cb117-16" data-line-number="16"></a>
 <a class="sourceLine" id="cb117-17" data-line-number="17"><span class="kw">vif</span>(m4_count_gh)</a></code></pre></div>
-<pre><code>## log_num_commit_total          log_size_GH                age30 
-##             2.862328             1.588383             1.343845 
-##            is_active               is_org      log_num_star_GH 
-##             1.246510             1.095493             1.911299</code></pre>
+<pre><code>## log_num_commit_total          log_size_GH                age30            is_active               is_org      log_num_star_GH 
+##             2.862328             1.588383             1.343845             1.246510             1.095493             1.911299</code></pre>
 <div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb119-1" data-line-number="1"><span class="kw">summary</span>(m4_count_gh)</a></code></pre></div>
 <pre><code>## 
 ## Call:
@@ -2587,7 +2551,7 @@ div.tocify {
 <a class="sourceLine" id="cb123-11" data-line-number="11"></a>
 <a class="sourceLine" id="cb123-12" data-line-number="12"><span class="kw">print_Anova_glm</span>(m4_hurdle_gh, <span class="st">&quot;who-gets-money-gh/anova_model_1.csv&quot;</span>)</a></code></pre></div>
 <pre><code>## % latex table generated in R 3.5.1 by xtable 1.8-4 package
-## % Thu Dec 26 12:10:26 2019
+## % Mon Jan 27 15:55:59 2020
 ## \begin{table}[ht]
 ## \centering
 ## \begin{tabular}{rrrrl}
@@ -2605,7 +2569,7 @@ div.tocify {
 ## \end{table}</code></pre>
 <div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb125-1" data-line-number="1"><span class="kw">print_Anova</span>(m4_count_gh, <span class="st">&quot;who-gets-money-gh/anova_model_2.csv&quot;</span>)</a></code></pre></div>
 <pre><code>## % latex table generated in R 3.5.1 by xtable 1.8-4 package
-## % Thu Dec 26 12:10:26 2019
+## % Mon Jan 27 15:55:59 2020
 ## \begin{table}[ht]
 ## \centering
 ## \begin{tabular}{rrrrrl}
@@ -2671,8 +2635,7 @@ div.tocify {
 <a class="sourceLine" id="cb128-14" data-line-number="14">                      <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb128-15" data-line-number="15"><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2000</span>),</a>
 <a class="sourceLine" id="cb128-16" data-line-number="16">                       <span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">100</span>, <span class="dv">1000</span>), <span class="dt">trans=</span><span class="st">'log10'</span>)</a></code></pre></div>
-<pre><code>## Scale for 'y' is already present. Adding another scale for 'y', which will
-## replace the existing scale.</code></pre>
+<pre><code>## Scale for 'y' is already present. Adding another scale for 'y', which will replace the existing scale.</code></pre>
 <pre><code>## Warning: Removed 751 rows containing non-finite values (stat_boxplot).</code></pre>
 <p><img src="data:image/png;base64,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" width="672" /></p>
 <div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb131-1" data-line-number="1"><span class="co"># ggsave(&quot;rdd_commits2.pdf&quot;, width=3, height=3)</span></a></code></pre></div>
@@ -2693,8 +2656,7 @@ div.tocify {
 <a class="sourceLine" id="cb132-15" data-line-number="15">                      <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb132-16" data-line-number="16"><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">1000</span>),</a>
 <a class="sourceLine" id="cb132-17" data-line-number="17">                       <span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">100</span>, <span class="dv">1000</span>), <span class="dt">trans=</span><span class="st">'log10'</span>)</a></code></pre></div>
-<pre><code>## Scale for 'y' is already present. Adding another scale for 'y', which will
-## replace the existing scale.</code></pre>
+<pre><code>## Scale for 'y' is already present. Adding another scale for 'y', which will replace the existing scale.</code></pre>
 <pre><code>## Warning: Removed 279 rows containing non-finite values (stat_boxplot).</code></pre>
 <p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABUAAAAPACAMAAADDuCPrAAABSlBMVEUAAAAAADoAAGYAOjoAOmYAOpAAZpAAZrYzMzM6AAA6ADo6OgA6Ojo6OmY6OpA6ZmY6ZpA6ZrY6kJA6kLY6kNtIVUBNTU1NTW5NTY5Nbm5Nbo5NbqtNjshmAABmOgBmOjpmZgBmZmZmZpBmkJBmkLZmkNtmtttmtv9uTU1ubk1ubo5ujqtujshuq+SOTU2Obk2Obm6Oq6uOyOSOyP+QOgCQZgCQZjqQkDqQkGaQkLaQtmaQtraQttuQ27aQ29uQ2/+rbk2rjm6ryOSr5P+2ZgC2Zjq2kDq2kGa2kJC2tpC2ttu229u22/+2/9u2///Ijk3Ijm7Iq27I5P/I///bkDrbkGbbtmbbtpDb27bb2//b/9vb///g7tjkq27kyI7kyKvk5Mjk////tmb/yI7/25D/27b/29v/5Kv/5Mj//7b//8j//9v//+T///8+MI4aAAAACXBIWXMAAB2HAAAdhwGP5fFlAAAgAElEQVR4nO2d66Mb1bmfxSW13UALPSCouZ3T5AS3gNMWTnqjjUlM0jZpfAq7kNRxUrYBG9v6/79Wd80saaS9Ztbo/b3rfZ4PYO299OjVSHo8kkbyZAYAAL2YWA8AAOAVAgoA0BMCCgDQEwIKANATAgoA0BMCCgDQEwIKANATAgoA0BMCCgDQEwIKANATAgoA0BMCCgDQEwIKANATAgoA0BMCCgDQk+IB/eGdyXO/zDvL3clrpacYlatcxYvJtc7fba/v09/+eDKZvPTT+/srcrfhYqjn/3DqkgGgKAIBvZj8aK8g0uyu4tfvdV3Vp590/q2wvb6XNyYr0g12uf+jqwy1CuiRSwaAstgH9Nsbk/dLDzEum6s4T1X3Vb3s+t32+l5OtrSXzv0DAtp9yQBQGPOAzivk9Snn8at69/CO9fb6LjP5s/vz5/HzHdHW0rsHdkpz6LhkACiNeUAv/O4vHb+q8z3NQ0+lt9d39zx98VS+sRN+eehZfQ4dlwwApbEO6Hy51x3QU1f17uY5dXKe9fW9mGyv+XyXc1e8ef5euDHsb5WDlwwAxbEO6MXE2yugO05c1cvJgR3B3fVtVPOisXLxwup/zT+S4fQlA0BxxgzoH9+bPzd97pXfb3/39KuX5j949f4uHvPVm9fr7i7S8t0v5md54ae7HzUac231o7l9uerlTxenv35v/nz35d8dGGR1jNBq1cF5jqqO/XJ1Fb+90XwD6LtfLC7thVcak8xTuLcj2Li+HXugi8IeKvPcttg+rau7WPv08/nu6su/bLyJdPiSAaA84wV08Yhf8eo6Gd+9u0nOthiNfaVFQD9vvyvdEdCL9arXZk8/3/4x5f9sjhHaBGtvnqOqY7/cD+j295PJi7u/Lw7sXTeu77fb5+nfNp6xz/987eCu7TKgmzfuX7m/vYC76xmaAXW9Xw/giNECuniTecOqYbufPP+3u05tH+nzP76UnONwQP/jdtXP7h4+Dmi1vuvSd/YjqmO/3A/o9veLK7fN2OVk7/XdxvVd/Hn5LvxXN3brVhnsCuhPNn8prK/BxWaTzU+2AnrgkgGgPKMFdNGUxbPlP7672XFb/GSx8/fVjea+3PZRv4zQ4hzLHdX31z/aD+h61deL5/qrAv1msteLRd1e/HS9a7i99P15OlXHftn4O2LVucWlvfqn+R++/82ksTfcatr+Txq7rZt99HVguwI6v06/a16D5d8Sf3N/9v2fEvX+JQPACIwV0EVTViV5ene1V7b4yc+WP/nunU0B5j/7UaMduxdGt4k7FNDts//GU/3kyMfdTy5Wf9qf57jq2C/3Atp4ObPxxwMH2jev72x1BOjC/vebn1y2C91kGdBr91vX4KKR63abjx3iDwClGCugjaYtevh+Ky2XjV2obW7u7p793t3V8kBA16u2mV362gFdX+TReY6rjv3yUEBfPLTDdzd9cbZ5fbevAUy2L5xu3mLqCuhm+2yuwUXjtYv2TufeJQPACIwU0NV7xmuWPWz+ZNuk5vE7d/d34w4H9NpOshbOU9R+xrpX1P15TqiO/XIvoMv3dv75f/lTui0uDgR0+4Ptqwxf/XiTxs13iHQFtLmtXptt9643Yza2wd4lA8AIjBTQVgKWOWv95O7+c/SOWnb/qCE8FND2i6L785xQHfvlXkC3b/C//J9a2b5Ix2hcocV51vVb/PHarFG97sOY2uKmfy+gvIsEMDrnDOjuAT52QPf6MW5AG4dILXcqO8doXKHk2KXV2/rronYEtHUNCCiAPQT0sCovoIsD6bcJ3T13PhbQ5qsMq73LxpFXK1qHcrYCyh4ogATnCOjy0XzWp/DHA3qxfQ20XEDnfP/f37uxO5D04BgHrtDu5ycDylN4ADFM3kTaviFyceWA7r8xf+I10O3u3UV66Y03kYoGdHnNWgeCHnsTqcce6KE3kboDyptIAKMz1mFMF1c6jKn5Zs/Rt9w377NcMaCNd87X6dyfp1xA0zof+jthe8U313f/NdC9bdii8abTdn13QDmMCeAcWBxI/0PXgfRpQC+2hz5eTLIC2jjs83J36fsH0hfaA23UubmjePRA+uRd+NZRV50H0r/WXt8ZUA6kBzgLBh/l/Prdro9ypgFd7Km++N8279DkBHR7kOVvmpe+N8+wgG5jubq0RdIW9u0oxz/Kubxyn262x/vJso6Pcm6vwfvN7bR3YXyUE+AsmHyZyO696vaXiaQBbRwd9JMbWQG92peJFAjoZPMCQXrNZie/TOTzxnlePbgNmywu7KXkMjoDypeJAJyF8b7O7od3t3VIvs5u8so/ND5ofuBLMbdh2Diee//bzICuv7Jk0njpM51ncEDX/yzcYt32y/Mmz/1sO8LdZMdylpRte6bdh+H3LnLL8oXWz9vrOwN64JIBoDxjfqHy14vDel5Iv1B58Q3F2wd442F/8BCf1VcwzxXZAT3whcrJPMMDOlt8CnPyN4s/ff/b5e7hy5/uXss89Dy6/bPvlyO+8NP0M6Ddn0RaPN3fre8KKM/gAc5D8YBehcbb1hV/9e+Jf9Ijk9Zb/QdIXl7lPXiAM3C+gDb2MBt7WD84/kfljnP439XofX1PBbSxF86/6AFwJs4X0N0xSa1vEXL8zxof59Q/a5xJRkD5Z40BzsT5Aro8bGfxz6H98RfNt6rnYahzF/Ru+iXPK/pe3xMBffoPu7+UOi4ZAEpzxtdAm/9wUOMRPt9fqvFV0MuuPc2e1/dYQNdfzbz92udK9+kB5DhjQJ/uvrDo1eYe0kWNO0zz3nU9je53fY8FdHU41fpL8Y9cMgCU5azvwq//8fSf/L710yof8Ucq2e/6Hgvo4pjX5zZ/KVX59xGAJiaHMQEA1AABBQDoCQEFAOgJAQUA6AkBBQDoCQEFAOgJAQUA6AkBBQDoCQEFAOgJAQUA6AkBBQDoCQEFAOgJAQUA6AkBBQDoSeGATggyjM+fD2I9FQSEgII/CCiIQEDBHwQURCCg4A8CCiIQUPAHAQURCCj4g4CCCAQU/EFAQQQCCv4goCACAQV/EFAQgYCCPwgoiEBAwR8EFEQgoOAPAgoiEFDwBwEFEQgo+IOAgggEFPxBQEEEAgr+IKAgAgEFfxBQEIGAgj8IKIhAQMEfBBREIKDgDwIKIhBQ8AcBBREIKPiDgIIIBBT8QUBBBAIK/iCgIAIBBX8QUBCBgII/CCiIQEDBHwQURCCg4A8CCiIQUPAHAQURCCj4g4CCCAeD9+T22+s/Pfvs1nT6wRenTux0BBTGh4CCCAeDd2+6DuiT29MFb355/ERDR0BhfAgoiHAgeM/uTTcBvTd964vZ4zvTt745eqKhI6AwPgQURNgP3l9/Pt0E9NGt5R7mk9tv/PrYiaaOgML4EFAQYS94D6bTD/+yDuiD7f8/OnaiqSOgMD4EFETYD+jNX80ervN4b/rx8v/L090nmjoCCuNDQEGEg8FbZ/HZnfUT9Ee33vqm+8TqPNdXEFAYHwIKIhBQ8AcBBRGuGNA3v+w+0dIRUBgfAgoiFNsDXesIKIwPAQURCCj4g4CCCMcCyrvwoAkBBRGOBnRzlOf60M+uE00dAYXxIaAgwtGA8kkkkISAgghHA/rszvTm9hPv3SeaOgIK40NAQYSjAZ09bn7nUveJho6AwvgQUBDheEBnjz+bV/KDb06d2OkIKIwPAQUR+EZ68AcBBREIKPiDgIIIBBT8QUBBBAIK/iCgIAIBBX8QUBCBgII/CCiIQEDBHwQURCCg4A8CCiIQUPAHAQURCCj4g4CCCAQU/EFAQQQCCv4goCACAQV/EFAQgYCCPwgoiEBAwR8EFEQgoOAPAgoiEFDwBwEFEQgo+IOAgggEFPxBQEEEAgr+IKAgAgEFfxBQEIGAgj8IKIhAQMEfBBREIKDgDwIKIhBQ8AcBBREIKPiDgIIIBBT8QUBBBAIK/iCgIAIBBX8QUBCBgII/CCiIQEDBHwQURCCg4A8CCiIQUPAHAQURCCj4g4CCCAQU/EFAQQQCCv4goCACAQV/EFAQgYCCPwgoiEBAwR8EFEQgoOAPAgoiEFDwBwEFEQgo+IOAgggEFPxBQEEEAgr+IKAgAgEFfxBQEIGAgj8IKIhAQMEfBBREIKDgDwIKIhBQ8AcBBREIKPiDgIIIBBT8QUBBBAIK/iCgIAIBBX8QUBCBgII/CCiIQEDBHwQURCCg4A8CCiIQUPAHAQURCCj4g4CCCAQU/EFAQQQCCv4goCACAQV/EFAQgYCCPwgoiEBAwR8EFEQgoOAPAgoiEFDwBwEFEQgo+IOAgggEFPxBQEEEAgr+IKAgAgEFfxBQEIGAgj8IKIhAQMEfBBREIKDgDwIKIhBQ8AcBBREIKPiDgIIIBBT8QUBBBAIK/iCgIAIBBX8QUBCBgII/CCiIQEDBHwQURCCg4A8CCiIQUL9cv249gRUEFEQgoH4hoAQUjCGgfiGgBBSMIaB+IaAEFIwhoH4hoAQUjCGgfiGgBBSMIaB+IaAEFIwhoH4hoAQUjCGgfiGgBBSMIaB+IaAEFIwhoH4hoAQUjLEJaNyHfknibkUCCiIQUL/E3YoEFEQgoH6JuxUJKIhAQP0SdysSUBCBgPol7lYkoCACAfVL3K1IQEEEAuqXuFuRgIIIBNQvcbciAQURCKhf4m5FAgoiEFC/xN2KBBREIKB+ibsVCSiI4DSgcdvRIO5GIKAgAgH1S9yNQEBBBALql7gbgYCCCATUL3E3AgEFEQioX+JuBAIKIhBQv8TdCAQURCCgfom7EQgoiEBA/RJ3IxBQEIGA+iXuRiCgIAIB9UvcjUBAQQQC6pe4G4GAgggE1C9xNwIBBREIqF/iboRdNF9/nYCCIQTUL3E3AgEFEQioX+JuBAIKIhBQv8TdCAQURCCgfom7EQgoiEBA/RJ3IxBQEIGA+iXuRiCgIAIB9UvcjUBAQQQC6pe4G4GAgggE1C9xNwIBBREIqF/ibgQCCiIQUL/E3QgEFEQgoH6JuxEIKIhAQP2OEHcCAgoiEFC/I8SdgICCCATU7whxJyCgIAIB9TtC3AkIKIgQNaDDH/px82U/AQEFEQionYEJ+kJAQQQCamdggr4QUBCBgNoZmKAvBBREIKB2BiboCwEFEQionYEJ+kJAQQQCamdggr4QUBCBgNoZmKAvBBREIKB2BiboCwEVw/6uaAUBtTMwQV8IqBj2d0UrCKidwXwCe0FPCKgY9g8GKwioncF8AntBTwioGPYPBisIqJ3BfAJ7QU+UAmp/PxAg7kYgoH5HqEDQk4IBdbsNpIi7EQio3xEqEPSEgIoRdyMQUL8jVCDoCQEVI+5GIKB+R6hA0BMCKkbcjUBA/Y5QgaAnBFSMuBuBgPodoQJBTwioGHE3AgH1O0IFgp4QUDHibgQC6neECgQ9IaBixN0IBNTvCBUIekJAxYi7EQio3xEqEPSEgIoRdyMQUL8jVCDoCQEVI+5GIKB+R6hA0BMCKkbcjUBA/Y5QgaAnBFSMuBuBgPodoQJBTwioGHE3AgH1O0JcAQEVI+5GIKB+R4grIKBixN2KBNTvCHEFBFSMuFuRgPodIa6AgIoRdysSUL8jxBUQUDHibkUC6neEuAICKkbcrUhA/Y4QV0BAxYi7FQmo3xHiCgioGHG3IgH1O0JcAQEVI+5WJKB+R4grIKBixN2KBNTvCHEFBFSMuFuRgPodIa6AgIoRdysSUL8jxBUQUDHibkUC6neEuAICKkbcrUhA/Y4QV0BAxbDfilY3AwH1O0JcAQEVw34rEtAs7AUCI8QVEFAx7LciAc3CXiAwQlwBARXDfisS0CzsBQIjxBUQUDHstyIBzcJeIDBCXAEBFcN+KxLQLOwFAiPEFRBQMey3IgHNwl4gMEJcAQEVw34rEtAs7AUCI8QVENCiE/Bg6A8B9TtCXAEBLToBD4b+EFC/I8QVENCiE/Bg6A8B9TtCXAEBLToBD4b+EFC/I8QVENCiE/Bg6A8B9TtCXAEBLToBD4b+EFC/I8QVENCiE/Bg6A8B9TtCXEFVAa1AIDACAc3CXiAwQlwBAdUSCIxAQLOwFwiMEFdAQLUEAiMQ0CzsBQIjxBUQUC2BwAgENAt7gcAIcQUEVEsgMAIBzcJeIDBCXAEB1RIIjEBAs7AXCIwQV0BAtQQCIxDQLOwFAiPEFRBQLYHACAQ0C3uBwAhxBQRUSyAwAgHNwl4gMEJcAQHVEgiMQECzsBcIjBBXQEC1BAIjENAs7AUCI8QVEFAtgcAIBDQLe4HACHEFBFRLIDACAc3CXiAwQlwBAdUSCIxAQLOwFwiMEFdAQLUEAiMQ0CzsBQIjxBUQUC2BwAgENAt7gcAIcQUEVEsgMIKVgID6HSGugIBqCQRGIKBZ2AsERogrIKBaAoERCGgW9gKBEeIKCKiWQGAEApqFvUBghLgCAqolEBiBgGZhLxAYIa6AgGoJBEYgoFnYCwRGiCsgoFoCgREIaBb2AoER4goIqJZAYAQCmoW9QGCEuAICqiUQGIGAZmEvEBghroCAagkERiCgWdgLBEaIKyCgWgKBEQhoFvYCgRHiCgiolkBgBAKahb1AYIS4AgKqJRAYgYBmYS8QGCGugIBqCQRGIKBZ2AsERogrIKBaAoERCGgW9gKBEeIKCKiWQGAEApqFvUBghLgCAqolEBiBgGZhLxAYIa6AgGoJBEYgoFnYCwRGiCsgoFoCgREIaBb2AoER4goIqJZAYAQCmoW9QGCEuAICqiUQGIGAZmEvEBghroCAagkERiCgWdgLBEaIKyCgWgKBEQhoFvYCgRHiCgiolkBgBAKahb1AYIS4AgKqJRAYgYBmYS8QGCGugIBqCQRG0A3ok9tvr//07LNb0+kHXxw4sdMRUATjCwiolkBgBN2A3puuA/rk9nTBm1/unWjoCCiC8QUEVEsgMIJqQJ/dm24Cem/61hezx3emb32TnmjoCCiC8QUEVEsgMIJoQP/68+kmoI9uLXc3n9x+49fJiaaOgCIYX0BAtQQCI2gG9MF0+uFf1gF9sP3/R8mJpo6AIhhfQEC1BAIjiAb05q9mD9etvDf9ePn/5enWiaaOgCIYX0BAtQQCI2gGdMG6kc/urJ+tP7r11jetE5vLX0JAEYwvIKBaAoERCGgW9gKBEeIKCKiWQGAETwF988vWiZaOgCIYX0BAtQQCI3gK6ME90LWOgCIYX0BAtQQCIxDQLOwFAiPEFRBQLYHACPIB5V14uRHiCgiolkBgBP2Abg75XB8H+lHrh1sdAUUwvoCAagkERtAPKJ9EUhshroCAagkERtAP6LM705vbj7+3TjR1BBTB+AICqiUQGEE/oLPHzS9gesy3MZmPEFdAQLUEAiM4COjs8WfzZH7wzYETOx0BRTC+gIBqCQRG0A1ono6AIhhfQEC1BAIjENAs7AUCI8QVEFAtgcAIBDQLe4HACHEFBFRLIDACAc3CXiAwQlwBAdUSCIxAQLOwFwiMEFdAQLUEAiMQ0CzsBQIjxBUQUC2BwAgENAt7gcAIcQUEVEsgMAIBzcJeIDBCXAEB1RIIjEBAs7AXCIwQV0BAtQQCIxDQLOwFAiPEFRBQLYHACAQ0C3uBwAhxBQRUSyAwAgHNwl4gMEJcAQHVEgiMQECzsBcIjBBXQEC1BAIjENAs7AUCI8QVEFAtgcAIBDQLe4HACHEFBFRLIDACAc3CXiAwQlwBAdUSCIxAQLOwFwiMEFdAQLUEAiMQ0CzsBQIjxBUQUC2BwAgENAt7gcAIcQUEVEsgMAIBzcJeIDBCXAEB1RIIjEBAs7AXCIwQV0BAtQQCIxDQLOwFAiPEFRBQLYHACAQ0C3uBwAhxBQRUSyAwAgHNwl4gMEJcAQHVEgiMQECzsBcIjBBXQEC1BAIjENAs7AUCI8QVEFAtgcAIBDSLqwuu51J+BASlBQRUSyAwAgHN4sqC7H5mmPsOj2CogIBqCQRGIKBZjJc5AupAQEC1BAIjENAsCGhoAQHVEgiMQECzIKChBQRUSyAwAgHNgoCGFhBQLYHACAQ0CwIaWkBAtQQCIxDQLAhoNEHrQInXD8LRaFYCgREIaBYENJjgem5AuRnPKBAYgYBmQUCDCdoL/3yQAuIeIJAYgYBmQUCDCQioskBgBAKaBQENJiCgygKBEQhoFgQ0mICAKgsERiCgWRDQYAICqiwQGIGAZkFAgwkIqLJAYAQCmgUBDSYgoMoCgREIaBYENJiAgCoLBEYgoFkQ0GACAqosEBiBgHatHPZ1yAS0DgEBVRYIjEBAOxYOLCgBrUNAQJUFAiNUGlDzHUgCWoeAgCoLBEaoM6D2O5AEtA4BAVUWCIxQa0Azz09AEVxhIQHVEgiMQEAPnsFeMHwhggICAqosEBiBgB48g71g+EIEBQQEVFkgMAIBPXgGe8HwhQgKCAioskBgBAJ68Az2guELERQQEFBlgcAIBPTgGewFwxciKCAgoMoCgREI6MEz2AuGL0RQQEBAlQUCIxDQg2ewFwxfiKCAgIAqCwRGIKAHz2AvGL4QQQEBAVUWCIxAQA+ewV4wG/pp1KtfUi6RBARUWSAwAgE9eAYFwVgFzVhIwgmoskBgBAJ68AwVCAYvFEi4vYCAKgsERiCgB89QgWDwQvsJBAQEVFkgMAIBPXiGCgSDF9pPICAgoMoCgREI6MEzVCAYvNB+AgEBAVUWCIxAQA+eoQLB4IX2EwgICGgJAW9HFhcQ0LEFgxfaTyAgIKAFBLwdWV5AQMcWDF5oP4GAgIAWEHBPKi8goGMLBi+0n0BAQEALCLgnlRcQ0LEFgxfaTyAgIKAFBNyTygsI6NiCwQvtJxAQENACAu5J5QUEdGzB4IX2EwgICGgBAfek8gICOrZg8EL7CQQEBLSAgHtSeQEBHVsweKH9BAICAlpAwD2pvICAji0YvNB+AgEBAS0g4J5UXkBAxxYMXmg/QQHB0AO4CWgBQRX3JDEBAR1bMHih/QQlLmlgQYcHdOgEg7eBvaCGe5KagICOLRi8cPgEY7VjvAdY+YBmb4PRbp7+gqHXwP6+XJ+AgI4tGLywwFUYqR2+Apo3wXg3T2/B4NvR/r5cn4CAji0YvLCCq0BASwhquCNUJyCgYwsGL6zgKhDQEoIa7gjVCQjo2ILBCyu4CgS0hKCGO0J1AgI6tiD/patTwvNfhfMt7FpPQOu4I1QnIKDjC6xf+hd43BDQAoIa7gjVCQgogpOCMy7sWk9A67gjVCcgoAhOCs64sGs9Aa3jjlCdgIAiOCk448Ku9QS0jjtCdQICiuCk4IwLu9YT0DruCNUJCCiCk4IzLuxaT0DruCNUJyCgCE4Kzriwa30NAeV4tgoFBBTBScEZF3atryCgHM9Wo4CAIjgpOOPCrvVVBHTgBPaC4QurExBQBCcFZ1zYtZ6AKgiGL6xOQEARnBSccWHXegKqIBi+sDoBAUVwUnDGhV3rCaiCYPjC6gQEFMFJwRkXdq0noAqC4QurExBQBCcFZ1zYtZ6AKgiGL6xOQEARnBSccWHXegKqICixcNixsMMnKCwgoAhOCs64sGs9AVUQDF44+FjY4aMWFhBQBCcFZ1zYtZ6AKggGL7SfoLSAgCI4KTjjwq71BFRBMPgZuMBdsbCAgCI4KTjjwq71BFRDMLCgAnfFwgICiuCk4IwLu9YTUARlFhYWEFAEJwVnXNi1noAiKLOwsICAIjgpOOPCrvUEFEGZhYUFBBTBScEZF3atJ6AIyiwsLCCgCE4Kzriwaz0BRVBmYWEBAUVwUnDGhV3rCSiCMgsLCwgogpOCMy7sWk9AEZRZWFhAQBGcFJxxYdd6AoqgzMLCAgKK4KTgjAu71hNQBGUWFhYQUAQnBWdc2LWegCIos7CwgIAiOCk448Ku9QIBNf8cOIISCwsLCCiCk4IzLuxabx9Q+8+BIyixsLCAgCI4KRi881VHQBHYC4YvLCwgoAiuIBhaUAKKoIhg+MLCAgKKYHwBAUVQRjB8YWEBAUUwvoCAIigjGL6wsICAIhhfQEARlBEMX1hYQEARjC8goAjKCIYvLCwgoAjGFxBQBGUEwxcWFhBQBOMLCCiCMoLhCwsLCCiC8QUEFEEZwfCFhQUEFMH4AgKKoIxg+MLCAgKKYHwBAUVQRjB8YWEBAUUwvoCAIigjGL6wsICAIhhfUCKgTV4/SNEPkwpuRQQlFhYWEFAE4wsIKIIyguELCwsIKILxBQQUQRnB8IWFBQQUwfgCAoqgjGD4wsICAopgfAEBRVBGkNwRrkDvS7oaBBTB+IISAW2e4l34uIKxCkpAEcgKCCgCEcHwhW3qD+jAv7EUroJ7AQFFICIYvrANASWg4wsIKAIRwfCFbQgoAR1fQEARiAiGL2xDQAno+AICikBEMHxhGwJKQMcXEFAEIoLhC9vUH1AE9gICikBEMHxhGwKKYHwBAUUgIhi+sA0BRTC+gIAiEBEMX9iGgCIYX0BAEYgIhi9sQ0ARjC8goAhEBMMXtiGgCMYXEFAEIoLZwKNyUggogvEF+fdaAopgJEHZghJQBOMLCCiCWgQJBBTB+AICiqAWQQIBRTC+gIAiqEWQQEARjC8goAhqESQQUATjC7INBBSBqCCBgCIYX0BAEdQiSBg7oAOfutlvLwQEFAGCLghoBIH1rUBAEdQiSCCgEQTWtwIBRVCLIIGARhBY3woEFEEtggQCGkFgfSsQUAS1CBLk34W3fuwrTOD+KhBQBLUIEgiogwncCwgogloECQTUwQTuBQQUQS2CBALqYAL3AgKKoBZBAgF1MIF7AQFFUIsgQT6gCCoQEFAEtQgSCCiC8QUSAeWZBAICisCjgIAiqEWQQEARjC8goAhqESQQUATjCwgogloECQQUwfgCAoqgFkECAXUgcP/Qlwho3gSSdwQE9oIEAupAQEAJKAIRQQIBdSAgoAQUgYgggYA6EBBQAopARJBAQB0ICCgBRSAiSCCgCMYXEFAEtSBZGmUAABuBSURBVAgSCCiC8QUEtIzA/VORCgQJBBTB+AICWkZAQO0FCQQUwfgCAlpGQEDtBQkEFMH4AgJaRkBA7QUJBBTB+AICWkZAQO0FCQQUwfgCAoqgFkECAUVwBcHAXR8CKiJgF5aAIjAQENA6BASUgCIwEBDQOgQElIAiMBAQ0DoEBJSAIjAQENA6BASUgCLwJyCgCGoRJBBQBOMLCCiCWgQJBBTB+AICiqAWQQIBRTC+gIAiqEWQQEARjC8goAhqESQQUATjCwgogloECQQUwfgCAoqgFkECAUUwvoCAIqhFkEBAxxdw9DIBrUXAfTmBgI4v4E5HQGsRcF9OIKDjC7jTEdBaBNyXEwjo+ALudAS0FgH35QQCOr6AOx0BrUXAfTmBgCIYX0BAEdQiSCCgCMYXEFAEtQgSCCiC8QUEFEEtggQCimB8QR0BHfz6Hy8gViBIIKAIxhcQ0DKCwVcBAQFF4E9AQMsIBl8FBAQUgT8BAS0jGHwVEBBQBP4EBLSMYPBVQEBAEfgT1BFQBAj2IKAIxhcQUAS1CBIIKILxBQQUQS2CBAKKYHwBAUVQiyCBgCIYX0BAEdQiSCCgCMYXEFAEtQgSCCiC8QUEFEEtggQCimB8AQFFUIsggYAiGF9AQBHUIkggoAjGFxBQBLUIEuoPKJ+fsxcQUAS1CBIIKAEdX0BAEdQiSKg9oEPXCVyFCgQlAtrk9YMc+3tQYCMgqEKQQEBLLew6A4IeBgKKQFSQQEBLLew6A4IehhPrd0/bX3/98FP4XOPpMyBAcAACWmph1xkQ9DAQUASiggQCWmph1xkQ9DAQUASiggQCWmph1xkQ9DAQUASiggQCWmph1xkQ9DAQUASiggQCWmph1xkQ9DAQUASiggQCWmph1xkQ9DAQ0FoF9p9rGThBAgEttbDrDAh6GAhorQICelxHQBXvtdYCAopgfZqAHtcRUMV7rbWAgCJYnyagx3UEVPFeay0goAjWpwnocR0BVbzXWgsIKIJaBAmZAX1y++31n559dms6/eCLVEdA9W5yewEBRVCLICEzoPem64A+uT1d8OaXiY6A6t3k9gICiqAWQUJWQJ/dm24Cem/61hezx3emb33T1hFQvZvcXkBAEdQiSMgJ6F9/Pt0E9NGt5b7nk9tv/LqtI6B6N7m9gIAiqEWQkBHQB9Pph39ZB/TB9v8ftXUEVO8mtxcQUAS1CBJyAnrzV7OH63Dem368/P/m9FZHQPVucnsBAUVQSmB9HFRC5ptI62A+u7N+6v7o1uZF0PW0BFTxTmctIKAISgkI6DEIaJUCAoqglKC2gLYPZOIpvOSdzlpAQBGUEtQW0PZxTARU8k5nLSCgCEoJCOgxCGiVAgKKoBZBQr+A8i781c+AoIeBgCIQFST0DOjm+E+OAz15BgQ9DAQUgaggoWdA+STSlc+AoIeBgCIQFST0DOizO9ObfBb+SmdA0MNAQBGIChJ6BnT2mG9juuIZEPQwEFAEooKEvgGdPf5s3s8Pvkl+T0AFb3J7AQFFUIsgYexvpBc7aitfbH+LVSDocUc46iegCKwECQS01MKuMyCYEVAE1QgSxg1oF+fLl/0ECEosbENAEVgJEgjo2BMgKLGwDQFFYCVIIKBjT4CgxMI2BBSBlSCBgI49AYISC9sQUARWggQCOvYECEosbENAEVgJEgjo2BMgKLGwDQFFYCVIIKBjT4CgxMI2BBSBlSCBgI49AYISC9sQUARWggQCOvYECEosbENAEVgJEgjo2BMgKLGwDQFFYCVIIKBjT4CgxMI2vQJq/aliBFUIEgjo2BMgKLGwDQFFYCVIIKBjT4CgxMI2PQI6eAL7rYhAQZBAQMeeAEGJhW0IKAIrQQIBHXsCBCUWtiGgCKwECQR07AkQlFjYhoAisBIkENCxJ0BQYmEbAorASpBAQMeeAEGJhW0IKAIrQQIBHXsCBCUWtiGgCKwECQR07AkQlFjYhoAisBIkENCxJ0BQYmEbAorASpBAQMeeAEGJhW0IKAIrQQIBHXsCBCUWtiGgCKwECQR07AkQlFjYhoAisBIkENCxJ0BQYmEbAorASpAgH9CB36FTYIIrLuw6A4ISC9sQUARWggQCWmph1xkQlFjYhoAisBIkiAfUXmB/i1UgGL6wDQFFYCVIIKClL0nvJrcXDF/YhoAisBIkENDSl6R3k9sLhi9sQ0ARWAkSCGjpS9K7ye0Fwxe2IaAIrAQJBLT0Jend5PaC4QvbEFAEVoIEAlr6kvRucnvB8IVtCCgCK0ECAS19Sfu32MAjsezvMwQ0Z2HXGRBUIUggoKUviYAS0INnQFCFIIGAlr6k4mb7+4z9NkggoAisBAkEtPQlEVACevAMCKoQJBDQ0pdEQAnowTMgqEKQQEBLXxIBJaAHz4CgCkECAS19SQSUgB48A4IqBAkEtPQlEVACevAMCKoQJBDQ0pekGFDrA6mGL2xDQBFYCRIIaOlLIqAE9OAZEFQhSCCgpS9JL6AVTJBAQBFYCRIIaOlLqjBf9hMkEFAEVoIEAlr6kirMl/0ECQQUgZUggYCeXDjwBcTBI9jny36ChKgBtX4tG8EeBPTkQgJqP0ECASWgVoIEAio/gn2+7CdIiBnQoesErkIFggQCKj+Cfb7sJ0ggoL3E9lehAkECAZUfwT5f9hMkENBeYvurUIEggYDKj2CfL/sJEghoL7H9VahAkEBA5Uewz5f9BAkEtJfY/ipUIEggoPIj2OfLfoIEAtpLbH8VKhAkEFD5EezzZT9BAgHtJba/ChUIEgio/Aj2+bKfIIGA9hLbX4UKBAkEVH4E+3zZT5BAQHuJORKfgMoICOg5J0ggoL3EBJSAyggI6DknSCCgg8S9BfbbwF6QQEDlR7DPl/0ECQR0kLi3wH4b2AsSCKj8CPb5sp8ggYAOEvcW2G8De0ECAZUfYfArVxVMkOA0oCNtRQJ6TkECAZUfwT5f9hMkENBBk/UW2OfLXpBAQP2OEFfgMqDFxHYC+3zZCxIIqN8R4goIqI3APl/2ggQC6neEuAICaiOwz5e9IIGA+h0hroCA2gjs82UvSCCgfkeIKyCgNgL7fNkLEgio3xHiCgiojcA+X/aCBALqd4S4AgJqI7DPl70ggYD6HSGugIDaCOzzZS9IIKB+R4grIKA2Avt82QsSCKjfEeIKCKiNwD5f9oIEAup3hLgCAmojsM/X4M/DElARgcAIcQUE1EZAQPcgoH5HiCsgoDYC+4AOXkhARQQCI8QVEFAbAQHdg4D6HSGugIDaCAjoHgTU7whxBQTURkBA9yCgfkeIKyCgNgICugcB9TtCXAEBtREQ0D0IqN8R4goIqI2AgO5BQP2OEFdAQG0EBHQPAup3hLgCAmojIKB7EFC/I8QV2AR04GdgBk9gLygQ0JE2IgHNw14gMEJcAQG1ERDQPQio3xHiCiwCikDhGfhgAQEVEQiMEFdAQG0EBHQPAup3hLgCAmojIKB7EFC/I8QVEFAbAQHdg4D6HSGugIDaCAjoHgTU7whxBQTURkBA9yCgfkeIKyCgNgICugcB9TtCXAEBtREQ0D0IqN8R4goIqI2AgO5BQP2OEFdAQG0EBHQPAup3hLgCAmojIKB7EFC/I8QVEFAbAQHdg4D6HSGugIDaCAjoHgTU7whxBQTURkBA9yCgfkeIKyCgNgICugcB9TtCXAEBtREQ0D0IqN8R4goIqI2AgO5BQP2OEFdAQG0EBHQPAup3hLgCAmojIKB7EFC/I8QVEFAbAQHdg4D6HSGugIDaCAjoHgTU7whxBQTURkBA9yCgfkeIKyCgNgICugcB9TtCXAEBtREQ0D0IqN8R4goIqI2AgO5BQP2OEFdAQG0EBHQPAup3hLgCAmojIKB7EFC/I8QVEFAbAQHdg4D6HSGugIDaCAjoHgTU7whxBQTURnA9n9IjDBUQUBGBwAhxBQTURkBA9yCgfkeIKyCgWgKBEQhoFvYCgRHiCgiolkBgBAKahb1AYIS4AgKqJRAYgYBmYS8QGCGugIBqCQRGIKBZ2AsERogrIKBaAoERCGgW9gKBEeIKCKiWQGAEApqFvUBghLgCAqolEBiBgGZhLxAYIa6AgGoJBEYgoFnYCwRGiCsgoFoCgREIaBb2AoER4goIqJZAYAQCmoW9QGCEuAICqiUQGIGAZmEvEBghroCAagkERiCgWdgLBEaIKyCgWgKBEQhoFvYCgRHiCgiolkBgBAKahb1AYIS4AgKqJRAYgYBmYS8QGCGugIBqCQRGIKBZ2AsERogrIKBaAoERCGgW9gKBEeIKCKiWQGAEApqFvUBghLgCAqolEBiBgGZhLxAYIa6AgGoJBEYgoFnYCwRGiCsgoFoCgRGuHtCy/y4eAfU7QlwBAdUSCIxAQLOwFwiMEFdAQLUEAiNYCQio3xHiCgiolkBgBAKahb1AYIS4AgKqJRAYgYBmYS8QGCGugIBqCQRGIKBZ2AsERogrIKBaAoERCGgW9gKBEeIKCKiWQGAEApqFvUBghLgCAqolEBiBgGZhLxAYIa6AgGoJBEYgoFnYCwRGiCsgoFoCgREIaBb2AoER4goIqJZAYAQCmoW9QGCEuAICqiUQGIGAZmEvEBghroCAagkERiCgWdgLBEaIKyCgWgKBEQhoFvYCgRHiCgiolkBgBAKahb1AYIS4AgKqJRAYgYBmYS8QGCGugIBqCQRGIKBZ2AsERogrIKBaAoERCGgW9gKBEeIKCKiWQGAEApqFvUBghLgCAqolEBiBgGZhLxAYIa6AgGoJBEYgoFnYCwRGiCsgoFoCgREIaBb2AoER4goIqJZAYAQCmoW9QGCEuAICqiUQGIGAZmEvEBghroCAagkERiCgWdgLBEaIKyCgWgKBEQhoFvYCgRHiCgiolkBgBAKahb1AYIS4AgKqJRAYgYBmYS8QGCGugIBqCQRGIKBZ2AsERogrIKBaAoERCGgW9gKBEeIKCKiWQGAEApqFvUBghLgCAqolEBiBgGZhLxAYIa6AgGoJBEYgoFnYCwRGiCsgoFoCgREIaBb2AoER4goIqJZAYAQCmoW9QGCEuAICqiUQGIGAZmEvEBghroCAagkERiCgWdgLBEaIKyCgWgKBEQhoFvYCgRHiCgiolkBgBAKahb1AYIS4AgKqJRAYgYBmYS8QGCGugIBqCQRGIKBZ2AsERogrIKBaAoERCGgW9gKBEeIKCKiWQGAEApqFvUBghLgCAqolEBiBgGZhLxAYIa6AgGoJBEYgoFnYCwRGiCsgoFoCgREIaBb2AoER4goIqJZAYAQCmoW9QGCEuAICqiUQGIGAZmEvEBghroCAagkERiCgWdgLBEaIKyCgWgKBEQhoFvYCgRHiCgiolkBgBAKahb1AYIS4AgKqJRAYgYBmYS8QGCGugIBqCQRGIKBZ2AsERogrIKBaAoERCGgW9gKBEeIKCKiWQGAEApqFvUBghLgCAqolEBiBgGZhLxAYIa6AgGoJBEYgoFnYCwRGiCsgoFoCgREIaBb2AoER4goIqJZAYAQCmoW9QGCEuAICqiUQGIGAZmEvEBghroCAagkERiCgWdgLBEaIKyCgWgKBEQhoFvYCgRHiCgiolkBgBAKahb1AYIS4AgKqJRAYgYBmYS8QGCGugIBqCQRGIKBZ2AsERogrIKBaAoERCGgW9gKBEeIKCKiWQGAEApqFvUBghLgCAqolEBiBgGZhLxAYIa6AgGoJBEYgoFnYCwRGiCsgoFoCgREIaBb2AoER4goIqJZAYAQCmoW9QGCEuAICqiUQGIGAZmEvEBghroCAagkERiCgWdgLBEaIKyCgWgKBEQhoFvYCgRHiCgiolkBgBAKahb1AYIS4AgKqJRAYgYBmYS8QGCGugIBqCQRGIKBZ2AsERogrIKBaAoERCGgW9gKBEeIKCKiWQGAEApqFvUBghLgCAqolEBiBgGZhLxAYIa6AgGoJBEYgoFnYCwRGiCsgoFoCgREIaBb2AoER4goIqJZAYAQCmoW9QGCEuAICqiUQGIGAZmEvEBghroCAagkERiCgWdgLBEaIKyCgWgKBEQhoFvYCgRHiCgiolkBgBAKahb1AYIS4AgKqJRAYgYBmYS8QGCGugIBqCQRG8BjQJ7ff3tMRUATjCwiolkBgBI8BvTcloAgsBARUSyAwgr+APrs3JaAITAQEVEsgMIK7gP7151MCisBGQEC1BAIjeAvog+n0w78QUAQmAgKqJRAYwV1Ab/5q9pCAIjAREFAtgcAI3gK6oBXQ6ysKHxYFcIA/H8R6KggIAQV/EFAQoVhA1zoCCuNDQEEEAgr+IKAgAgEFfxBQEIGAgj8IKIhAQMEfBBREIKDgDwIKIhBQ8AcBBREIKPiDgIIIBBT8QUBBBJtvpAcYAgEFEQgo+IOAgggEFPxBQEEEAgr+IKAgAgEFfxBQEIGAgj8IKIhAQMEfBBREIKDgDwIKIhBQ8AcBBREIKPiDgIIIBBT8QUBBBAIK/iCgIAIBBX8QUBCBgII/CCiIQEDBHwQURCCg4A8CCiIQUPAHAQURCCj4g4CCCAQU/EFAQQQCCv4goCACAQV/EFAQgYCCPwgoiEBAwR8EFEQgoOAPAgoiEFDwBwEFEYoHFACgWsYN6LkKev36mS5IeQQmYAKNCQRGONsEIwf0TFy/bj2BwAhMwAQaEwiMYDUBAfU7AhMwgcYEAiMQ0CzsbzCBEZiACTQmEBiBgGZhf4MJjMAETKAxgcAIBDQL+xtMYAQmYAKNCQRGIKBZ2N9gAiMwARNoTCAwAgHNwv4GExiBCZhAYwKBEQgoAIAzCCgAQE8IKABATwgoAEBPCCgAQE8IKABATwgoAEBPCCgAQE+8BvTxv51Opx98YTnCs3+8NZ3+y39vOcKcR7fe+sbu0v86vxneMLsZnn12y/hOYHv9N9jeBwQeCIY1cBrQR/ObbM4bv7Yb4fHt5QjTD+1GmPPsztTwwfOPU8ub4cnqFnjzS5NLX2B7/TfY3gcEHgiWNfAZ0MVd5ovZY8s7znyEm1/Mnv1v40fPg6nhNng4fWO+3zG/GWwads/6TmB8/TeY3gcEHgimNfAZ0Ee3lnfZJ7ft6vVw/ah5MH3baoTZ6u9eswfP/I778eL/8z3Bjw0u3vxOYHz9N5jeBxQeCKZ3BJ8Bfbi6sTb3YAMML7o9xb+ze/3rye31nte96UcGF795xD4wufSZ+fVfY3sfUHggmNbAZ0DNdz52Dx5T7k3fNn4DYT3GRyaXunq8PDR9DrCa5CPLCze9Dwg8ENgDzWb7qofZQ2dxn/3Lv55Ob/7KaoLZIh1vfSMQUJt77rM760s13wKWrySZ3wcEHgimNfAZ0Nmz1fufH1rebz5bvfn4kdUIqweueT6sXv3SCajly+Dm9wGFB4JlDZwG9NHPl5vsptkReA9XN9j8prPb+1g+czTPx+K9aItN0Aio7ZNIo+u/wvw+oPBAsKyBz4A+umV9oz3c/I17z2z348HyvVfzgD689YbJuwgqe6BW13+J/X1A4IFgWgNXAX24eq7w8fZV+/PfaJsRHt2yevgmExg8eLY3w4IHVn+JiQTU7PovsLsPpCNYDmFXg5nTgBo+dnb5Wj9vPPsTyM0ED6ZbjCZY/NnwSYDEu/CWz1yXh9Ab3Qe22D0QNtj+TeoqoBsEdj62Izy0OohZ4MEze3ZvetPs9cfN8Z9mx4EaX/+ZxH3A/oFAQPMx3WnfjPB2axQrTJ/A3rP8CIz9wcC213+H8X3A+oHAU/hsHgq883dr8fUvpiOs57B78Dww7cfqQ9iWn4W3vf47TANq/0AwrYHPgG6fu3xkN8LD9VfAGH+QzfDBs/42pAUmTwQeG38bk/X132L7Npr9A8GyBk4DOvt/i28A/DemX8T4ePFtlLYjzEwfPA+nxgF5vDiE+wPTQyAJqMIDwbAGXgMKAGAOAQUA6AkBBQDoCQEFAOgJAQUA6AkBBQDoCQEFAOgJAQUA6AkBBQDoCQEFAOgJAQUA6AkBBQDoCQEFAOgJAYVz8+0/fflf/c/dyadf/91L1zLO/sM7k9cO/uLu5Ef3j53xYvL8HzIuB+A0BBTOzbc3JpPnfrk9eTmZTK4W0K/+2SKQBBR0IKBwbhYBbTTw7lUDug4kAQUdCCicm3lAX9q17od3nvtxmYCegoBCcQgonJt5QH9yY/sc/nLyTz4hoOAUAgrnZh7Qn32yjeDdxQkCCj4hoHBu5gF9/2LzHP6Hd57/X9uAfveLxftLr/x+/ZvJa09/++PJ5IWfLpZeTJa8lv58xyqwB3799Xtz66v3twFtXszlZD3JxVXfygLYQUDh3CwC+u3mOfzl5NrTTUDXjZw89/eLU/MS/ot3Vz948Q/tgL7yzupE+02jbUCbZ5vN5volz/9iHdDNxUxeXZ1r8v5qKPZPIRsCCudmEdCnm+fwd+f7i+uAzsP24u9msz++u0ravITzlN6ffffJ+j373VP4yXM/bfx8wzag6dkmr96fPf180dA/rC5msfP5/eergs7Xz3+8qOz7Z9wGUAkEFM7NIqCzi00Nn/vlOqDzkq32KOenF6VblPD99enlLxoBbf18wy6gzV/PL22V2YtVQOen10/VL1ZHoy6fu/MEHnpBQOHcLAO6fg5/OY/cOqAX26PrV83bBnVexuWu4y6g7Z9v2Aa09evtotWuZuOtpPXlLnr9nyc8gYc+EFA4N8uArt9Lnz+D34Rsl8P5765t/rvgIg1o++cbtgFt/vrp7i3+u8npjXB5YD9P4KEPBBTOzTKgq3o9/WS+17lqWuMJ+eqPu8OV9gLa/vmG3bvwjV/vero93WD3rhJP4KEPBBTOzSqgl4tn7N/eWFZ0HdD2rmGxgG7eaeoM6GIXlB1Q6AMBhXOzCuiybBeLup17DzTd2Vwe53T8Y/QAhyGgcG5WAZ337tryGfyR10ALBPTAa6BpK+fP4P9u0vPTTRAcAgrnZh3Qy8nz/2PxDH62fRd+8zz6crJ+F75AQHeL1kdH3d2+2b87zulH//eT5hfsAVwVAgrnZh3Qeele2hxH1HEcaImAbo/73B0Hut4FvZys94SXL8byJB56QEDh3KwDuvwi0MUfDnwSaZHAvVAuDhR9+qfcgK4/edT6JNKLn84v9TerFz4vJ+sXEHgSD/kQUDg3m4Cudwl3L1PufRa+XcLFV9fPV+YGdPb5+pPx/yH9LPx6+fKn8//zJB6yIaBwbjYB3Ty5fpp8G9Orf1qe2C/hV/PfXrufHdDZH/e+jenH83y+/OnqTOtXXi85FhTyIaAAAD0hoAAAPSGgAAA9IaAAAD0hoAAAPSGgAAA9IaAAAD0hoAAAPSGgAAA9IaAAAD0hoAAAPSGgAAA9IaAAAD0hoAAAPSGgAAA9IaAAAD0hoAAAPSGgAAA9IaAAAD0hoAAAPfn/JAF1A12GAlsAAAAASUVORK5CYII=" width="672" /></p>
 <div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb135-1" data-line-number="1"><span class="co"># ggsave(&quot;rdd_commits_cry.pdf&quot;, width=3, height=3)</span></a></code></pre></div>
@@ -2714,11 +2676,8 @@ div.tocify {
 <a class="sourceLine" id="cb136-14" data-line-number="14">         , <span class="dt">REML =</span> <span class="ot">FALSE</span>)</a>
 <a class="sourceLine" id="cb136-15" data-line-number="15"><span class="co"># vif.mer(m)</span></a>
 <a class="sourceLine" id="cb136-16" data-line-number="16"><span class="kw">summary</span>(m)</a></code></pre></div>
-<pre><code>## Linear mixed model fit by maximum likelihood . t-tests use Satterthwaite's
-##   method [lmerModLmerTest]
-## Formula: 
-## log(num_commit + 0.001) ~ log(earnings) + month_index + intervention +  
-##     month_after + (1 | project_id)
+<pre><code>## Linear mixed model fit by maximum likelihood . t-tests use Satterthwaite's method ['lmerModLmerTest']
+## Formula: log(num_commit + 0.001) ~ log(earnings) + month_index + intervention +      month_after + (1 | project_id)
 ##    Data: d
 ## 
 ##      AIC      BIC   logLik deviance df.resid 
@@ -2786,11 +2745,8 @@ div.tocify {
 <pre><code>## log(earnings1k)     month_index    intervention     month_after 
 ##        1.000003        9.603271        4.717556        5.756132</code></pre>
 <div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb143-1" data-line-number="1"><span class="kw">summary</span>(m_commits)</a></code></pre></div>
-<pre><code>## Linear mixed model fit by maximum likelihood . t-tests use Satterthwaite's
-##   method [lmerModLmerTest]
-## Formula: 
-## log(num_commit + 0.001) ~ log(earnings1k) + month_index + intervention +  
-##     month_after + (1 | project_id)
+<pre><code>## Linear mixed model fit by maximum likelihood . t-tests use Satterthwaite's method ['lmerModLmerTest']
+## Formula: log(num_commit + 0.001) ~ log(earnings1k) + month_index + intervention +      month_after + (1 | project_id)
 ##    Data: d
 ## 
 ##      AIC      BIC   logLik deviance df.resid 
@@ -2858,10 +2814,8 @@ div.tocify {
 <pre><code>##  month_index intervention  month_after 
 ##         9.50         4.75         5.75</code></pre>
 <div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb149-1" data-line-number="1"><span class="kw">summary</span>(m_commits)</a></code></pre></div>
-<pre><code>## Linear mixed model fit by maximum likelihood . t-tests use Satterthwaite's
-##   method [lmerModLmerTest]
-## Formula: log(num_commit + 0.001) ~ +month_index + intervention + month_after +  
-##     (1 | project_id)
+<pre><code>## Linear mixed model fit by maximum likelihood . t-tests use Satterthwaite's method ['lmerModLmerTest']
+## Formula: log(num_commit + 0.001) ~ +month_index + intervention + month_after +      (1 | project_id)
 ##    Data: d
 ## 
 ##      AIC      BIC   logLik deviance df.resid 
@@ -2930,11 +2884,8 @@ div.tocify {
 <a class="sourceLine" id="cb154-15" data-line-number="15">         , <span class="dt">REML =</span> <span class="ot">FALSE</span>)</a>
 <a class="sourceLine" id="cb154-16" data-line-number="16"><span class="co"># vif.mer(m)</span></a>
 <a class="sourceLine" id="cb154-17" data-line-number="17"><span class="kw">summary</span>(m)</a></code></pre></div>
-<pre><code>## Linear mixed model fit by maximum likelihood . t-tests use Satterthwaite's
-##   method [lmerModLmerTest]
-## Formula: 
-## log(num_closed + 0.001) ~ log(earnings) + month_index + intervention +  
-##     month_after + (1 | project_id)
+<pre><code>## Linear mixed model fit by maximum likelihood . t-tests use Satterthwaite's method ['lmerModLmerTest']
+## Formula: log(num_closed + 0.001) ~ log(earnings) + month_index + intervention +      month_after + (1 | project_id)
 ##    Data: d
 ## 
 ##      AIC      BIC   logLik deviance df.resid 
@@ -3032,10 +2983,8 @@ div.tocify {
 <pre><code>##   log(earnings) log(num_closed)     month_index    intervention     month_after 
 ##        1.021762        1.025446        9.725914        4.516888        5.834653</code></pre>
 <div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb163-1" data-line-number="1"><span class="kw">summary</span>(m_speed)</a></code></pre></div>
-<pre><code>## Linear mixed model fit by maximum likelihood . t-tests use Satterthwaite's
-##   method [lmerModLmerTest]
-## Formula: 
-## log(how_quickly_closed) ~ log(earnings) + log(num_closed) + month_index +  
+<pre><code>## Linear mixed model fit by maximum likelihood . t-tests use Satterthwaite's method ['lmerModLmerTest']
+## Formula: log(how_quickly_closed) ~ log(earnings) + log(num_closed) + month_index +  
 ##     intervention + month_after + (1 | project_id)
 ##    Data: d
 ## 
@@ -3103,13 +3052,10 @@ div.tocify {
 <a class="sourceLine" id="cb169-15" data-line-number="15">         , <span class="dt">data =</span> d</a>
 <a class="sourceLine" id="cb169-16" data-line-number="16">         , <span class="dt">REML =</span> <span class="ot">FALSE</span>)</a>
 <a class="sourceLine" id="cb169-17" data-line-number="17"><span class="kw">vif.mer</span>(m_speed)</a></code></pre></div>
-<pre><code>## log(num_closed + 0.001)             month_index            intervention 
-##                1.014377                9.557724                4.750112 
-##             month_after 
-##                5.831902</code></pre>
+<pre><code>## log(num_closed + 0.001)             month_index            intervention             month_after 
+##                1.014377                9.557724                4.750112                5.831902</code></pre>
 <div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb171-1" data-line-number="1"><span class="kw">summary</span>(m_speed)</a></code></pre></div>
-<pre><code>## Linear mixed model fit by maximum likelihood . t-tests use Satterthwaite's
-##   method [lmerModLmerTest]
+<pre><code>## Linear mixed model fit by maximum likelihood . t-tests use Satterthwaite's method ['lmerModLmerTest']
 ## Formula: log(how_quickly_closed + 0.001) ~ +log(num_closed + 0.001) +  
 ##     month_index + intervention + month_after + (1 | project_id)
 ##    Data: d
@@ -3197,10 +3143,8 @@ div.tocify {
 <a class="sourceLine" id="cb178-18" data-line-number="18">         , <span class="dt">data =</span> <span class="kw">subset</span>(d, earning_after_adoption <span class="op">&gt;=</span><span class="st"> </span><span class="dv">1000</span>)</a>
 <a class="sourceLine" id="cb178-19" data-line-number="19">         , <span class="dt">REML =</span> <span class="ot">FALSE</span>)</a>
 <a class="sourceLine" id="cb178-20" data-line-number="20"><span class="kw">summary</span>(m)</a></code></pre></div>
-<pre><code>## Linear mixed model fit by maximum likelihood . t-tests use Satterthwaite's
-##   method [lmerModLmerTest]
-## Formula: log(num_closed_external + 0.001) ~ log_earnings + month_index +  
-##     intervention + month_after + (1 | project_id)
+<pre><code>## Linear mixed model fit by maximum likelihood . t-tests use Satterthwaite's method ['lmerModLmerTest']
+## Formula: log(num_closed_external + 0.001) ~ log_earnings + month_index +      intervention + month_after + (1 | project_id)
 ##    Data: subset(d, earning_after_adoption &gt;= 1000)
 ## 
 ##      AIC      BIC   logLik deviance df.resid 
@@ -3283,11 +3227,8 @@ div.tocify {
 <a class="sourceLine" id="cb186-18" data-line-number="18">         , <span class="dt">data =</span> d</a>
 <a class="sourceLine" id="cb186-19" data-line-number="19">         , <span class="dt">REML =</span> <span class="ot">FALSE</span>)</a>
 <a class="sourceLine" id="cb186-20" data-line-number="20"><span class="kw">summary</span>(m)</a></code></pre></div>
-<pre><code>## Linear mixed model fit by maximum likelihood . t-tests use Satterthwaite's
-##   method [lmerModLmerTest]
-## Formula: 
-## log(num_closed_pr + 0.001) ~ log_earnings + month_index + intervention +  
-##     month_after + (1 | project_id)
+<pre><code>## Linear mixed model fit by maximum likelihood . t-tests use Satterthwaite's method ['lmerModLmerTest']
+## Formula: log(num_closed_pr + 0.001) ~ log_earnings + month_index + intervention +      month_after + (1 | project_id)
 ##    Data: d
 ## 
 ##      AIC      BIC   logLik deviance df.resid 
@@ -3370,11 +3311,8 @@ div.tocify {
 <a class="sourceLine" id="cb194-18" data-line-number="18">         , <span class="dt">data =</span> d</a>
 <a class="sourceLine" id="cb194-19" data-line-number="19">         , <span class="dt">REML =</span> <span class="ot">FALSE</span>)</a>
 <a class="sourceLine" id="cb194-20" data-line-number="20"><span class="kw">summary</span>(m)</a></code></pre></div>
-<pre><code>## Linear mixed model fit by maximum likelihood . t-tests use Satterthwaite's
-##   method [lmerModLmerTest]
-## Formula: 
-## log(how_old_closed + 0.001) ~ log_earnings + month_index + intervention +  
-##     month_after + (1 | project_id)
+<pre><code>## Linear mixed model fit by maximum likelihood . t-tests use Satterthwaite's method ['lmerModLmerTest']
+## Formula: log(how_old_closed + 0.001) ~ log_earnings + month_index + intervention +      month_after + (1 | project_id)
 ##    Data: d
 ## 
 ##      AIC      BIC   logLik deviance df.resid 
