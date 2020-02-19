@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/230309258.svg)](https://zenodo.org/badge/latestdoi/230309258)
+
 # OSS Donations
 These installation instructions accompany the replication package for the ICSE 2020 paper
 "How to Not Get Rich: An Empirical Study of Donations in Open Source"
